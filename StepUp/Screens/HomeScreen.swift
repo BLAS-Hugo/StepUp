@@ -10,9 +10,14 @@ import SwiftUI
 struct HomeScreen: View {
     var body: some View {
         HStack {
-            Text("Roue G")
-            Text("Roue D")
+            CircularProgressView()
+            CircularProgressView(color: .orange)
         }
+        .padding(.bottom, 32)
+        Text("My challenges")
+            .font(.title)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 32)
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ChallengeCard(title: "challenge 1")
