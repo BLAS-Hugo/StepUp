@@ -12,6 +12,9 @@
 		9AC00AE52D688E1A0032E01C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC00AE42D688E1A0032E01C /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9AC00AE72D688E1A0032E01C /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC00AE62D688E1A0032E01C /* FirebaseAppCheck */; };
 		9AC00AE92D688E1A0032E01C /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC00AE82D688E1A0032E01C /* FirebaseAppDistribution-Beta */; };
+		9ACEBAEE2D760DB100799AEA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAED2D760DB100799AEA /* FirebaseAuth */; };
+		9ACEBAF02D760DB900799AEA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */; };
+		9ACEBAF22D760DFA00799AEA /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAF12D760DFA00799AEA /* FirebaseCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +64,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC00AE72D688E1A0032E01C /* FirebaseAppCheck in Frameworks */,
+				9ACEBAEE2D760DB100799AEA /* FirebaseAuth in Frameworks */,
 				9AC00AE12D688E1A0032E01C /* FirebaseAnalytics in Frameworks */,
 				9AC00AE92D688E1A0032E01C /* FirebaseAppDistribution-Beta in Frameworks */,
 				9AC00AE52D688E1A0032E01C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				9AC00AE32D688E1A0032E01C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				9ACEBAF22D760DFA00799AEA /* FirebaseCore in Frameworks */,
+				9ACEBAF02D760DB900799AEA /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 				9AC00AB02D6889820032E01C /* StepUp */,
 				9AC00AC32D6889840032E01C /* StepUpTests */,
 				9AC00ACD2D6889840032E01C /* StepUpUITests */,
+				9ACEBAEC2D760DB100799AEA /* Frameworks */,
 				9AC00AAF2D6889820032E01C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +110,13 @@
 				9AC00ACA2D6889840032E01C /* StepUpUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9ACEBAEC2D760DB100799AEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +144,9 @@
 				9AC00AE42D688E1A0032E01C /* FirebaseAnalyticsWithoutAdIdSupport */,
 				9AC00AE62D688E1A0032E01C /* FirebaseAppCheck */,
 				9AC00AE82D688E1A0032E01C /* FirebaseAppDistribution-Beta */,
+				9ACEBAED2D760DB100799AEA /* FirebaseAuth */,
+				9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */,
+				9ACEBAF12D760DFA00799AEA /* FirebaseCore */,
 			);
 			productName = StepUp;
 			productReference = 9AC00AAE2D6889820032E01C /* StepUp.app */;
@@ -616,6 +633,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAppDistribution-Beta";
+		};
+		9ACEBAED2D760DB100799AEA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9ACEBAF12D760DFA00799AEA /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

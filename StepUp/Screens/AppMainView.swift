@@ -1,5 +1,5 @@
 //
-//  TabView.swift
+//  AppMainView.swift
 //  StepUp
 //
 //  Created by Hugo Blas on 21/02/2025.
@@ -20,13 +20,13 @@ struct AppMainView: View {
                 }
             HomeScreen()
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+                    Image(systemName: "rosette")
+                    Text("Challenges")
                 }
             HomeScreen()
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+                    Image(systemName: "person.fill")
+                    Text("Profile")
                 }
         }
     }

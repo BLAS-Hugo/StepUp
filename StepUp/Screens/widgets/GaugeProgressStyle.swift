@@ -1,5 +1,5 @@
 //
-//  CircleProgressIndicator.swift
+//  GaugeProgressStyle.swift
 //  StepUp
 //
 //  Created by Hugo Blas on 26/02/2025.
