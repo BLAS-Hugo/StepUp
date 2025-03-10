@@ -31,7 +31,9 @@ struct HomeScreen: View {
                                 distance: nil,
                                 steps: 10000
                             ),
-                            duration: 86400)
+                            duration: 86400,
+                            date: Date.now
+                        )
                     )
                     ChallengeCard(
                         challenge: Challenge(
@@ -43,7 +45,9 @@ struct HomeScreen: View {
                                 distance: nil,
                                 steps: 10000
                             ),
-                            duration: 86400)
+                            duration: 86400,
+                            date: Date.now
+                        )
                     )
                     ChallengeCard(
                         challenge: Challenge(
@@ -55,7 +59,8 @@ struct HomeScreen: View {
                                 distance: nil,
                                 steps: 10000
                             ),
-                            duration: 86400)
+                            duration: 86400,
+                            date: Date.now)
                     )
                     Button {
 
@@ -72,6 +77,8 @@ struct HomeScreen: View {
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
+
+        Text("current challenge")
     }
 }
 
