@@ -1,0 +1,88 @@
+{
+  "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/LoginScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Step up",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "welcome",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "email",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "email_not_valid",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "password",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "password_not_valid",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "signin",
+        "location": {
+          "startingColumn": 79,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "signup",
+        "location": {
+          "startingColumn": 110,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "not_registered_signup",
+        "location": {
+          "startingColumn": 75,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "already_registered_signin",
+        "location": {
+          "startingColumn": 121,
+          "startingLine": 88
+        }
+      }
+    ]
+  },
+  "version": 1
+}

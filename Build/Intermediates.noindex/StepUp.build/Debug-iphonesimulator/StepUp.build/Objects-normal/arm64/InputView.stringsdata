@@ -1,0 +1,48 @@
+{
+  "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/InputView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "email_not_valid",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 59
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Email",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 65
+        }
+      }
+    ]
+  },
+  "version": 1
+}

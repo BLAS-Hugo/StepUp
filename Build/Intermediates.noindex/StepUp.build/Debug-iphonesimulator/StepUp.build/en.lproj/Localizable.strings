@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>already_registered_signin</key>
+	<string>Already registered ? Sign in</string>
+	<key>email_not_valid</key>
+	<string>Invalid email</string>
+	<key>not_registered_signup</key>
+	<string>Not registered yet ? Sign up</string>
+	<key>password</key>
+	<string>Password</string>
+	<key>password_not_valid</key>
+	<string>Invalid password</string>
+	<key>signin</key>
+	<string>Sign in</string>
+	<key>signup</key>
+	<string>Sign up</string>
+	<key>welcome</key>
+	<string>Welcome !</string>
+</dict>
+</plist>

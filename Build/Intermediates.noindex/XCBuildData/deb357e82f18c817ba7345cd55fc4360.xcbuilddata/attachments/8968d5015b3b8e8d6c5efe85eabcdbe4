@@ -1,0 +1,4 @@
+module nanopb {
+umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/nanopb/spm_headers"
+export *
+}

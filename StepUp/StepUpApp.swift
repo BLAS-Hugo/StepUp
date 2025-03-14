@@ -23,7 +23,7 @@ struct StepUpApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AppMainView()
+            LoginScreen()
         }
     }
 }

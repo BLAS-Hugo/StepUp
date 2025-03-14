@@ -14,68 +14,120 @@ struct LoginScreen: View {
     @State private var password: String = ""
     @State private var isPasswordValid: Bool = true
 
-    private let authService = AuthenticationService()
+    @State private var shouldDisplaySignInPage: Bool = false
+    @State private var shouldRememberUser: Bool = true
+
     @State private var isButtonLoading = false
 
+    private let controller = LoginViewController()
+
     var body: some View {
-        VStack {
-            Text("Step Up")
-                .font(.largeTitle)
-            Text("Welcome")
-            TextField("Email", text: $email, onEditingChanged: { isChanged in
-                if isChanged {
-                    if textFieldValidatorEmail(email) {
-                        isEmailValid = true
-                    } else {
-                        isEmailValid = false
+        ZStack(alignment: .bottom) {
+            Color(Color.primaryOrange)
+            VStack(alignment: .leading) {
+                Text("Step up")
+                    .font(.system(size: 48, weight: .bold, design: .default))
+                    .bold()
+                    .foregroundStyle(.white)
+                    .padding(.bottom, 64)
+                    .padding(.leading, 32)
+                VStack (spacing: 10) {
+                    Text(LocalizedStringKey("welcome"))
+                        .font(.title2)
+                        .bold()
+                        .offset(x: -96, y: -16)
+                    VStack(alignment: .leading) {
+                        InputView(
+                            text: $email,
+                            placeholder: LocalizedStringKey("email"),
+                            errorText: LocalizedStringKey("email_not_valid"),
+                            shouldHideErrorText: true//email.isEmpty || !isEmailValid
+                        )
+                        InputView(
+                            text: $password,
+                            placeholder: LocalizedStringKey("password"),
+                            errorText: LocalizedStringKey("password_not_valid"),
+                            isSecureField: true,
+                            shouldHideErrorText: true//password.isEmpty || !isPasswordValid
+                        )
                     }
+
+
+                    // Remember me button
+
+
+                    Button {
+                        // Call sign up function
+                        if shouldDisplaySignInPage {
+                            onSigninButtonTap()
+                        } else {
+                            Task {
+                                await onSignupButtonTap()
+                            }
+                        }
+                    } label: {
+                        if isButtonLoading {
+                            ProgressView()
+                        } else {
+                            Text(shouldDisplaySignInPage ? LocalizedStringKey("signin") : LocalizedStringKey("signup"))
+                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                                .padding(.vertical, 12)
+                                .padding(.horizontal, 24)
+                                .foregroundStyle(.white)
+                        }
+                    }
+                    .frame(minWidth: 135, minHeight: 64)
+                    .background(Color.primaryOrange)
+                    .clipShape(.rect(cornerRadius: 8))
+                    Button {
+                        // Change view to sign in page
+                        shouldDisplaySignInPage.toggle()
+                        email = ""
+                        password = ""
+                    } label: {
+                        Text(shouldDisplaySignInPage ? LocalizedStringKey("not_registered_signup") : LocalizedStringKey("already_registered_signin"))
+                            .font(.system(size: 16, design: .rounded))
+                            .underline()
+                            .foregroundStyle(Color.primaryOrange)
+                    }
+
+                    // Other connection methods
+                    // Google
                 }
-            })
-                .textFieldStyle(.plain)
-
-            Text("Please enter a valid email adress")
-                    .foregroundColor(.red)
-                    //.hidden(!isEmailValid)
-            SecureField("Password", text: $password)
-                .textFieldStyle(.plain)
-
-            Text("Password must be at least 8 characters long and contain one uppercase letter, one lowercase letter, and one digit")
-                    .foregroundColor(.red)
-                    //.hidden(!isPasswordValid)
-            Button {
-
-            } label: {
-                Text("Sign up")
-            }
-            HStack {
-                Text("Already have an account")
-                Button {
-
-                } label: {
-                    Text("Log in")
-                }
+                .ignoresSafeArea()
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: UIScreen.main.bounds.size.height * 0.6,
+                    alignment: .top
+                )
+                .padding(.top, 64)
+                .background(Color.appLightGray)
+                .clipShape(.rect(cornerRadius: 24))
             }
         }
-        .padding(.horizontal, 16)
+        .ignoresSafeArea()
+        .frame(alignment: .bottom)
     }
 
-    private var isFormValid: Bool {
-        return !email.isEmpty && !password.isEmpty
+    private func onSignupButtonTap() async {
+        isButtonLoading = true
+        await controller.registerUser(
+            email: email,
+            password: password,
+            onInvalidPassword: { isPasswordValid = false },
+            onInvalidEmail: { isEmailValid = false }
+        )
+        isButtonLoading = false
     }
-
-    func textFieldValidatorEmail(_ string: String) -> Bool {
-        if string.count > 100 {
-            return false
-        }
-        let emailFormat = "(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}" + "~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\" + "x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-" + "z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5" + "]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-" + "9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21" + "-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        return emailPredicate.evaluate(with: string)
-    }
-
-    func textFieldValidatorPassword(_ string: String) -> Bool {
-        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$"
-        let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
-        return passwordPredicate.evaluate(with: password)
+    private func onSigninButtonTap() {
+        isButtonLoading = true
+        controller.login(
+            email: email,
+            password: password,
+            onInvalidPassword: { isPasswordValid = false },
+            onInvalidEmail: { isEmailValid = false }
+        )
+        isButtonLoading = false
     }
 }
 
@@ -84,11 +136,13 @@ extension View {
         when condition: Bool,
         @ViewBuilder placeholder: () -> Content) -> some View {
 
-        ZStack(alignment: .leading) {
-            placeholder()
-            self
+            ZStack(alignment: .leading) {
+                if condition {
+                    placeholder()
+                }
+                self
+            }
         }
-    }
 }
 
 extension View {

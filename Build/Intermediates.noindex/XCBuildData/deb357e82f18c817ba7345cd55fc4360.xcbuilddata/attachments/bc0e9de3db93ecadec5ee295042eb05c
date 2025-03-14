@@ -1,0 +1,4 @@
+module grpcWrapper {
+umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/grpc-binary/grpc-Wrapper/include"
+export *
+}

@@ -1,0 +1,4 @@
+module opensslWrapper {
+umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/grpc-binary/openssl-grpc-Wrapper/include"
+export *
+}

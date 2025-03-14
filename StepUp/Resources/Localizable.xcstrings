@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%lld Steps" : {
       "localizations" : {
         "fr" : {
@@ -11,12 +14,18 @@
         }
       }
     },
-    "Already have an account" : {
+    "already_registered_signin" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already registered ? Sign in"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Déjà enregistré"
+            "value" : "Déjà inscrit ? Se connecter"
           }
         }
       }
@@ -41,12 +50,31 @@
         }
       }
     },
+    "email" : {
+
+    },
     "Email" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "email_not_valid" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresse mail invalide"
           }
         }
       }
@@ -61,16 +89,6 @@
         }
       }
     },
-    "Log in" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se connecter"
-          }
-        }
-      }
-    },
     "My challenges" : {
       "localizations" : {
         "fr" : {
@@ -81,8 +99,30 @@
         }
       }
     },
-    "Password" : {
+    "not_registered_signup" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not registered yet ? Sign up"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore inscrit ? S’inscrire"
+          }
+        }
+      }
+    },
+    "password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -91,22 +131,18 @@
         }
       }
     },
-    "Password must be at least 8 characters long and contain one uppercase letter, one lowercase letter, and one digit" : {
+    "password_not_valid" : {
       "localizations" : {
-        "fr" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le mot de passe doit contenir au moins 8 caractères, 1 caractère majuscule, 1 caractère minuscule et un chiffre"
+            "value" : "Invalid password"
           }
-        }
-      }
-    },
-    "Please enter a valid email adress" : {
-      "localizations" : {
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Veuillez entrer une adresse email valide"
+            "value" : "Mot de passe invalide"
           }
         }
       }
@@ -131,8 +167,30 @@
         }
       }
     },
-    "Sign up" : {
+    "signin" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter"
+          }
+        }
+      }
+    },
+    "signup" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -141,22 +199,21 @@
         }
       }
     },
-    "Step Up" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Step Up"
-          }
-        }
-      }
+    "Step up" : {
+
     },
-    "Welcome" : {
+    "welcome" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome !"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bienvenue"
+            "value" : "Bienvenue !"
           }
         }
       }
