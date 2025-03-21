@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LinearProgressStyle: ProgressViewStyle {
-    var strokeColor = Color.blue
+    var strokeColor = Color.secondaryBlue
     var strokeHeight = 12.0
 
     func makeBody(configuration: Configuration) -> some View {
@@ -27,5 +27,10 @@ struct LinearProgressStyle: ProgressViewStyle {
                     }
             }
         }
+        .frame(maxHeight: strokeHeight + 4)
     }
+}
+
+#Preview {
+    HomeScreen()
 }

@@ -1,0 +1,18 @@
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/RegisterScreen.swift":
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.dia"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.o"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.swiftdeps"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.swiftconstvalues"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Model/User/User.swift":
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/User.swiftconstvalues"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/User.o"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/User.dia"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/User.d"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/User.swiftdeps"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/ViewModel/AuthenticationService.swift":
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.swiftconstvalues"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.o"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.d"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.dia"

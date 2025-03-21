@@ -9,12 +9,12 @@ import SwiftUI
 
 struct HomeScreen: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 24) {
             HStack {
                 CircularProgressView()
-                CircularProgressView(color: .orange)
+                CircularProgressView(color: Color.primaryOrange)
             }
-            .padding(.bottom, 32)
+            //.padding(.bottom, 32)
             Text("My challenges")
                 .font(.title)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -71,14 +71,32 @@ struct HomeScreen: View {
                     .frame(width: 128, height: 256)
                     .background(Color(.systemFill))
                     .clipShape(RoundedRectangle(cornerRadius: 18))
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
+                    .padding(.horizontal, 16)
                 }
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
+        Text(LocalizedStringKey("current_challenge"))
+            .font(.title)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 16)
+        Button {
 
-        Text("current challenge")
+        } label: {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Challenge 8000 pas")
+                    .font(.title2)
+                ProgressView(value: 4594.0, total: 8000.0)
+                    .progressViewStyle(LinearProgressStyle())
+                Text("Se termine dans 5 jours")
+            }
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .padding(.all, 8)
+        }
+        .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152, alignment: .topLeading)
+        .background(Color.primaryOrange)
+        .foregroundStyle(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 }
 

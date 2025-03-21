@@ -10,69 +10,95 @@ import SwiftUI
 struct InputView: View {
     @Binding var text: String
     var placeholder: LocalizedStringKey
-    var errorText: LocalizedStringKey
+    var errorText: LocalizedStringKey?
     var isSecureField = false
     var shouldHideErrorText = true
-    @State private var isSecured: Bool = true
+    var shouldDisplayObscuringIcon = true
+    var shouldUseAutoCapitalization = true
 
     var body: some View {
         VStack(alignment: .leading) {
             if isSecureField {
-                ZStack(alignment: .trailing) {
-                            Group {
-                                if isSecured {
-                                    SecureField("", text: $text)
-                                        .padding(.vertical, 8)
-                                        .padding(.horizontal, 8)
-                                        .background(Color(.gray).opacity(0.2))
-                                        .placeholder(when: text.isEmpty) {
-                                            Text(placeholder)
-                                                .bold()
-                                                .foregroundStyle(.black.opacity(0.7))
-                                                .padding(.leading, 8)
-                                        }
-                                        .clipShape(.rect(cornerRadius: 8))
-                                } else {
-                                    TextField("", text: $text)
-                                                .padding(.vertical, 8)
-                                                .padding(.horizontal, 8)
-                                                .background(Color(.gray).opacity(0.2))
-                                                .placeholder(when: text.isEmpty) {
-                                                    Text(placeholder)
-                                                        .bold()
-                                                        .foregroundStyle(.black.opacity(0.7))
-                                                        .padding(.leading, 8)
-                                                }
-                                                .clipShape(.rect(cornerRadius: 8))
-                                }
-                            }
-                            Button(action: {
-                                isSecured.toggle()
-                            }) {
-                                Image(systemName: isSecured ? "eye.slash" : "eye")
-                                    .accentColor(.gray)
-                            }
-                            .padding(.trailing, 16)
-                        }
-                Text(errorText)
-                    .hidden(shouldHideErrorText)
-                    .foregroundStyle(.red)
+                PasswordField(
+                    text: $text,
+                    placeholder: placeholder,
+                    shouldDisplayObscuringIcon: shouldDisplayObscuringIcon
+                )
+                if let errorText = errorText {
+                    Text(errorText)
+                        .hidden(shouldHideErrorText)
+                        .foregroundStyle(.red)
+                }
             } else {
                 TextField("", text: $text)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 8)
-                    .background(Color(.gray).opacity(0.2))
-                    .textInputAutocapitalization(.never)
                     .placeholder(when: text.isEmpty) {
-                        Text(LocalizedStringKey("Email"))
+                        Text(placeholder)
                             .bold()
                             .foregroundStyle(.black.opacity(0.7))
                             .padding(.leading, 8)
                     }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 8)
+                    .background(Color(.gray).opacity(0.2))
+                    .textInputAutocapitalization(shouldUseAutoCapitalization ? .words : .never)
+                    .autocorrectionDisabled(true)
                     .clipShape(.rect(cornerRadius: 8))
-                Text(LocalizedStringKey("email_not_valid")).hidden(shouldHideErrorText)
+                if let errorText = errorText {
+                    Text(errorText)
+                        .hidden(shouldHideErrorText)
+                        .foregroundStyle(.red)
+                }
             }
         }
         .padding(.horizontal, 24)
+        .padding(.bottom, errorText == nil ? 24 : 0)
+    }
+}
+
+struct PasswordField: View {
+    @Binding
+    var text: String
+    var placeholder: LocalizedStringKey
+    var shouldDisplayObscuringIcon = true
+
+    @State
+    private var showText: Bool = false
+
+    var body: some View {
+        HStack {
+            if showText {
+                TextField("", text: $text)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .placeholder(when: text.isEmpty) {
+                        Text(placeholder)
+                            .bold()
+                            .foregroundStyle(.black.opacity(0.7))
+                            .padding(.leading, 8)
+                    }
+            } else {
+                SecureField("", text: $text)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .placeholder(when: text.isEmpty) {
+                        Text(placeholder)
+                            .bold()
+                            .foregroundStyle(.black.opacity(0.7))
+                            .padding(.leading, 8)
+                    }
+            }
+            if shouldDisplayObscuringIcon {
+                Button {
+                    showText.toggle()
+                } label: {
+                    Image(systemName: showText ? "eye.fill" : "eye.slash.fill")
+                        .foregroundStyle(Color.primaryOrange)
+                }
+            }
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 8)
+        .background(Color(.gray).opacity(0.2))
+        .clipShape(.rect(cornerRadius: 8))
     }
 }

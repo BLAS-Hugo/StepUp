@@ -4,10 +4,10 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "email_not_valid",
+        "key": "",
         "location": {
-          "startingColumn": 41,
-          "startingLine": 71
+          "startingColumn": 27,
+          "startingLine": 33
         }
       },
       {
@@ -15,31 +15,15 @@
         "key": "",
         "location": {
           "startingColumn": 27,
-          "startingLine": 59
+          "startingLine": 70
         }
       },
       {
         "comment": "",
         "key": "",
         "location": {
-          "startingColumn": 49,
-          "startingLine": 24
-        }
-      },
-      {
-        "comment": "",
-        "key": "",
-        "location": {
-          "startingColumn": 47,
-          "startingLine": 35
-        }
-      },
-      {
-        "comment": "",
-        "key": "Email",
-        "location": {
-          "startingColumn": 49,
-          "startingLine": 65
+          "startingColumn": 29,
+          "startingLine": 80
         }
       }
     ]

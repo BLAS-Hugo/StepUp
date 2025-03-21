@@ -7,12 +7,16 @@
 
 import SwiftUI
 import FirebaseCore
+import FirebaseAppCheck
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
 
+    let providerFactory = AppCheckDebugProviderFactory()
+    AppCheck.setAppCheckProviderFactory(providerFactory)
+
+    FirebaseApp.configure()
     return true
   }
 }
@@ -21,9 +25,33 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct StepUpApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
+    @StateObject var authenticationService = AuthenticationService()
+
     var body: some Scene {
         WindowGroup {
-            LoginScreen()
+            if authenticationService.currentUserSession != nil {
+                ContentView().environmentObject(authenticationService)
+            } else {
+                AuthNavigationView().environmentObject(authenticationService)
+            }
         }
+    }
+}
+
+struct AuthNavigationView: View {
+    @EnvironmentObject var authenticationService: AuthenticationService
+
+    var body: some View {
+        NavigationStack {
+            LoginScreen().environmentObject(authenticationService)
+        }
+    }
+}
+
+struct ContentView: View {
+    @EnvironmentObject var authenticationService: AuthenticationService
+
+    var body: some View {
+        AppMainView()
     }
 }

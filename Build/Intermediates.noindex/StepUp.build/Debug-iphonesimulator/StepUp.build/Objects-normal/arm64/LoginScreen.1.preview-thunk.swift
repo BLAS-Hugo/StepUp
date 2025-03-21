@@ -13,6 +13,10 @@ import func SwiftUI.__designTimeBoolean
 
 import SwiftUI
 
+protocol AuthenticationFormProtocol {
+    var isFormValid: Bool { get }
+}
+
 struct LoginScreen: View {
 
     @State private var email: String = ""
@@ -25,72 +29,116 @@ struct LoginScreen: View {
 
     @State private var isButtonLoading = false
 
-    private let controller = LoginViewController()
+    @State private var showAlert = false
+    @State private var navigateToRegister = false
+
+    @EnvironmentObject var authenticationService: AuthenticationService
 
     var body: some View {
         ZStack(alignment: .bottom) {
             Color(Color.primaryOrange)
             VStack(alignment: .leading) {
-                Text(__designTimeString("#6841_0", fallback: "Step up"))
-                    .font(.system(size: __designTimeInteger("#6841_1", fallback: 48), weight: .bold, design: .default))
+                Text(__designTimeString("#1829_0", fallback: "Step up"))
+                    .font(.system(size: __designTimeInteger("#1829_1", fallback: 48), weight: .bold, design: .default))
                     .bold()
                     .foregroundStyle(.white)
-                    .padding(.bottom, __designTimeInteger("#6841_2", fallback: 64))
-                    .padding(.leading, __designTimeInteger("#6841_3", fallback: 32))
-                VStack (spacing: __designTimeInteger("#6841_4", fallback: 10)) {
-                    Text(LocalizedStringKey(__designTimeString("#6841_5", fallback: "welcome")))
+                    .padding(.bottom, __designTimeInteger("#1829_2", fallback: 64))
+                    .padding(.leading, __designTimeInteger("#1829_3", fallback: 32))
+                VStack(spacing: __designTimeInteger("#1829_4", fallback: 10)) {
+                    Text(LocalizedStringKey(__designTimeString("#1829_5", fallback: "welcome")))
                         .font(.title2)
                         .bold()
-                        .offset(x: __designTimeInteger("#6841_6", fallback: -96), y: __designTimeInteger("#6841_7", fallback: -16))
+                        .offset(x: __designTimeInteger("#1829_6", fallback: -96), y: __designTimeInteger("#1829_7", fallback: -16))
                     VStack(alignment: .leading) {
                         InputView(
                             text: $email,
-                            placeholder: LocalizedStringKey(__designTimeString("#6841_8", fallback: "email")),
-                            errorText: LocalizedStringKey(__designTimeString("#6841_9", fallback: "email_not_valid")),
-                            shouldHideErrorText: email.isEmpty || !isPasswordValid
+                            placeholder: LocalizedStringKey(__designTimeString("#1829_8", fallback: "email")),
+                            errorText: LocalizedStringKey(__designTimeString("#1829_9", fallback: "email_not_valid")),
+                            shouldHideErrorText: isEmailValid,
+                            shouldUseAutoCapitalization: __designTimeBoolean("#1829_10", fallback: false)
                         )
-                        InputView(
-                            text: $password,
-                            placeholder: LocalizedStringKey(__designTimeString("#6841_10", fallback: "password")),
-                            errorText: LocalizedStringKey(__designTimeString("#6841_11", fallback: "password_not_valid")),
-                            isSecureField: __designTimeBoolean("#6841_12", fallback: true),
-                            shouldHideErrorText: password.isEmpty || !isPasswordValid
-                        )
+                        .onChange(of: email) { oldValue, newValue in
+                                        if !newValue.isEmpty {
+                                            isEmailValid = isValidEmail(newValue)
+                                        } else {
+                                            isEmailValid = __designTimeBoolean("#1829_11", fallback: true)
+                                        }
+                                    }
+                        if shouldDisplaySignInPage {
+                            InputView(
+                                text: $password,
+                                placeholder: LocalizedStringKey(__designTimeString("#1829_12", fallback: "password")),
+                                errorText: LocalizedStringKey(__designTimeString("#1829_13", fallback: "password_not_valid")),
+                                isSecureField: __designTimeBoolean("#1829_14", fallback: true),
+                                shouldHideErrorText: isPasswordValid
+                            )
+                            .onChange(of: password) { oldValue, newValue in
+                                            if !newValue.isEmpty {
+                                                isPasswordValid = isValidPassword(newValue)
+                                            } else {
+                                                isPasswordValid = __designTimeBoolean("#1829_15", fallback: true)
+                                            }
+                                        }
+                        }
                     }
 
-
                     // Remember me button
-
-
+                    if shouldDisplaySignInPage {
                     Button {
-                        // Call sign up function
-                        if shouldDisplaySignInPage {
-                            onSigninButtonTap()
-                        } else {
-                            Task {
-                                await onSignupButtonTap()
-                            }
+                        Task {
+                            await onSigninButtonTap()
                         }
                     } label: {
                         if isButtonLoading {
                             ProgressView()
                         } else {
-                            Text(shouldDisplaySignInPage ? LocalizedStringKey(__designTimeString("#6841_13", fallback: "signin")) : LocalizedStringKey(__designTimeString("#6841_14", fallback: "signup")))
-                                .font(.system(size: __designTimeInteger("#6841_15", fallback: 20), weight: .bold, design: .rounded))
-                                .padding(.vertical, __designTimeInteger("#6841_16", fallback: 12))
-                                .padding(.horizontal, __designTimeInteger("#6841_17", fallback: 24))
+                            Text(shouldDisplaySignInPage ? LocalizedStringKey(__designTimeString("#1829_16", fallback: "signin")) : LocalizedStringKey(__designTimeString("#1829_17", fallback: "signup")))
+                                .font(.system(size: __designTimeInteger("#1829_18", fallback: 20), weight: .bold, design: .rounded))
+                                .padding(.vertical, __designTimeInteger("#1829_19", fallback: 12))
+                                .padding(.horizontal, __designTimeInteger("#1829_20", fallback: 24))
                                 .foregroundStyle(.white)
                         }
                     }
-                    .frame(minWidth: __designTimeInteger("#6841_18", fallback: 135), minHeight: __designTimeInteger("#6841_19", fallback: 64))
+                    .disabled(!isFormValid)
+                    .opacity(isFormValid ? __designTimeInteger("#1829_21", fallback: 1) : __designTimeFloat("#1829_22", fallback: 0.5))
+                    .frame(minWidth: __designTimeInteger("#1829_23", fallback: 135), minHeight: __designTimeInteger("#1829_24", fallback: 64))
                     .background(Color.primaryOrange)
-                    .clipShape(.rect(cornerRadius: __designTimeInteger("#6841_20", fallback: 8)))
+                    .clipShape(.rect(cornerRadius: __designTimeInteger("#1829_25", fallback: 8)))
+                    } else {
+                        Button {
+                            if email.isEmpty {
+                                isEmailValid = __designTimeBoolean("#1829_26", fallback: false)
+                                showAlert = __designTimeBoolean("#1829_27", fallback: true)
+                            } else {
+                                navigateToRegister = __designTimeBoolean("#1829_28", fallback: true)
+                            }
+                        } label: {
+                            Text(LocalizedStringKey(__designTimeString("#1829_29", fallback: "signup")))
+                                .font(.system(size: __designTimeInteger("#1829_30", fallback: 20), weight: .bold, design: .rounded))
+                                .padding(.vertical, __designTimeInteger("#1829_31", fallback: 12))
+                                .padding(.horizontal, __designTimeInteger("#1829_32", fallback: 24))
+                                .foregroundStyle(.white)
+                        }
+                        .frame(minWidth: __designTimeInteger("#1829_33", fallback: 135), minHeight: __designTimeInteger("#1829_34", fallback: 64))
+                        .background(Color.primaryOrange)
+                        .clipShape(.rect(cornerRadius: __designTimeInteger("#1829_35", fallback: 8)))
+                        .disabled(email.isEmpty)
+                        .navigationDestination(isPresented: $navigateToRegister) {
+                            RegisterScreen(prefilledEmail: email)
+                                .environmentObject(authenticationService)
+                                .navigationBarBackButtonHidden(__designTimeBoolean("#1829_36", fallback: true))
+                        }
+                    }
                     Button {
                         // Change view to sign in page
                         shouldDisplaySignInPage.toggle()
+                        email = __designTimeString("#1829_37", fallback: "")
+                        password = __designTimeString("#1829_38", fallback: "")
                     } label: {
-                        Text(shouldDisplaySignInPage ? LocalizedStringKey(__designTimeString("#6841_21", fallback: "not_registered_signup")) : LocalizedStringKey(__designTimeString("#6841_22", fallback: "already_registered_signin")))
-                            .font(.system(size: __designTimeInteger("#6841_23", fallback: 16), design: .rounded))
+                        Text(shouldDisplaySignInPage
+                        ? LocalizedStringKey(__designTimeString("#1829_39", fallback: "not_registered_signup"))
+                        : LocalizedStringKey(__designTimeString("#1829_40", fallback: "already_registered_signin")))
+                            .font(.system(size: __designTimeInteger("#1829_41", fallback: 16), design: .rounded))
                             .underline()
                             .foregroundStyle(Color.primaryOrange)
                     }
@@ -101,37 +149,59 @@ struct LoginScreen: View {
                 .ignoresSafeArea()
                 .frame(
                     maxWidth: .infinity,
-                    maxHeight: UIScreen.main.bounds.size.height * __designTimeFloat("#6841_24", fallback: 0.6),
+                    maxHeight: UIScreen.main.bounds.size.height * __designTimeFloat("#1829_42", fallback: 0.6),
                     alignment: .top
                 )
-                .padding(.top, __designTimeInteger("#6841_25", fallback: 64))
+                .padding(.top, __designTimeInteger("#1829_43", fallback: 64))
                 .background(Color.appLightGray)
-                .clipShape(.rect(cornerRadius: __designTimeInteger("#6841_26", fallback: 24)))
+                .clipShape(.rect(cornerRadius: __designTimeInteger("#1829_44", fallback: 24)))
             }
         }
         .ignoresSafeArea()
         .frame(alignment: .bottom)
+        .alert(LocalizedStringKey(__designTimeString("#1829_45", fallback: "email_required")), isPresented: $showAlert) {
+            Button(__designTimeString("#1829_46", fallback: "OK"), role: .cancel) { }
+        } message: {
+            Text(LocalizedStringKey(__designTimeString("#1829_47", fallback: "email_required_message")))
+        }
     }
 
-    private func onSignupButtonTap() async {
-        isButtonLoading = __designTimeBoolean("#6841_27", fallback: true)
-        await controller.registerUser(
-            email: email,
-            password: password,
-            onInvalidPassword: { isPasswordValid = __designTimeBoolean("#6841_28", fallback: false) },
-            onInvalidEmail: { isEmailValid = __designTimeBoolean("#6841_29", fallback: false) }
+    private func onSigninButtonTap() async {
+        isButtonLoading = __designTimeBoolean("#1829_48", fallback: true)
+        try? await authenticationService.signIn(
+            withEmail: email,
+            password: password
         )
-        isButtonLoading = __designTimeBoolean("#6841_30", fallback: false)
+        isButtonLoading = __designTimeBoolean("#1829_49", fallback: false)
     }
-    private func onSigninButtonTap() {
-        isButtonLoading = __designTimeBoolean("#6841_31", fallback: true)
-        controller.login(
-            email: email,
-            password: password,
-            onInvalidPassword: { isPasswordValid = __designTimeBoolean("#6841_32", fallback: false) },
-            onInvalidEmail: { isEmailValid = __designTimeBoolean("#6841_33", fallback: false) }
-        )
-        isButtonLoading = __designTimeBoolean("#6841_34", fallback: false)
+}
+
+extension LoginScreen: AuthenticationFormProtocol {
+    private func isValidEmail(_ email: String) -> Bool {
+            let emailRegex = __designTimeString("#1829_50", fallback: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+            let emailPredicate = NSPredicate(format: __designTimeString("#1829_51", fallback: "SELF MATCHES %@"), emailRegex)
+            return emailPredicate.evaluate(with: email)
+        }
+
+    private func isValidPassword(_ password: String) -> Bool {
+            guard password.count >= __designTimeInteger("#1829_52", fallback: 6) else { return __designTimeBoolean("#1829_53", fallback: false) }
+
+            let uppercaseRegex = __designTimeString("#1829_54", fallback: ".*[A-Z]+.*")
+            let uppercasePredicate = NSPredicate(format: __designTimeString("#1829_55", fallback: "SELF MATCHES %@"), uppercaseRegex)
+            guard uppercasePredicate.evaluate(with: password) else { return __designTimeBoolean("#1829_56", fallback: false) }
+
+            let lowercaseRegex = __designTimeString("#1829_57", fallback: ".*[a-z]+.*")
+            let lowercasePredicate = NSPredicate(format: __designTimeString("#1829_58", fallback: "SELF MATCHES %@"), lowercaseRegex)
+            guard lowercasePredicate.evaluate(with: password) else { return __designTimeBoolean("#1829_59", fallback: false) }
+
+            return __designTimeBoolean("#1829_60", fallback: true)
+        }
+
+    var isFormValid: Bool {
+        return !email.isEmpty
+        && isEmailValid
+        && !password.isEmpty
+        && isPasswordValid
     }
 }
 
@@ -141,7 +211,9 @@ extension View {
         @ViewBuilder placeholder: () -> Content) -> some View {
 
             ZStack(alignment: .leading) {
-                placeholder()
+                if condition {
+                    placeholder()
+                }
                 self
             }
         }
@@ -149,7 +221,7 @@ extension View {
 
 extension View {
     func hidden(_ shouldHide: Bool) -> some View {
-        opacity(shouldHide ? __designTimeInteger("#6841_35", fallback: 0) : __designTimeInteger("#6841_36", fallback: 1))
+        opacity(shouldHide ? __designTimeInteger("#1829_61", fallback: 0) : __designTimeInteger("#1829_62", fallback: 1))
     }
 }
 

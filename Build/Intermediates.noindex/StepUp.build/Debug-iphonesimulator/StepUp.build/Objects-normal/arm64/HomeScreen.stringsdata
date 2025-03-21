@@ -4,10 +4,10 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "current challenge",
+        "key": "current_challenge",
         "location": {
-          "startingColumn": 14,
-          "startingLine": 81
+          "startingColumn": 33,
+          "startingLine": 79
         }
       },
       {
@@ -24,6 +24,22 @@
         "location": {
           "startingColumn": 30,
           "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Challenge 8000 pas",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Se termine dans 5 jours",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 91
         }
       }
     ]

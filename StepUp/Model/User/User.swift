@@ -10,9 +10,10 @@ import Foundation
 struct User {
     let id: String
     let email: String
+    let name: String
+    let firstName: String
+}
 
-    init(id: String, email: String) {
-        self.id = id
-        self.email = email
-    }
+extension User: Codable {
+
 }

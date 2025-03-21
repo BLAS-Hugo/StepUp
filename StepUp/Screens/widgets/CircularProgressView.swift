@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 struct CircularProgressView: View {
-    var color = Color.blue
+    var color = Color.secondaryBlue
     @State private var progress = 0.1
 
     var numberOfStepsDone: Int {

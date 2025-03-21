@@ -30,8 +30,17 @@
         }
       }
     },
-    "Challenges" : {
+    "Challenge 8000 pas" : {
+
+    },
+    "challenges" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenges"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40,24 +49,52 @@
         }
       }
     },
-    "current challenge" : {
+    "Challenges" : {
+
+    },
+    "confirm_password" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Confirmer le mot de passe"
+          }
+        }
+      }
+    },
+    "current_challenge" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current challenge"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Challenge en cours"
+            "value" : "Challenges en cours"
           }
         }
       }
     },
     "email" : {
-
-    },
-    "Email" : {
       "localizations" : {
-        "fr" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Email"
           }
         }
@@ -79,8 +116,36 @@
         }
       }
     },
-    "Home" : {
+    "email_required" : {
+
+    },
+    "email_required_message" : {
+
+    },
+    "first_name" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prénom"
+          }
+        }
+      }
+    },
+    "home" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -95,6 +160,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mes challenges"
+          }
+        }
+      }
+    },
+    "name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
           }
         }
       }
@@ -115,6 +196,9 @@
         }
       }
     },
+    "OK" : {
+
+    },
     "password" : {
       "localizations" : {
         "en" : {
@@ -131,6 +215,22 @@
         }
       }
     },
+    "password_not_equal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The entered passwords are not the same "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mots de passe entrés ne sont pas identiques"
+          }
+        }
+      }
+    },
     "password_not_valid" : {
       "localizations" : {
         "en" : {
@@ -142,13 +242,19 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mot de passe invalide"
+            "value" : "Votre mot de passe doit contenir au moins 6 caractères, dont un majuscule, un minuscule et un chiffre"
           }
         }
       }
     },
-    "Profile" : {
+    "profile" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -156,6 +262,12 @@
           }
         }
       }
+    },
+    "Profile Screen" : {
+
+    },
+    "Se termine dans 5 jours" : {
+
     },
     "See more" : {
       "localizations" : {
@@ -179,6 +291,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Se connecter"
+          }
+        }
+      }
+    },
+    "signing_up" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscription"
           }
         }
       }

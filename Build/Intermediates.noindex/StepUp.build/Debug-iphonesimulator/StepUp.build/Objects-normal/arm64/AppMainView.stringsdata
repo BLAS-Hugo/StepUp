@@ -4,26 +4,26 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Home",
+        "key": "home",
         "location": {
-          "startingColumn": 26,
-          "startingLine": 19
+          "startingColumn": 41,
+          "startingLine": 21
         }
       },
       {
         "comment": "",
-        "key": "Challenges",
+        "key": "challenges",
         "location": {
-          "startingColumn": 26,
-          "startingLine": 24
-        }
-      },
-      {
-        "comment": "",
-        "key": "Profile",
-        "location": {
-          "startingColumn": 26,
+          "startingColumn": 41,
           "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "profile",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 37
         }
       }
     ]
