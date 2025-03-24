@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AppMainView: View {
+    @EnvironmentObject var authenticationService: AuthenticationService
 
     @State var selection: Int = 0
 
     var body: some View {
         TabView {
             NavigationStack {
-                HomeScreen()
+                HomeScreen().environmentObject(authenticationService)
             }
             .tabItem {
                 Image(systemName: "house")

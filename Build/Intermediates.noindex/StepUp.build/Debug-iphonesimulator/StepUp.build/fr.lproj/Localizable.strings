@@ -33,7 +33,7 @@
 	<key>password_not_equal</key>
 	<string>Les mots de passe entrés ne sont pas identiques</string>
 	<key>password_not_valid</key>
-	<string>Mot de passe invalide</string>
+	<string>Votre mot de passe doit contenir au moins 6 caractères, dont un majuscule, un minuscule et un chiffre</string>
 	<key>profile</key>
 	<string>Profil</string>
 	<key>signin</key>

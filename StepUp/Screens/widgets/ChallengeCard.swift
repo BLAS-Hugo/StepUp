@@ -14,7 +14,7 @@ struct ChallengeCard: View {
         Button {
             print("\(challenge.name) was tapped")
         } label: {
-            VStack {
+            VStack(spacing: 16) {
                 Text(challenge.name)
                     .font(.title2)
                     .foregroundStyle(.black)
@@ -22,14 +22,18 @@ struct ChallengeCard: View {
                     .progressViewStyle(LinearProgressStyle())
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)
+                Text(
+                    challenge.date,
+                    format: .dateTime.day().month().year())
+                    .foregroundStyle(.black)
             }
-            .frame(maxHeight: 256, alignment: .top)
+            .padding()
+            .frame(alignment: .top)
         }
-        .padding()
-        .frame(width: 128, height: 256)
         .background(Color(.systemFill))
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .padding(.leading, 16)
+        .frame(maxWidth: 156, maxHeight: 200)
     }
 }
 
