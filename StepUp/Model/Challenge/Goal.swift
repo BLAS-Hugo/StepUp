@@ -25,3 +25,7 @@ struct Goal {
         }
     }
 }
+
+extension Goal: Codable {
+
+}

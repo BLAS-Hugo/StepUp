@@ -9,3 +9,7 @@ struct Participant {
     let userID: String
     let progress: Int
 }
+
+extension Participant: Codable {
+
+}

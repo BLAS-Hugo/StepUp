@@ -20,3 +20,7 @@ struct Challenge {
         return participantsUserID.first(where: { $0.userID == userID })!.progress
     }
 }
+
+extension Challenge: Codable {
+
+}

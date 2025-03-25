@@ -4,42 +4,42 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "current_challenge",
-        "location": {
-          "startingColumn": 33,
-          "startingLine": 79
-        }
-      },
-      {
-        "comment": "",
         "key": "My challenges",
         "location": {
-          "startingColumn": 18,
-          "startingLine": 18
+          "startingColumn": 22,
+          "startingLine": 21
         }
       },
       {
         "comment": "",
         "key": "See more",
         "location": {
-          "startingColumn": 30,
-          "startingLine": 68
+          "startingColumn": 34,
+          "startingLine": 71
+        }
+      },
+      {
+        "comment": "",
+        "key": "current_challenge",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 81
         }
       },
       {
         "comment": "",
         "key": "Challenge 8000 pas",
         "location": {
-          "startingColumn": 22,
-          "startingLine": 87
+          "startingColumn": 30,
+          "startingLine": 89
         }
       },
       {
         "comment": "",
         "key": "Se termine dans 5 jours",
         "location": {
-          "startingColumn": 22,
-          "startingLine": 91
+          "startingColumn": 30,
+          "startingLine": 93
         }
       }
     ]

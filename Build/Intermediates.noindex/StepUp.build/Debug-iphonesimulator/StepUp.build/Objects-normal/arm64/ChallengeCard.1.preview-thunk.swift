@@ -20,22 +20,26 @@ struct ChallengeCard: View {
         Button {
             print("\(challenge.name) was tapped")
         } label: {
-            VStack {
+            VStack(spacing: __designTimeInteger("#7803_0", fallback: 16)) {
                 Text(challenge.name)
                     .font(.title2)
                     .foregroundStyle(.black)
-                ProgressView(value: Double(challenge.getParticipantProgress(userID: __designTimeString("#6074_0", fallback: "123"))), total: Double(challenge.goal.getGoal()))
+                ProgressView(value: Double(challenge.getParticipantProgress(userID: __designTimeString("#7803_1", fallback: "123"))), total: Double(challenge.goal.getGoal()))
                     .progressViewStyle(LinearProgressStyle())
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)
+                Text(
+                    challenge.date,
+                    format: .dateTime.day().month().year())
+                    .foregroundStyle(.black)
             }
-            .frame(maxHeight: __designTimeInteger("#6074_1", fallback: 256), alignment: .top)
+            .padding()
+            .frame(alignment: .top)
         }
-        .padding()
-        .frame(width: __designTimeInteger("#6074_2", fallback: 128), height: __designTimeInteger("#6074_3", fallback: 256))
         .background(Color(.systemFill))
-        .clipShape(RoundedRectangle(cornerRadius: __designTimeInteger("#6074_4", fallback: 18)))
-        .padding(.leading, __designTimeInteger("#6074_5", fallback: 16))
+        .clipShape(RoundedRectangle(cornerRadius: __designTimeInteger("#7803_2", fallback: 18)))
+        .padding(.leading, __designTimeInteger("#7803_3", fallback: 16))
+        .frame(maxWidth: __designTimeInteger("#7803_4", fallback: 156), maxHeight: __designTimeInteger("#7803_5", fallback: 200))
     }
 }
 
