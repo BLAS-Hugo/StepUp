@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct Challenge {
+struct Challenge: Identifiable {
     let creatorUserID: String
-    let participantsUserID: [Participant]
+    let participants: [Participant]
     let name: String
     let description: String
     let goal: Goal
     let duration: Int
     let date: Date
+    let id: String
 
     func getParticipantProgress(userID: String) -> Int {
-        return participantsUserID.first(where: { $0.userID == userID })!.progress
+        return participants.first(where: { $0.userID == userID })!.progress
     }
 }
 
