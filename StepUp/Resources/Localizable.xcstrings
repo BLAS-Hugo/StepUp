@@ -30,8 +30,10 @@
         }
       }
     },
+    "blas.hugo.dev@gmail.com" : {
+
+    },
     "challenges" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -140,7 +142,6 @@
       }
     },
     "home" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -155,12 +156,6 @@
           }
         }
       }
-    },
-    "Mon compte" : {
-
-    },
-    "Mon historique de challenges" : {
-
     },
     "My challenges" : {
       "localizations" : {
@@ -258,11 +253,7 @@
         }
       }
     },
-    "Politique de confidentialité" : {
-
-    },
     "profile" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

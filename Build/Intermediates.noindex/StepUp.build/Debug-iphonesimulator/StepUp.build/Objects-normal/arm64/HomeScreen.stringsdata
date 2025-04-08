@@ -15,7 +15,7 @@
         "key": "See more",
         "location": {
           "startingColumn": 34,
-          "startingLine": 33
+          "startingLine": 36
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "current_challenge",
         "location": {
           "startingColumn": 41,
-          "startingLine": 43
+          "startingLine": 46
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "Se termine dans %lld jours",
         "location": {
           "startingColumn": 34,
-          "startingLine": 65
+          "startingLine": 68
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Pas de challenge actif",
         "location": {
           "startingColumn": 34,
-          "startingLine": 79
+          "startingLine": 86
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "Créez un challenge",
         "location": {
           "startingColumn": 34,
-          "startingLine": 81
+          "startingLine": 88
         }
       }
     ]

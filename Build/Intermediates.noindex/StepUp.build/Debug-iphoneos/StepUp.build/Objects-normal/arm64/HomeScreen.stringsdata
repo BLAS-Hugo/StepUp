@@ -7,7 +7,15 @@
         "key": "My challenges",
         "location": {
           "startingColumn": 22,
-          "startingLine": 22
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "See more",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 36
         }
       },
       {
@@ -15,23 +23,31 @@
         "key": "current_challenge",
         "location": {
           "startingColumn": 41,
-          "startingLine": 87
+          "startingLine": 46
         }
       },
       {
         "comment": "",
-        "key": "Challenge 8000 pas",
+        "key": "Se termine dans %lld jours",
         "location": {
-          "startingColumn": 30,
-          "startingLine": 95
+          "startingColumn": 34,
+          "startingLine": 68
         }
       },
       {
         "comment": "",
-        "key": "Se termine dans 5 jours",
+        "key": "Pas de challenge actif",
         "location": {
-          "startingColumn": 30,
-          "startingLine": 99
+          "startingColumn": 34,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "Créez un challenge",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 88
         }
       }
     ]

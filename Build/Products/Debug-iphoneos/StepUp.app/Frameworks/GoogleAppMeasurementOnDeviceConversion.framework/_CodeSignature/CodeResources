@@ -4,13 +4,25 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>GoogleAppMeasurementOnDeviceConversion.cstemp</key>
+		<data>
+		iyRCPIRZhIjXhfolLiIIYwtMXHc=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		noB1Dv8FMuXBbKhBWv4XyUFguLE=
 		</data>
 	</dict>
 	<key>files2</key>
-	<dict/>
+	<dict>
+		<key>GoogleAppMeasurementOnDeviceConversion.cstemp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IKfW/HLB2dLlNhxm1eBMeel3xaJwmMshlSfTu/Ppvcw=
+			</data>
+		</dict>
+	</dict>
 	<key>rules</key>
 	<dict>
 		<key>^.*</key>

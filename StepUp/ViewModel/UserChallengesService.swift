@@ -54,15 +54,17 @@ class UserChallengesService: ObservableObject {
         await fetchChallenges(forUser: user)
     }
 
-    private func fetchChallenges(forUser user: User?) async {
+    func fetchChallenges(forUser user: User?) async {
         challenges = []
         if user == nil {
             return
         }
         guard let collectionSnapshot = try? await challengesCollection.getDocuments()
         else { return }
+        print(collectionSnapshot.documents)
 
         for document in collectionSnapshot.documents {
+            print(document.data())
             guard let challengeData = try? document.data(as: Challenge.self)
             else { continue }
             challenges.append(challengeData)

@@ -4,10 +4,34 @@
     "Localizable": [
       {
         "comment": "",
+        "key": "challenges",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "home",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 23
+        }
+      },
+      {
+        "comment": "",
         "key": "home",
         "location": {
           "startingColumn": 41,
-          "startingLine": 25
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "challenges",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 33
         }
       },
       {
@@ -15,7 +39,15 @@
         "key": "challenges",
         "location": {
           "startingColumn": 41,
-          "startingLine": 33
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "profile",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 45
         }
       },
       {
@@ -23,7 +55,7 @@
         "key": "profile",
         "location": {
           "startingColumn": 41,
-          "startingLine": 41
+          "startingLine": 50
         }
       }
     ]

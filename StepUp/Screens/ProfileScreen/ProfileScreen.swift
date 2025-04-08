@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ProfileScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
-    
+
+    func emptyCallback() {
+
+    }
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -37,76 +41,9 @@ struct ProfileScreen: View {
                 .frame(maxWidth: geometry.size.width, maxHeight: 96, alignment: .leading)
                 .padding(.horizontal, 16)
                 VStack(spacing: 10) {
-                    //Spacer()
-                    Button {
-
-                    } label: {
-                        HStack {
-                            Text("Mon compte")
-                                .foregroundStyle(.black)
-                                .padding(.all, 16)
-                            Spacer()
-                            ZStack {
-                                Image(systemName: "chevron.right")
-                                    .padding(.all, 6)
-                            }
-                            .background(Color.appMediumGray.opacity(0.25))
-                            .clipShape(Circle())
-                            .padding(.horizontal, 16)
-                        }
-                    }
-                    .frame(maxWidth: UIScreen.main.bounds.size.width, alignment: .leading)
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 1)
-                    .padding(.horizontal, 16)
-                    .padding(.top, 16)
-                    Button {
-
-                    } label: {
-                        HStack {
-                            Text("Mon historique de challenges")
-                                .foregroundStyle(.black)
-                                .padding(.all, 16)
-                            Spacer()
-                            ZStack {
-                                Image(systemName: "chevron.right")
-                                    .padding(.all, 6)
-                            }
-                            .background(Color.appMediumGray.opacity(0.25))
-                            .clipShape(Circle())
-                            .padding(.horizontal, 16)
-                        }
-                    }
-                    .frame(maxWidth: UIScreen.main.bounds.size.width, alignment: .leading)
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 1)
-                    .padding(.horizontal, 16)
-                    Button {
-
-                    } label: {
-                        HStack {
-                            Text("Politique de confidentialité")
-                                .foregroundStyle(.black)
-                                .padding(.all, 16)
-                            Spacer()
-                            ZStack {
-                                Image(systemName: "chevron.right")
-                                    .padding(.all, 6)
-                            }
-                            .background(Color.appMediumGray.opacity(0.25))
-                            .clipShape(Circle())
-                            .padding(.horizontal, 16)
-                        }
-                    }
-                    .frame(maxWidth: UIScreen.main.bounds.size.width, alignment: .leading)
-                    .background(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 1)
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
-                    //Spacer()
+                    SettingCard(title: "Mon compte", callback: emptyCallback)
+                    SettingCard(title: "Mon historique de challenges", callback: emptyCallback)
+                    SettingCard(title: "Politique de confidentialités", callback: emptyCallback)
                 }
                 .frame(maxHeight: .infinity, alignment: .top)
                 .background(Color.appLightGray)

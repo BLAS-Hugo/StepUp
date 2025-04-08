@@ -29,6 +29,9 @@ struct HomeScreen: View {
                         }
                         Button {
                             // Action for See more button
+                            Task {
+                                await challengesService.fetchChallenges(forUser: authenticationService.currentUser)
+                            }
                         } label: {
                             Text("See more")
                         }
@@ -73,6 +76,10 @@ struct HomeScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 18))
                 } else {
                     Button {
+                        Task {
+                            await authenticationService.fetchUserData()
+                            await challengesService.fetchChallenges(forUser: authenticationService.currentUser)
+                        }
                         // Action to create a new challenge
                     } label: {
                         VStack(alignment: .center, spacing: 10) {

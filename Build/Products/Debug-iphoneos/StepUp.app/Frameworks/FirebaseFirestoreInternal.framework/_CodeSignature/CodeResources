@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>FirebaseFirestoreInternal.cstemp</key>
+		<data>
+		TSHAMWC7if0ipgivxlLvWSMszo8=
+		</data>
 		<key>FirebaseFirestoreInternal_Privacy.bundle/Info.plist</key>
 		<data>
 		/ruoW9qfgdw5QsJHLMydFSimLA8=
@@ -19,6 +23,13 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>FirebaseFirestoreInternal.cstemp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			m2usTusU25D2tL6RFQPH7CHgZ+8sNYpukdTZSW+D+4c=
+			</data>
+		</dict>
 		<key>FirebaseFirestoreInternal_Privacy.bundle/Info.plist</key>
 		<dict>
 			<key>hash2</key>
