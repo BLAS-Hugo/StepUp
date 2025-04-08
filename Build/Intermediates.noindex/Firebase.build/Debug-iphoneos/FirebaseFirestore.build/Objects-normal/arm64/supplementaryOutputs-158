@@ -1,0 +1,24 @@
+"/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/Firestore+AsyncAwait.swift":
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/Firestore+AsyncAwait.dia"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/Firestore+AsyncAwait.swiftconstvalues"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/Firestore+AsyncAwait.d"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/Firestore+AsyncAwait.o"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/Firestore+AsyncAwait.swiftdeps"
+"/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CodableErrors.swift":
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CodableErrors.o"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CodableErrors.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CodableErrors.swiftconstvalues"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CodableErrors.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CodableErrors.dia"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/DerivedSources/resource_bundle_accessor.swift":
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/resource_bundle_accessor.dia"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/resource_bundle_accessor.swiftconstvalues"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/resource_bundle_accessor.d"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/resource_bundle_accessor.swiftdeps"
+"/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/CollectionReference+AsyncAwait.swift":
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CollectionReference+AsyncAwait.o"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CollectionReference+AsyncAwait.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CollectionReference+AsyncAwait.dia"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CollectionReference+AsyncAwait.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphoneos/FirebaseFirestore.build/Objects-normal/arm64/CollectionReference+AsyncAwait.swiftconstvalues"

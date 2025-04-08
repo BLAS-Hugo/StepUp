@@ -1,0 +1,18 @@
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/HomeScreen/HomeScreen.swift":
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/HomeScreen.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/HomeScreen.swiftconstvalues"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/HomeScreen.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/HomeScreen.dia"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/HomeScreen.o"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Model/User/User.swift":
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/User.dia"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/User.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/User.swiftconstvalues"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/User.o"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/User.swiftdeps"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ChallengeScreen/ChallengesScreen.swift":
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ChallengesScreen.swiftdeps"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ChallengesScreen.d"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ChallengesScreen.o"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ChallengesScreen.swiftconstvalues"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ChallengesScreen.dia"

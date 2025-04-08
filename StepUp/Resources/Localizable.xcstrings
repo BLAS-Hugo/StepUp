@@ -30,10 +30,8 @@
         }
       }
     },
-    "Challenge 8000 pas" : {
-
-    },
     "challenges" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -67,6 +65,9 @@
           }
         }
       }
+    },
+    "Créez un challenge" : {
+
     },
     "current_challenge" : {
       "localizations" : {
@@ -139,6 +140,7 @@
       }
     },
     "home" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -153,6 +155,12 @@
           }
         }
       }
+    },
+    "Mon compte" : {
+
+    },
+    "Mon historique de challenges" : {
+
     },
     "My challenges" : {
       "localizations" : {
@@ -197,6 +205,9 @@
       }
     },
     "OK" : {
+
+    },
+    "Pas de challenge actif" : {
 
     },
     "password" : {
@@ -247,7 +258,11 @@
         }
       }
     },
+    "Politique de confidentialité" : {
+
+    },
     "profile" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -263,10 +278,7 @@
         }
       }
     },
-    "Profile Screen" : {
-
-    },
-    "Se termine dans 5 jours" : {
+    "Se termine dans %lld jours" : {
 
     },
     "See more" : {

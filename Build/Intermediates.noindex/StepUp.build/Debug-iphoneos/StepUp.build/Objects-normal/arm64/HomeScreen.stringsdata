@@ -1,0 +1,40 @@
+{
+  "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/HomeScreen/HomeScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "My challenges",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "current_challenge",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "Challenge 8000 pas",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "Se termine dans 5 jours",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 99
+        }
+      }
+    ]
+  },
+  "version": 1
+}

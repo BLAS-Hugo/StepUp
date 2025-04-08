@@ -1,0 +1,120 @@
+{
+  "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/LoginScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "email_required",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 156
+        }
+      },
+      {
+        "comment": "",
+        "key": "Step up",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "welcome",
+        "location": {
+          "startingColumn": 45,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "email",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "email_not_valid",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "password",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "password_not_valid",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "signin",
+        "location": {
+          "startingColumn": 79,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "signup",
+        "location": {
+          "startingColumn": 110,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "signup",
+        "location": {
+          "startingColumn": 53,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "not_registered_signup",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "already_registered_signin",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 134
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 157
+        }
+      },
+      {
+        "comment": "",
+        "key": "email_required_message",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 159
+        }
+      }
+    ]
+  },
+  "version": 1
+}

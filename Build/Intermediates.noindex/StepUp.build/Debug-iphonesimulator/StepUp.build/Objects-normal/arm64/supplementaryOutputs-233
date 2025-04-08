@@ -1,0 +1,18 @@
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/GaugeProgressStyle.swift":
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/GaugeProgressStyle.swiftdeps"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/GaugeProgressStyle.swiftconstvalues"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/GaugeProgressStyle.d"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/GaugeProgressStyle.o"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/GaugeProgressStyle.dia"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/ChallengeCard.swift":
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftconstvalues"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftdeps"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.o"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.d"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.dia"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/CircularProgressView.swift":
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.d"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.o"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.swiftconstvalues"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.dia"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.swiftdeps"

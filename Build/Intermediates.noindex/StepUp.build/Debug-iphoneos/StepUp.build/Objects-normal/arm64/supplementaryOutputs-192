@@ -1,0 +1,18 @@
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ProfileScreen/ProfileScreen.swift":
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ProfileScreen.swiftconstvalues"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ProfileScreen.o"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ProfileScreen.dia"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ProfileScreen.d"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/ProfileScreen.swiftdeps"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/LoginScreen.swift":
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/LoginScreen.d"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/LoginScreen.swiftconstvalues"
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/LoginScreen.o"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/LoginScreen.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/LoginScreen.dia"
+"/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/RegisterScreen.swift":
+  object: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/RegisterScreen.o"
+  const-values: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/RegisterScreen.swiftconstvalues"
+  swift-dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/RegisterScreen.swiftdeps"
+  diagnostics: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/RegisterScreen.dia"
+  dependencies: "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphoneos/StepUp.build/Objects-normal/arm64/RegisterScreen.d"

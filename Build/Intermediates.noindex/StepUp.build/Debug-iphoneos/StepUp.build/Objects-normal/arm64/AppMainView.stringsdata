@@ -1,0 +1,32 @@
+{
+  "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/AppMainView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "home",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "challenges",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "profile",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 41
+        }
+      }
+    ]
+  },
+  "version": 1
+}

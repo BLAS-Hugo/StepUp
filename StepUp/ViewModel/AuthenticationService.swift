@@ -15,8 +15,6 @@ class AuthenticationService: ObservableObject {
     @Published var currentUserSession: FirebaseAuth.User?
     @Published var currentUser: User?
 
-    var listener: AuthStateDidChangeListenerHandle?
-
     init() {
         currentUserSession = Auth.auth().currentUser
         Task {
@@ -66,8 +64,7 @@ class AuthenticationService: ObservableObject {
     func fetchUserData() async {
         guard let uid = currentUserSession?.uid else { return }
 
-        guard let document = try? await Firestore.firestore()
-            .collection("users")
+        guard let document = try? await usersCollection
             .document(uid)
             .getDocument()
         else { return }
@@ -76,6 +73,8 @@ class AuthenticationService: ObservableObject {
 
     private func addUserToDB(user: User) async throws {
         let encodedUser = try Firestore.Encoder().encode(user)
-        try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+        try await usersCollection.document(user.id).setData(encodedUser)
     }
+
+    private let usersCollection = Firestore.firestore().collection("users")
 }

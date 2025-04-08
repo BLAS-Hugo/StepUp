@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "E8C3FE9D-00C0-4897-A765-0937917C82E8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8DBEE13-B6A7-46E6-ADAD-70ABEE790FAD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepUp/ViewModel/UserChallengesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "fetchChallenges(forUser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDDF2827-4273-4FE5-AF4A-FDFAE1B6E2E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepUp/ViewModel/UserChallengesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "fetchChallenges(forUser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EDDF2827-4273-4FE5-AF4A-FDFAE1B6E2E7 - c5fa9efada5811e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for StepUp.UserChallengesService.fetchChallenges(forUser: Swift.Optional&lt;StepUp.User&gt;) async -&gt; ()"
+                  moduleName = "StepUp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSD%20Mac/Dev/Open%20Classroom/projet%20libre/StepUp/StepUp/ViewModel/UserChallengesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+               <Location
+                  uuid = "EDDF2827-4273-4FE5-AF4A-FDFAE1B6E2E7 - fb3e9c77ec4defa5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for StepUp.UserChallengesService.fetchChallenges(forUser: Swift.Optional&lt;StepUp.User&gt;) async -&gt; ()"
+                  moduleName = "StepUp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSD%20Mac/Dev/Open%20Classroom/projet%20libre/StepUp/StepUp/ViewModel/UserChallengesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99F7B081-29C8-416E-9D12-B76E6549040F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepUp/ViewModel/UserChallengesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "fetchChallenges(forUser:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "050DA675-CDF1-4949-8317-AF1D4EE9CA0B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepUp/ViewModel/UserChallengesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init(authenticationService:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "050DA675-CDF1-4949-8317-AF1D4EE9CA0B - 7c63f88216b1ad26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StepUp.UserChallengesService.init(authenticationService: StepUp.AuthenticationService) -&gt; StepUp.UserChallengesService"
+                  moduleName = "StepUp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSD%20Mac/Dev/Open%20Classroom/projet%20libre/StepUp/StepUp/ViewModel/UserChallengesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26">
+               </Location>
+               <Location
+                  uuid = "050DA675-CDF1-4949-8317-AF1D4EE9CA0B - 8ca1bb61f7ddac3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async -&gt; () in StepUp.UserChallengesService.init(authenticationService: StepUp.AuthenticationService) -&gt; StepUp.UserChallengesService"
+                  moduleName = "StepUp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSD%20Mac/Dev/Open%20Classroom/projet%20libre/StepUp/StepUp/ViewModel/UserChallengesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26">
+               </Location>
+               <Location
+                  uuid = "050DA675-CDF1-4949-8317-AF1D4EE9CA0B - 217186bd30014a73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 () async -&gt; () in StepUp.UserChallengesService.init(authenticationService: StepUp.AuthenticationService) -&gt; StepUp.UserChallengesService"
+                  moduleName = "StepUp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/SSD%20Mac/Dev/Open%20Classroom/projet%20libre/StepUp/StepUp/ViewModel/UserChallengesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0CB649AF-8AC9-40AC-81A2-0349817AAC1E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StepUp/ViewModel/UserChallengesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(authenticationService:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

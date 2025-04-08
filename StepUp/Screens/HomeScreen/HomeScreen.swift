@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var challengesService: UserChallengesService
 
     var body: some View {
         VStack(spacing: 16) {
@@ -16,57 +17,18 @@ struct HomeScreen: View {
                 CircularProgressView()
                 CircularProgressView(color: Color.primaryOrange)
             }
-            //.padding(.bottom, 32)
             VStack {
                 Text("My challenges")
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 16)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ChallengeCard(
-                            challenge: Challenge(
-                                creatorUserID: "123",
-                                participantsUserID: [Participant(userID: "123", progress: 4500)],
-                                name: "Challenge 8000 pas",
-                                description: "Le but est de parcourir 10000 pas en un jour afin de garantir une bonne santé",
-                                goal: Goal(
-                                    distance: nil,
-                                    steps: 10000
-                                ),
-                                duration: 86400,
-                                date: Date.now
-                            )
-                        )
-                        ChallengeCard(
-                            challenge: Challenge(
-                                creatorUserID: "123",
-                                participantsUserID: [Participant(userID: "123", progress: 3000)],
-                                name: "Challenge 8000 pas",
-                                description: "Le but est de parcourir 10000 pas en un jour afin de garantir une bonne santé",
-                                goal: Goal(
-                                    distance: nil,
-                                    steps: 10000
-                                ),
-                                duration: 86400,
-                                date: Date.now
-                            )
-                        )
-                        ChallengeCard(
-                            challenge: Challenge(
-                                creatorUserID: "123",
-                                participantsUserID: [Participant(userID: "123", progress: 7500)],
-                                name: "Challenge 8000 pas",
-                                description: "Le but est de parcourir 10000 pas en un jour afin de garantir une bonne santé",
-                                goal: Goal(
-                                    distance: nil,
-                                    steps: 10000
-                                ),
-                                duration: 86400,
-                                date: Date.now)
-                        )
+                    LazyHStack(alignment: .top, spacing: 10) {
+                        ForEach(challengesService.userParticipatingChallenges) { challenge in
+                            ChallengeCard(challenge: challenge)
+                        }
                         Button {
-
+                            // Action for See more button
                         } label: {
                             Text("See more")
                         }
@@ -82,29 +44,58 @@ struct HomeScreen: View {
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 16)
-                Button {
-
-                } label: {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Challenge 8000 pas")
-                            .font(.title2)
-                        ProgressView(value: 4594.0, total: 8000.0)
-                            .progressViewStyle(LinearProgressStyle())
-                        Text("Se termine dans 5 jours")
+                if let currentChallenge = challengesService.userParticipatingChallenges.first {
+                    Button {
+                        // Action for challenge button
+                    } label: {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(currentChallenge.name)
+                                .font(.title2)
+                            if let steps = currentChallenge.goal.steps {
+                                let progress = Double(
+                                    currentChallenge.getParticipantProgress(
+                                        userID: authenticationService.currentUser?.id ?? ""
+                                        )
+                                    )
+                                ProgressView(value: progress, total: Double(steps))
+                                    .progressViewStyle(LinearProgressStyle())
+                            }
+                            let remainingTime = currentChallenge.date.addingTimeInterval(Double(currentChallenge.duration)).timeIntervalSince(Date.now)
+                            let remainingDays = Int(remainingTime / 86400)
+                            Text("Se termine dans \(remainingDays) jours")
+                        }
+                        .frame(maxWidth: .infinity, alignment: .topLeading)
+                        .padding(.all, 8)
                     }
-                    .frame(maxWidth: .infinity, alignment: .topLeading)
-                    .padding(.all, 8)
+                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152, alignment: .topLeading)
+                    .background(Color.primaryOrange)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 18))
+                } else {
+                    Button {
+                        // Action to create a new challenge
+                    } label: {
+                        VStack(alignment: .center, spacing: 10) {
+                            Text("Pas de challenge actif")
+                                .font(.title2)
+                            Text("Créez un challenge")
+                                .font(.subheadline)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.all, 8)
+                    }
+                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152)
+                    .background(Color.gray.opacity(0.2))
+                    .foregroundStyle(Color.primary)
+                    .clipShape(RoundedRectangle(cornerRadius: 18))
                 }
-                .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152, alignment: .topLeading)
-                .background(Color.primaryOrange)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 18))
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
+        .padding(.vertical, 24)
     }
 }
 
 #Preview {
-    HomeScreen()
+    return HomeScreen()
 }

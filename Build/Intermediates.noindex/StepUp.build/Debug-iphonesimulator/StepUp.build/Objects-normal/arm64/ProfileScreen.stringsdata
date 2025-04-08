@@ -4,10 +4,34 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "Profile Screen",
+        "key": "blas.hugo.dev@gmail.com",
         "location": {
-          "startingColumn": 14,
-          "startingLine": 12
+          "startingColumn": 92,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mon compte",
+        "location": {
+          "startingColumn": 97,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mon historique de challenges",
+        "location": {
+          "startingColumn": 97,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Politique de confidentialité",
+        "location": {
+          "startingColumn": 97,
+          "startingLine": 98
         }
       }
     ]
