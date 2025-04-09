@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChallengeCard: View {
     var challenge: Challenge
+    var userID: String
 
     var body : some View {
         Button {
@@ -16,9 +17,9 @@ struct ChallengeCard: View {
         } label: {
             VStack(spacing: 16) {
                 Text(challenge.name)
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundStyle(.black)
-                ProgressView(value: Double(challenge.getParticipantProgress(userID: "123")), total: Double(challenge.goal.getGoal()))
+                ProgressView(value: Double(challenge.getParticipantProgress(userID: userID)), total: Double(challenge.goal.getGoal()))
                     .progressViewStyle(LinearProgressStyle())
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)

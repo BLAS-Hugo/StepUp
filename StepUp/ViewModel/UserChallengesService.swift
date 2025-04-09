@@ -14,9 +14,9 @@ class UserChallengesService: ObservableObject {
     let authenticationService: AuthenticationService
 
     @Published var challenges: [Challenge] = []
-    @Published var userCreatedChallenges: [Challenge] = [] // Add challenges created by current user
-    @Published var userParticipatingChallenges: [Challenge] = [] //Add challenges where current user is participating
-    @Published var otherChallenges: [Challenge] = [] //Add challenges where current user is not participating
+    @Published var userCreatedChallenges: [Challenge] = []
+    @Published var userParticipatingChallenges: [Challenge] = []
+    @Published var otherChallenges: [Challenge] = []
 
     init(authenticationService: AuthenticationService) {
         self.authenticationService = authenticationService
@@ -70,6 +70,24 @@ class UserChallengesService: ObservableObject {
             challenges.append(challengeData)
         }
         print(challenges)
+        filterChallenges()
+    }
+
+    private func filterChallenges() {
+        userParticipatingChallenges = challenges.filter {
+            $0.participants.contains(
+                where: { $0.userID == self.authenticationService.currentUser?.id})
+        }
+        userCreatedChallenges = challenges.filter {
+            $0.creatorUserID == self.authenticationService.currentUser?.id
+        }
+        otherChallenges = challenges.filter {
+            $0.creatorUserID != self.authenticationService.currentUser?.id &&
+            !$0.participants.contains(where: { $0.userID == self.authenticationService.currentUser?.id })
+        }
+        print(userParticipatingChallenges.count)
+        print(userCreatedChallenges.count)
+        print(otherChallenges.count)
     }
 
     private let challengesCollection = Firestore.firestore().collection("challenges")

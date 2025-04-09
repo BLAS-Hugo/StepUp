@@ -12,7 +12,7 @@ struct HomeScreen: View {
     @EnvironmentObject var challengesService: UserChallengesService
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 14) {
             HStack {
                 CircularProgressView()
                 CircularProgressView(color: Color.primaryOrange)
@@ -24,8 +24,11 @@ struct HomeScreen: View {
                     .padding(.leading, 16)
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top, spacing: 10) {
-                        ForEach(challengesService.userParticipatingChallenges) { challenge in
-                            ChallengeCard(challenge: challenge)
+                        ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
+                            ChallengeCard(
+                                challenge: challengesService.userParticipatingChallenges[index],
+                                userID: authenticationService.currentUser!.id
+                                )
                         }
                         Button {
                             // Action for See more button
@@ -63,14 +66,15 @@ struct HomeScreen: View {
                                 ProgressView(value: progress, total: Double(steps))
                                     .progressViewStyle(LinearProgressStyle())
                             }
-                            let remainingTime = currentChallenge.date.addingTimeInterval(Double(currentChallenge.duration)).timeIntervalSince(Date.now)
+                            let remainingTime = currentChallenge.date.addingTimeInterval(
+                                Double(currentChallenge.duration)).timeIntervalSince(Date.now)
                             let remainingDays = Int(remainingTime / 86400)
                             Text("Se termine dans \(remainingDays) jours")
                         }
                         .frame(maxWidth: .infinity, alignment: .topLeading)
                         .padding(.all, 8)
                     }
-                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152, alignment: .topLeading)
+                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 118, alignment: .topLeading)
                     .background(Color.primaryOrange)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 18))

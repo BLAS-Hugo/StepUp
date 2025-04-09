@@ -21,7 +21,7 @@ struct CircularProgressView: View {
         VStack {
             ProgressView(value: progress, total: 1.0)
                 .progressViewStyle(GaugeProgressStyle(strokeColor: color))
-                .frame(width: 150, height: 150)
+                .frame(width: 128, height: 128)
                 .contentShape(Rectangle())
                 .padding()
                 .onTapGesture {
