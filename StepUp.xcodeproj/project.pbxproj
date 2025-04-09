@@ -15,6 +15,7 @@
 		9ACEBAEE2D760DB100799AEA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAED2D760DB100799AEA /* FirebaseAuth */; };
 		9ACEBAF02D760DB900799AEA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */; };
 		9ACEBAF22D760DFA00799AEA /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAF12D760DFA00799AEA /* FirebaseCore */; };
+		9AD5CA592DA656DA001F07BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5CA582DA656D1001F07BF /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		9AC00AAE2D6889820032E01C /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC00AC02D6889840032E01C /* StepUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC00ACA2D6889840032E01C /* StepUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AD5CA582DA656D1001F07BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -94,6 +96,7 @@
 		9AC00AA52D6889820032E01C = {
 			isa = PBXGroup;
 			children = (
+				9AD5CA582DA656D1001F07BF /* .gitignore */,
 				9AC00AB02D6889820032E01C /* StepUp */,
 				9AC00AC32D6889840032E01C /* StepUpTests */,
 				9AC00ACD2D6889840032E01C /* StepUpUITests */,
@@ -251,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5CA592DA656DA001F07BF /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
