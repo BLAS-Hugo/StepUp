@@ -333,6 +333,9 @@
     "Step up" : {
 
     },
+    "Terminé depuis %lld jours" : {
+
+    },
     "welcome" : {
       "localizations" : {
         "en" : {

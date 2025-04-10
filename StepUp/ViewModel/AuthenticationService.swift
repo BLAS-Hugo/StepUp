@@ -69,8 +69,6 @@ class AuthenticationService: ObservableObject {
             .getDocument()
         else { return }
         self.currentUser = try? document.data(as: User.self)
-        print(document.data())
-        print(self.currentUser)
     }
 
     private func addUserToDB(user: User) async throws {

@@ -61,10 +61,8 @@ class UserChallengesService: ObservableObject {
         }
         guard let collectionSnapshot = try? await challengesCollection.getDocuments()
         else { return }
-        print(collectionSnapshot.documents)
 
         for document in collectionSnapshot.documents {
-            print(document.data())
             guard let challengeData = try? document.data(as: Challenge.self)
             else { continue }
             challenges.append(challengeData)
@@ -85,9 +83,6 @@ class UserChallengesService: ObservableObject {
             $0.creatorUserID != self.authenticationService.currentUser?.id &&
             !$0.participants.contains(where: { $0.userID == self.authenticationService.currentUser?.id })
         }
-        print(userParticipatingChallenges.count)
-        print(userCreatedChallenges.count)
-        print(otherChallenges.count)
     }
 
     private let challengesCollection = Firestore.firestore().collection("challenges")

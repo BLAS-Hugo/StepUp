@@ -19,7 +19,7 @@ struct Goal {
 
     func getGoalForDisplay() -> String {
         if let distance = distance {
-            return "\(distance) KM"
+            return "\(distance / 1000) KM"
         } else {
             return "\(steps!) steps"
         }

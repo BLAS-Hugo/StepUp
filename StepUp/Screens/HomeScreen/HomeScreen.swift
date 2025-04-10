@@ -27,12 +27,12 @@ struct HomeScreen: View {
                         ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
                             ChallengeCard(
                                 challenge: challengesService.userParticipatingChallenges[index],
-                                userID: authenticationService.currentUser!.id
+                                userID: authenticationService.currentUserSession!.uid
                                 )
                         }
                         Button {
                             // Action for See more button
-                            Task {
+                            Task { // for debug only
                                 await challengesService.fetchChallenges(forUser: authenticationService.currentUser)
                             }
                         } label: {
@@ -69,7 +69,11 @@ struct HomeScreen: View {
                             let remainingTime = currentChallenge.date.addingTimeInterval(
                                 Double(currentChallenge.duration)).timeIntervalSince(Date.now)
                             let remainingDays = Int(remainingTime / 86400)
-                            Text("Se termine dans \(remainingDays) jours")
+                            if remainingDays < 0 {
+                                Text("Terminé depuis \(remainingDays * -1) jours")
+                            } else {
+                                Text("Se termine dans \(remainingDays) jours")
+                            }
                         }
                         .frame(maxWidth: .infinity, alignment: .topLeading)
                         .padding(.all, 8)

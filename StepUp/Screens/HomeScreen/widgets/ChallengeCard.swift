@@ -13,7 +13,8 @@ struct ChallengeCard: View {
 
     var body : some View {
         Button {
-            print("\(challenge.name) was tapped")
+            let progress = challenge.getParticipantProgress(userID: userID)
+            print("\(challenge.name) was tapped with progress \(progress)/\(challenge.goal.getGoal())")
         } label: {
             VStack(spacing: 16) {
                 Text(challenge.name)
@@ -29,7 +30,7 @@ struct ChallengeCard: View {
                     .foregroundStyle(.black)
             }
             .padding()
-            .frame(alignment: .top)
+            .frame(alignment: .topLeading)
         }
         .background(Color(.systemFill))
         .clipShape(RoundedRectangle(cornerRadius: 18))
@@ -39,5 +40,10 @@ struct ChallengeCard: View {
 }
 
 #Preview {
+    let authenticationService = AuthenticationService()
+    let challengesService = UserChallengesService(authenticationService: authenticationService)
+
     HomeScreen()
+        .environmentObject(challengesService)
+        .environmentObject(authenticationService)
 }
