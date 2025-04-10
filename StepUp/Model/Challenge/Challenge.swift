@@ -18,7 +18,6 @@ struct Challenge: Identifiable {
     let id: String
 
     func getParticipantProgress(userID: String) -> Int {
-        
         return participants.first(where: { $0.userID == userID })!.progress
     }
 }

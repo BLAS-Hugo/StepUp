@@ -10,28 +10,18 @@ import Foundation
 
 struct CircularProgressView: View {
     var color = Color.secondaryBlue
-    @State private var progress = 0.1
+    var progress: Int
 
-    var numberOfStepsDone: Int {
-        let doubleValue = 10000 * progress
-        return Int(doubleValue.rounded())
-    }
+    private let debugGoal: Double = 8000
 
     var body: some View {
         VStack {
-            ProgressView(value: progress, total: 1.0)
+            ProgressView(value: Double(progress), total: debugGoal)
                 .progressViewStyle(GaugeProgressStyle(strokeColor: color))
                 .frame(width: 128, height: 128)
                 .contentShape(Rectangle())
                 .padding()
-                .onTapGesture {
-                    if progress < 1.0 {
-                        withAnimation {
-                            progress += 0.1
-                        }
-                    }
-                }
-            Text("\(numberOfStepsDone) Steps")
+            Text("\(progress) Steps")
         }
     }
 }

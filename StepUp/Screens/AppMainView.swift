@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppMainView: View {
     @EnvironmentObject var authenticationService: AuthenticationService
+    @StateObject var healthKitService = HealthKitService()
     @State var selection: Int = 0
     var challengesService: UserChallengesService {
         return UserChallengesService(authenticationService: authenticationService)
@@ -20,6 +21,7 @@ struct AppMainView: View {
                 HomeScreen()
                     .environmentObject(authenticationService)
                     .environmentObject(challengesService)
+                    .environmentObject(healthKitService)
                     .navigationTitle(Text(LocalizedStringKey("home")))
                     .navigationBarTitleDisplayMode(.large)
             }

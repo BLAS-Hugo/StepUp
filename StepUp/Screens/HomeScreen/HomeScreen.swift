@@ -10,12 +10,13 @@ import SwiftUI
 struct HomeScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
     @EnvironmentObject var challengesService: UserChallengesService
+    @EnvironmentObject var healthKitService: HealthKitService
 
     var body: some View {
         VStack(spacing: 14) {
             HStack {
-                CircularProgressView()
-                CircularProgressView(color: Color.primaryOrange)
+                CircularProgressView(progress: healthKitService.stepCount)
+                CircularProgressView(color: Color.primaryOrange, progress: healthKitService.distance)
             }
             VStack {
                 Text("My challenges")
