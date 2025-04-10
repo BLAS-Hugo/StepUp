@@ -16,7 +16,7 @@ struct HomeScreen: View {
         VStack(spacing: 14) {
             HStack {
                 CircularProgressView(progress: healthKitService.stepCount)
-                CircularProgressView(color: Color.primaryOrange, progress: healthKitService.distance)
+                CircularProgressView(color: Color.primaryOrange, progress: healthKitService.distance, type: .distance)
             }
             VStack {
                 Text("My challenges")

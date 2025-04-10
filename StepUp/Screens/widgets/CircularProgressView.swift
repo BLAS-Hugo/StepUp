@@ -11,6 +11,7 @@ import Foundation
 struct CircularProgressView: View {
     var color = Color.secondaryBlue
     var progress: Int
+    var type = ProgressViewType.steps
 
     private let debugGoal: Double = 8000
 
@@ -21,7 +22,15 @@ struct CircularProgressView: View {
                 .frame(width: 128, height: 128)
                 .contentShape(Rectangle())
                 .padding()
-            Text("\(progress) Steps")
+            if type == .steps {
+                Text("\(progress) Steps")
+            } else {
+                Text("\(progress) KM")
+            }
         }
     }
+}
+
+enum ProgressViewType {
+    case steps, distance
 }
