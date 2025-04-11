@@ -5,7 +5,6 @@
 //  Created by Hugo Blas on 24/03/2025.
 //
 
-import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
 
@@ -67,7 +66,6 @@ class UserChallengesService: ObservableObject {
             else { continue }
             challenges.append(challengeData)
         }
-        print(challenges)
         filterChallenges()
     }
 

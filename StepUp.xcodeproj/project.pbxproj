@@ -42,9 +42,22 @@
 		9AD5CA582DA656D1001F07BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9AE6BD6E2DA7B7C100DEF117 /* Exceptions for "StepUp" folder in "StepUp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9AC00AAD2D6889820032E01C /* StepUp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9AC00AB02D6889820032E01C /* StepUp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9AE6BD6E2DA7B7C100DEF117 /* Exceptions for "StepUp" folder in "StepUp" target */,
+			);
 			path = StepUp;
 			sourceTree = "<group>";
 		};
@@ -438,12 +451,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepUp/Preview Content\"";
 				DEVELOPMENT_TEAM = VNWZ6NJ89U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepUp/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepUp uses your health data only to get the steps and distance you walked ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,12 +483,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StepUp/Preview Content\"";
 				DEVELOPMENT_TEAM = VNWZ6NJ89U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StepUp/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "StepUp uses your health data only to get the steps and distance you walked ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

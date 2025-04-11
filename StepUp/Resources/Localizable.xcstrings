@@ -4,6 +4,15 @@
     "" : {
 
     },
+    "%.1f" : {
+
+    },
+    "%.1f KM" : {
+
+    },
+    "%lld" : {
+
+    },
     "%lld Steps" : {
       "localizations" : {
         "fr" : {
@@ -29,9 +38,6 @@
           }
         }
       }
-    },
-    "blas.hugo.dev@gmail.com" : {
-
     },
     "challenges" : {
       "localizations" : {
@@ -157,6 +163,9 @@
         }
       }
     },
+    "Mes objectifs" : {
+
+    },
     "My challenges" : {
       "localizations" : {
         "fr" : {
@@ -182,6 +191,12 @@
           }
         }
       }
+    },
+    "Nombre de kilomètres" : {
+
+    },
+    "Nombre de pas" : {
+
     },
     "not_registered_signup" : {
       "localizations" : {

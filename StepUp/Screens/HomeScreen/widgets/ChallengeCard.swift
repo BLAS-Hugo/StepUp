@@ -10,15 +10,16 @@ import SwiftUI
 struct ChallengeCard: View {
     var challenge: Challenge
     var userID: String
+    var callback: () -> Void = { }
 
     var body : some View {
         Button {
-            let progress = challenge.getParticipantProgress(userID: userID)
-            print("\(challenge.name) was tapped with progress \(progress)/\(challenge.goal.getGoal())")
+            callback()
+            print("callback")
         } label: {
             VStack(spacing: 16) {
                 Text(challenge.name)
-                    .font(.title3)
+                    .bold()
                     .foregroundStyle(.black)
                 ProgressView(value: Double(challenge.getParticipantProgress(userID: userID)), total: Double(challenge.goal.getGoal()))
                     .progressViewStyle(LinearProgressStyle())
@@ -37,13 +38,4 @@ struct ChallengeCard: View {
         .padding(.leading, 16)
         .frame(maxWidth: 156, maxHeight: 200)
     }
-}
-
-#Preview {
-    let authenticationService = AuthenticationService()
-    let challengesService = UserChallengesService(authenticationService: authenticationService)
-
-    HomeScreen()
-        .environmentObject(challengesService)
-        .environmentObject(authenticationService)
 }

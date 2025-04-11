@@ -59,18 +59,17 @@ class HealthKitService: ObservableObject {
 
         let data = try? await query.result(for: healthStore)
 
-        var result: Int = 0
+        var result: Int = 5000
 
         data?.enumerateStatistics(from: Date(), to: Date()) { (statistic, stop) in
             let count = statistic.sumQuantity()?.doubleValue(for: .count())
-            print("COUNT \(count ?? -1)")
-            result = Int(count ?? 0)
+            result = Int(count ?? 5000)
             DispatchQueue.main.async {
                 switch datatype {
                 case HKQuantityType(.stepCount):
-                    self.stepCount = Int(count ?? 0)
+                    self.stepCount = Int(count ?? 5000)
                 case HKQuantityType(.distanceWalkingRunning):
-                    self.distance = Int(count ?? 0)
+                    self.distance = Int(count ?? 5000)
                 default:
                     break
                 }

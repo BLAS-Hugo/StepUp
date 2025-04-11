@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ProfileScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+
+    @State private var navigateToObjectives = false
 
     func emptyCallback() {
 
@@ -29,12 +32,10 @@ struct ProfileScreen: View {
                     VStack(alignment: .leading) {
                         if let email = authenticationService.currentUserSession?.email {
                             Text(email)
+                                .foregroundStyle(.black)
+                                .font(.caption)
                         }
-                        Text("blas.hugo.dev@gmail.com")
-                            .foregroundStyle(.black)
-                            .font(.caption)
-
-                        Text(authenticationService.currentUser?.firstName ?? "Hugo")
+                        Text(authenticationService.currentUser!.firstName)
                             .bold()
                     }
                 }
@@ -42,6 +43,17 @@ struct ProfileScreen: View {
                 .padding(.horizontal, 16)
                 VStack(spacing: 10) {
                     SettingCard(title: "Mon compte", callback: emptyCallback)
+                        .padding(.top, 16)
+                    SettingCard(title: "Mes objectifs", callback: onObjectivesButtonTap)
+                        .navigationDestination(isPresented: $navigateToObjectives) {
+                        ObjectivesScreen()
+                            .environmentObject(objectivesViewModel)
+                            .navigationTitle(Text("Mes objectifs"))
+                            .navigationBarTitleDisplayMode(.large)
+                            .onDisappear {
+                                navigateToObjectives = false
+                            }
+                        }
                     SettingCard(title: "Mon historique de challenges", callback: emptyCallback)
                     SettingCard(title: "Politique de confidentialités", callback: emptyCallback)
                 }
@@ -51,11 +63,7 @@ struct ProfileScreen: View {
             .frame(height: geometry.size.height, alignment: .top)
         }
     }
-}
-
-#Preview {
-    ProfileScreen()
-        .environmentObject(AuthenticationService())
-        .navigationTitle(Text(LocalizedStringKey("profile")))
-        .navigationBarTitleDisplayMode(.large)
+    private func onObjectivesButtonTap() {
+        navigateToObjectives = true
+    }
 }

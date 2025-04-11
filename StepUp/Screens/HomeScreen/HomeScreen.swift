@@ -11,12 +11,27 @@ struct HomeScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var healthKitService: HealthKitService
+    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+
+    @State private var navigateToDetails = false
+
+    private func onChallengeCardTap() {
+        navigateToDetails = true
+    }
 
     var body: some View {
         VStack(spacing: 14) {
             HStack {
-                CircularProgressView(progress: healthKitService.stepCount)
-                CircularProgressView(color: Color.primaryOrange, progress: healthKitService.distance, type: .distance)
+                CircularProgressView(
+                    progress: healthKitService.stepCount,
+                    goal: objectivesViewModel.numberOfSteps
+                )
+                CircularProgressView(
+                    color: Color.primaryOrange,
+                    progress: healthKitService.distance,
+                    type: .distance,
+                    goal: objectivesViewModel.distance
+                )
             }
             VStack {
                 Text("My challenges")
@@ -28,8 +43,17 @@ struct HomeScreen: View {
                         ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
                             ChallengeCard(
                                 challenge: challengesService.userParticipatingChallenges[index],
-                                userID: authenticationService.currentUserSession!.uid
-                                )
+                                userID: authenticationService.currentUserSession!.uid,
+                                callback: onChallengeCardTap
+                                ).navigationDestination(isPresented: $navigateToDetails) {
+                                    ChallengeDetailScreen(challenge: challengesService.userParticipatingChallenges[index])
+                                        .navigationTitle(Text(challengesService.userParticipatingChallenges[index].name))
+                                        .navigationBarTitleDisplayMode(.large)
+                                        .onDisappear {
+                                            print("onDisappear")
+                                            // navigateToDetails = false
+                                        }
+                                    }
                         }
                         Button {
                             // Action for See more button
