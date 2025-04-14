@@ -42,10 +42,9 @@ struct HomeScreen: View {
                             } label: {
                                 ChallengeCard(
                                     challenge: challengesService.userParticipatingChallenges[index],
-                                    userID: authenticationService.currentUserSession!.uidikerf(d)
+                                    userID: authenticationService.currentUserSession!.uid
                                 )
                             }
-                            .buttonStyle(PlainButtonStyle())
                         }
                         Button {
                             // Action for See more button

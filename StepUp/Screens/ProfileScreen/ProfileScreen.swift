@@ -44,16 +44,14 @@ struct ProfileScreen: View {
                 VStack(spacing: 10) {
                     SettingCard(title: "Mon compte", callback: emptyCallback)
                         .padding(.top, 16)
-                    SettingCard(title: "Mes objectifs", callback: onObjectivesButtonTap)
-                        .navigationDestination(isPresented: $navigateToObjectives) {
+                    NavigationLink {
                         ObjectivesScreen()
                             .environmentObject(objectivesViewModel)
                             .navigationTitle(Text("Mes objectifs"))
                             .navigationBarTitleDisplayMode(.large)
-                            .onDisappear {
-                                navigateToObjectives = false
-                            }
-                        }
+                    } label: {
+                        SettingCard(title: "Mes objectifs", callback: onObjectivesButtonTap)
+                    }
                     SettingCard(title: "Mon historique de challenges", callback: emptyCallback)
                     SettingCard(title: "Politique de confidentialités", callback: emptyCallback)
                 }
