@@ -10,12 +10,10 @@ import SwiftUI
 struct ChallengeCard: View {
     var challenge: Challenge
     var userID: String
-    var callback: () -> Void = { }
 
     var body : some View {
         Button {
-            callback()
-            print("callback")
+
         } label: {
             VStack(spacing: 16) {
                 Text(challenge.name)

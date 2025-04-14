@@ -13,12 +13,6 @@ struct HomeScreen: View {
     @EnvironmentObject var healthKitService: HealthKitService
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
 
-    @State private var navigateToDetails = false
-
-    private func onChallengeCardTap() {
-        navigateToDetails = true
-    }
-
     var body: some View {
         VStack(spacing: 14) {
             HStack {
@@ -39,21 +33,19 @@ struct HomeScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 16)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .top, spacing: 10) {
+                    HStack(alignment: .top, spacing: 10) {
                         ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
-                            ChallengeCard(
-                                challenge: challengesService.userParticipatingChallenges[index],
-                                userID: authenticationService.currentUserSession!.uid,
-                                callback: onChallengeCardTap
-                                ).navigationDestination(isPresented: $navigateToDetails) {
-                                    ChallengeDetailScreen(challenge: challengesService.userParticipatingChallenges[index])
-                                        .navigationTitle(Text(challengesService.userParticipatingChallenges[index].name))
-                                        .navigationBarTitleDisplayMode(.large)
-                                        .onDisappear {
-                                            print("onDisappear")
-                                            // navigateToDetails = false
-                                        }
-                                    }
+                            NavigationLink {
+                                ChallengeDetailScreen(challenge: challengesService.userParticipatingChallenges[index])
+                                    .navigationTitle(Text(challengesService.userParticipatingChallenges[index].name))
+                                    .navigationBarTitleDisplayMode(.large)
+                            } label: {
+                                ChallengeCard(
+                                    challenge: challengesService.userParticipatingChallenges[index],
+                                    userID: authenticationService.currentUserSession!.uidikerf(d)
+                                )
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
                         Button {
                             // Action for See more button
@@ -82,15 +74,13 @@ struct HomeScreen: View {
                         VStack(alignment: .leading, spacing: 10) {
                             Text(currentChallenge.name)
                                 .font(.title2)
-                            if let steps = currentChallenge.goal.steps {
-                                let progress = Double(
-                                    currentChallenge.getParticipantProgress(
-                                        userID: authenticationService.currentUser?.id ?? ""
-                                        )
+                            let progress = Double(
+                                currentChallenge.getParticipantProgress(
+                                    userID: authenticationService.currentUser?.id ?? ""
                                     )
-                                ProgressView(value: progress, total: Double(steps))
+                                )
+                            ProgressView(value: progress, total: Double(currentChallenge.goal.getGoal()))
                                     .progressViewStyle(LinearProgressStyle())
-                            }
                             let remainingTime = currentChallenge.date.addingTimeInterval(
                                 Double(currentChallenge.duration)).timeIntervalSince(Date.now)
                             let remainingDays = Int(remainingTime / 86400)

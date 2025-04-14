@@ -7,6 +7,7 @@
 
 struct Participant {
     let userID: String
+    let name: String
     let progress: Int
 }
 

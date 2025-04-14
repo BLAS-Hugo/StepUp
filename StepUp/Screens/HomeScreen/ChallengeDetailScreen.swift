@@ -9,31 +9,42 @@ import SwiftUI
 
 struct ChallengeDetailScreen: View {
     let challenge: Challenge
-    
+    @EnvironmentObject var authenticationService: AuthenticationService
+
+    var progress: Int {
+        challenge.getParticipantProgress(userID: authenticationService.currentUser!.id)
+    }
+
     var body: some View {
         VStack {
+            CircularProgressView(progress: progress, type: challenge.goal.steps != nil ? .steps : .distance, goal: challenge.goal.getGoal())
             Text(challenge.description)
+            let remainingTime = challenge.date.addingTimeInterval(
+                Double(challenge.duration)).timeIntervalSince(Date.now)
+            let remainingDays = Int(remainingTime / 86400)
+            if remainingDays < 0 {
+                Text("Terminé depuis \(remainingDays * -1) jours")
+            } else {
+                Text("Se termine dans \(remainingDays) jours")
+            }
+            // Classement des participants
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(0..<challenge.participants.count, id: \.self) { index in
+                        let participant = challenge.participants[index]
+                        HStack {
+                            Text(participant.name)
+                            ProgressView(value: Double(challenge.getParticipantProgress(userID: authenticationService.currentUser!.id)), total: Double(challenge.goal.getGoal()))
+                                .progressViewStyle(LinearProgressStyle())
+                            Text("\(participant.progress)")
+                        }
+                    }
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
+            }
+            .background(Color.veryLightOrange)
+            .clipShape(RoundedRectangle(cornerRadius: 18))
         }
     }
-}
-
-#Preview {
-    ChallengeDetailScreen(challenge: Challenge(
-        creatorUserID: "123",
-        participants: [
-            Participant(userID: "123", progress: 3400),
-            Participant(userID: "1234", progress: 2300),
-            Participant(userID: "1235", progress: 7200),
-            Participant(userID: "1236", progress: 1234)
-        ],
-        name: "5000 pas par jour",
-        description: "Pour garder la santé il faut faire au moins 5000 pas par jour",
-        goal: Goal(distance: nil, steps: 5000),
-        duration: 86400,
-        date: Date(),
-        id: "234"
-            )
-    )
-    .navigationTitle(Text("5000 pas par jour"))
-    .navigationBarTitleDisplayMode(.large)
 }
