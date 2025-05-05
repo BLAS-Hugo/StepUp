@@ -140,7 +140,3 @@ extension RegisterScreen: AuthenticationFormProtocol {
         && password == confirmPassword
     }
 }
-
-#Preview {
-    RegisterScreen()
-}

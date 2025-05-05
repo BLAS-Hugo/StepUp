@@ -13,6 +13,34 @@ struct HomeScreen: View {
     @EnvironmentObject var healthKitService: HealthKitService
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
 
+    @State private var shouldShowChallengesSheet = false
+
+    private var userId: String {
+        authenticationService.currentUser?.id ?? ""
+    }
+
+    private var userSessionId: String {
+        authenticationService.currentUserSession?.uid ?? ""
+    }
+
+    private func challengeProgress(for challenge: Challenge) -> Double {
+        Double(challenge.getParticipantProgress(userID: userId))
+    }
+
+    private func challengeRemainingDays(for challenge: Challenge) -> Int {
+        let endDate = challenge.date.addingTimeInterval(Double(challenge.duration))
+        let remainingTime = endDate.timeIntervalSince(Date.now)
+        return Int(remainingTime / 86400)
+    }
+
+    private func challengeTimeText(remainingDays: Int) -> Text {
+        if remainingDays < 0 {
+            return Text("Terminé depuis \(remainingDays * -1) jours")
+        } else {
+            return Text("Se termine dans \(remainingDays) jours")
+        }
+    }
+
     var body: some View {
         VStack(spacing: 14) {
             HStack {
@@ -27,104 +55,112 @@ struct HomeScreen: View {
                     goal: objectivesViewModel.distance
                 )
             }
-            VStack {
-                Text("My challenges")
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 16)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 10) {
-                        ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
-                            NavigationLink {
-                                ChallengeDetailScreen(challenge: challengesService.userParticipatingChallenges[index])
-                                    .navigationTitle(Text(challengesService.userParticipatingChallenges[index].name))
-                                    .navigationBarTitleDisplayMode(.large)
-                            } label: {
-                                ChallengeCard(
-                                    challenge: challengesService.userParticipatingChallenges[index],
-                                    userID: authenticationService.currentUserSession!.uid
-                                )
-                            }
-                        }
-                        Button {
-                            // Action for See more button
-                            Task { // for debug only
-                                await challengesService.fetchChallenges(forUser: authenticationService.currentUser)
-                            }
-                        } label: {
-                            Text("See more")
-                        }
-                        .padding()
-                        .background(Color(.systemFill))
-                        .clipShape(RoundedRectangle(cornerRadius: 18))
-                        .padding(.horizontal, 16)
-                    }
-                }
-            }
-            VStack {
-                Text(LocalizedStringKey("current_challenge"))
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 16)
-                if let currentChallenge = challengesService.userParticipatingChallenges.first {
-                    Button {
-                        // Action for challenge button
-                    } label: {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(currentChallenge.name)
-                                .font(.title2)
-                            let progress = Double(
-                                currentChallenge.getParticipantProgress(
-                                    userID: authenticationService.currentUser?.id ?? ""
-                                    )
-                                )
-                            ProgressView(value: progress, total: Double(currentChallenge.goal.getGoal()))
-                                    .progressViewStyle(LinearProgressStyle())
-                            let remainingTime = currentChallenge.date.addingTimeInterval(
-                                Double(currentChallenge.duration)).timeIntervalSince(Date.now)
-                            let remainingDays = Int(remainingTime / 86400)
-                            if remainingDays < 0 {
-                                Text("Terminé depuis \(remainingDays * -1) jours")
-                            } else {
-                                Text("Se termine dans \(remainingDays) jours")
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .topLeading)
-                        .padding(.all, 8)
-                    }
-                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 118, alignment: .topLeading)
-                    .background(Color.primaryOrange)
-                    .foregroundStyle(.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 18))
-                } else {
-                    Button {
-                        Task {
-                            await authenticationService.fetchUserData()
-                            await challengesService.fetchChallenges(forUser: authenticationService.currentUser)
-                        }
-                        // Action to create a new challenge
-                    } label: {
-                        VStack(alignment: .center, spacing: 10) {
-                            Text("Pas de challenge actif")
-                                .font(.title2)
-                            Text("Créez un challenge")
-                                .font(.subheadline)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.all, 8)
-                    }
-                    .frame(width: UIScreen.main.bounds.size.width * 0.7, height: 152)
-                    .background(Color.gray.opacity(0.2))
-                    .foregroundStyle(Color.primary)
-                    .clipShape(RoundedRectangle(cornerRadius: 18))
-                }
-            }
+
+            challengesSection
+            currentChallengeSection
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.vertical, 24)
     }
-}
 
-#Preview {
-    return HomeScreen()
+    private var challengesSection: some View {
+        VStack {
+            HStack {
+                Text("My challenges")
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Button("Voir plus") {
+                    // TODO: Swap tab
+                }
+            }
+            .padding(.horizontal, 16)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .top, spacing: 10) {
+                    ForEach(0..<min(3, challengesService.userCreatedChallenges.count), id: \.self) { index in
+                        participatingChallengeLink(index: index)
+                    }
+                }
+            }
+        }
+    }
+
+    private func participatingChallengeLink(index: Int) -> some View {
+        let challenge = challengesService.userCreatedChallenges[index]
+
+        return NavigationLink {
+            ChallengeDetailScreen(challenge: challenge)
+                .navigationTitle(Text(challenge.name))
+                .navigationBarTitleDisplayMode(.large)
+        } label: {
+            ChallengeCard(
+                challenge: challenge,
+                userID: userSessionId
+            )
+        }
+    }
+
+    private var currentChallengeSection: some View {
+        VStack {
+            Text(LocalizedStringKey("current_challenge"))
+                .font(.title)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 16)
+
+            if let currentChallenge = challengesService.userCurrentChallenge {
+                currentChallengeView(challenge: currentChallenge)
+            } else {
+                noChallengeView
+            }
+        }
+    }
+
+    private func currentChallengeView(challenge: Challenge) -> some View {
+        NavigationLink {
+            // Action for challenge button
+        } label: {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(challenge.name)
+                    .font(.title2)
+
+                let progress = challengeProgress(for: challenge)
+                ProgressView(value: progress, total: Double(challenge.goal.getGoal()))
+                    .progressViewStyle(LinearProgressStyle())
+
+                let remainingDays = challengeRemainingDays(for: challenge)
+                challengeTimeText(remainingDays: remainingDays)
+            }
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .padding(.all, 8)
+        }
+        .frame(width: UIScreen.main.bounds.size.width * 0.8, height: 118, alignment: .topLeading)
+        .background(Color.primaryOrange)
+        .foregroundStyle(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+    }
+
+    private var noChallengeView: some View {
+        Button {
+            shouldShowChallengesSheet.toggle()
+        } label: {
+            VStack(alignment: .center, spacing: 10) {
+                Text("Pas de challenge actif")
+                    .font(.title2)
+                Text("Créez un challenge")
+                    .font(.subheadline)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.all, 8)
+        }
+        .sheet(isPresented: $shouldShowChallengesSheet) {
+            ChallengeCreationSheet()
+                .presentationDetents([.medium, .large])
+                .environmentObject(challengesService)
+                .environmentObject(authenticationService)
+        }
+        .frame(width: UIScreen.main.bounds.size.width * 0.8, height: 152)
+        .background(Color.gray.opacity(0.2))
+        .foregroundStyle(Color.primary)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+    }
 }

@@ -11,12 +11,6 @@ struct ProfileScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
 
-    @State private var navigateToObjectives = false
-
-    func emptyCallback() {
-
-    }
-
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -42,7 +36,7 @@ struct ProfileScreen: View {
                 .frame(maxWidth: geometry.size.width, maxHeight: 96, alignment: .leading)
                 .padding(.horizontal, 16)
                 VStack(spacing: 10) {
-                    SettingCard(title: "Mon compte", callback: emptyCallback)
+                    SettingCard(title: "Mon compte")
                         .padding(.top, 16)
                     NavigationLink {
                         ObjectivesScreen()
@@ -50,18 +44,15 @@ struct ProfileScreen: View {
                             .navigationTitle(Text("Mes objectifs"))
                             .navigationBarTitleDisplayMode(.large)
                     } label: {
-                        SettingCard(title: "Mes objectifs", callback: onObjectivesButtonTap)
+                        SettingCard(title: "Mes objectifs")
                     }
-                    SettingCard(title: "Mon historique de challenges", callback: emptyCallback)
-                    SettingCard(title: "Politique de confidentialités", callback: emptyCallback)
+                    SettingCard(title: "Mon historique de challenges")
+                    SettingCard(title: "Politique de confidentialités")
                 }
                 .frame(maxHeight: .infinity, alignment: .top)
                 .background(Color.appLightGray)
             }
             .frame(height: geometry.size.height, alignment: .top)
         }
-    }
-    private func onObjectivesButtonTap() {
-        navigateToObjectives = true
     }
 }

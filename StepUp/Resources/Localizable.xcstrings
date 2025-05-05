@@ -13,6 +13,16 @@
     "%lld" : {
 
     },
+    "%lld participant%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld participant%2$@"
+          }
+        }
+      }
+    },
     "%lld Steps" : {
       "localizations" : {
         "fr" : {
@@ -55,7 +65,7 @@
         }
       }
     },
-    "Challenges" : {
+    "Classement des participants" : {
 
     },
     "confirm_password" : {
@@ -73,6 +83,12 @@
           }
         }
       }
+    },
+    "Confirmer" : {
+
+    },
+    "Créer un nouveau Challenge" : {
+
     },
     "Créez un challenge" : {
 
@@ -92,6 +108,18 @@
           }
         }
       }
+    },
+    "Date de départ du challenge" : {
+
+    },
+    "Date de fin du challenge" : {
+
+    },
+    "Description du challenge" : {
+
+    },
+    "Distance" : {
+
     },
     "email" : {
       "localizations" : {
@@ -192,6 +220,9 @@
         }
       }
     },
+    "Nom du challenge" : {
+
+    },
     "Nombre de kilomètres" : {
 
     },
@@ -214,7 +245,13 @@
         }
       }
     },
+    "Objectif du challenge: " : {
+
+    },
     "OK" : {
+
+    },
+    "Pas" : {
 
     },
     "Pas de challenge actif" : {
@@ -288,6 +325,7 @@
 
     },
     "See more" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -349,6 +387,12 @@
 
     },
     "Terminé depuis %lld jours" : {
+
+    },
+    "Type de challenge" : {
+
+    },
+    "Voir plus" : {
 
     },
     "welcome" : {

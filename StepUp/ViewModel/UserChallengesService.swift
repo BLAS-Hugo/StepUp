@@ -15,6 +15,7 @@ class UserChallengesService: ObservableObject {
     @Published var challenges: [Challenge] = []
     @Published var userCreatedChallenges: [Challenge] = []
     @Published var userParticipatingChallenges: [Challenge] = []
+    @Published var userCurrentChallenge: Challenge? = nil
     @Published var otherChallenges: [Challenge] = []
 
     init(authenticationService: AuthenticationService) {
@@ -37,19 +38,19 @@ class UserChallengesService: ObservableObject {
     }
 
     func editChallenge(_ challenge: Challenge, forUser user: User?) async throws {
-        if user == nil {
+        if user == nil || challenge.id == nil {
             return
         }
         let encodedChallenge = try Firestore.Encoder().encode(challenge)
-        try await challengesCollection.document(challenge.id).setData(encodedChallenge)
+        try await challengesCollection.document(challenge.id!).setData(encodedChallenge)
         await fetchChallenges(forUser: user)
     }
 
     func deleteChallenge(_ challenge: Challenge, forUser user: User?) async throws {
-        if user == nil {
+        if user == nil || challenge.id == nil {
             return
         }
-        try await challengesCollection.document(challenge.id).delete()
+        try await challengesCollection.document(challenge.id!).delete()
         await fetchChallenges(forUser: user)
     }
 
@@ -62,8 +63,9 @@ class UserChallengesService: ObservableObject {
         else { return }
 
         for document in collectionSnapshot.documents {
-            guard let challengeData = try? document.data(as: Challenge.self)
+            guard var challengeData = try? document.data(as: Challenge.self)
             else { continue }
+            challengeData.id = document.documentID
             challenges.append(challengeData)
         }
         filterChallenges()
@@ -74,6 +76,9 @@ class UserChallengesService: ObservableObject {
             $0.participants.contains(
                 where: { $0.userID == self.authenticationService.currentUser?.id})
         }
+
+        userCurrentChallenge = userParticipatingChallenges.first { $0.date.addingTimeInterval(TimeInterval($0.duration)) > Date.now }
+
         userCreatedChallenges = challenges.filter {
             $0.creatorUserID == self.authenticationService.currentUser?.id
         }

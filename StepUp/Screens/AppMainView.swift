@@ -17,7 +17,7 @@ struct AppMainView: View {
     }
 
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             NavigationStack {
                 HomeScreen()
                     .environmentObject(authenticationService)
@@ -34,6 +34,8 @@ struct AppMainView: View {
 
             NavigationStack {
                 ChallengesScreen()
+                    .environmentObject(authenticationService)
+                    .environmentObject(challengesService)
                     .navigationTitle(Text(LocalizedStringKey("challenges")))
                     .navigationBarTitleDisplayMode(.large)
             }
@@ -57,8 +59,4 @@ struct AppMainView: View {
 
         }
     }
-}
-
-#Preview {
-    AppMainView().environmentObject(AuthenticationService())
 }

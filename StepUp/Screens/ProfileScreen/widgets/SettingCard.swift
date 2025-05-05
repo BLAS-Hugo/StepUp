@@ -9,13 +9,8 @@ import SwiftUI
 
 struct SettingCard: View {
     let title: String
-    let callback: () -> Void
-
 
     var body: some View {
-        Button {
-            callback()
-        } label: {
             HStack {
                 Text(title)
                     .foregroundStyle(.black)
@@ -29,7 +24,7 @@ struct SettingCard: View {
                 .clipShape(Circle())
                 .padding(.horizontal, 16)
             }
-        }
+
         .frame(maxWidth: UIScreen.main.bounds.size.width, alignment: .leading)
         .background(.white)
         .clipShape(RoundedRectangle(cornerRadius: 10))
