@@ -71,6 +71,12 @@ struct ChallengeCreationSheet: View {
     }
 
     private func createChallenge() async {
+        // Check if challenge can be created
+        if !challengesService.areChallengeDatesValid(from: challengeDate, to: challengeEndDate) {
+            // Display error to user
+            return
+        }
+
         let goal = challengeGoalType == 0 ? Goal(distance: Int(challengeGoal), steps: nil) : Goal(distance: nil, steps: Int(challengeGoal))
         var duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
 

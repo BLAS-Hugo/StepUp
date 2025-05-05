@@ -88,5 +88,25 @@ class UserChallengesService: ObservableObject {
         }
     }
 
+    func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
+        let challengesToCheck = userParticipatingChallenges
+        // Loop through user participating challenges and check if an end date is colliding with a start date
+        // Take new challenge start date and is should NOT be contained within another challenge start date and end date
+        var isColliding: Bool = false
+        challengesToCheck.forEach {
+            if startDate >= $0.date && startDate <= $0.date.addingTimeInterval(TimeInterval($0.duration)) {
+                isColliding = true
+            }
+        }
+        // Take new challenge end date and is should NOT be contained within another challenge start date and end date
+        challengesToCheck.forEach {
+            if endDate >= $0.date && endDate <= $0.date.addingTimeInterval(TimeInterval($0.duration)) {
+                isColliding = true
+            }
+        }
+
+        return !isColliding
+    }
+
     private let challengesCollection = Firestore.firestore().collection("challenges")
 }
