@@ -78,7 +78,7 @@ struct ChallengeCreationSheet: View {
         }
 
         let goal = challengeGoalType == 0 ? Goal(distance: Int(challengeGoal), steps: nil) : Goal(distance: nil, steps: Int(challengeGoal))
-        var duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
+        let duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
 
         let challenge = Challenge(
             creatorUserID: authenticationService.currentUser!.id,

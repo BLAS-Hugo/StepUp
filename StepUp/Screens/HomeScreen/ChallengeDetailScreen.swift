@@ -10,6 +10,7 @@ import SwiftUI
 struct ChallengeDetailScreen: View {
     let challenge: Challenge
     @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var challengesService: UserChallengesService
 
     private var isUserParticipating: Bool {
         return challenge.participants.count(where: { $0.userID == authenticationService.currentUser!.id }) > 0
@@ -60,8 +61,25 @@ struct ChallengeDetailScreen: View {
                 .padding(.horizontal, 8)
                 .padding(.vertical, 16)
             }
-            .background(Color.primaryOrange)
+            .background(Color.appLightGray)
             .clipShape(RoundedRectangle(cornerRadius: 18))
+
+            if !isUserParticipating {
+                Button {
+                    Task {
+                        await challengesService.participateToChallenge(challenge, user: authenticationService.currentUser!)
+                    }
+                } label: {
+                    Text("Participer")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 48)
+                        .foregroundStyle(.white)
+                }
+                .frame(minWidth: 135, minHeight: 64, alignment: .center)
+                .background(Color.primaryOrange)
+                .clipShape(.rect(cornerRadius: 8))
+            }
         }
         .padding(.horizontal, 16)
     }

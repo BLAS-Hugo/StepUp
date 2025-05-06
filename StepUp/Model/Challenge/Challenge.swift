@@ -9,7 +9,7 @@ import Foundation
 
 struct Challenge: Identifiable {
     let creatorUserID: String
-    let participants: [Participant]
+    var participants: [Participant]
     let name: String
     let description: String
     let goal: Goal
@@ -19,6 +19,21 @@ struct Challenge: Identifiable {
 
     func getParticipantProgress(userID: String) -> Int {
         return participants.first(where: { $0.userID == userID })!.progress
+    }
+
+    func addParticipant(_ user: User) -> Challenge {
+        var participantsArray = participants
+        participantsArray.append(Participant(userID: user.id, name: user.firstName, progress: 0))
+        return Challenge(
+            creatorUserID: creatorUserID,
+            participants: participantsArray,
+            name: name,
+            description: description,
+            goal: goal,
+            duration: duration,
+            date: date,
+            id: id
+        )
     }
 }
 

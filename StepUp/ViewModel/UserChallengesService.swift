@@ -88,6 +88,15 @@ class UserChallengesService: ObservableObject {
         }
     }
 
+    func participateToChallenge(_ challenge: Challenge, user: User) async {
+        do {
+            try await editChallenge(challenge.addParticipant(user), forUser: user)
+        } catch {
+            // display error
+        }
+        await fetchChallenges(forUser: user)
+    }
+
     func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
         let challengesToCheck = userParticipatingChallenges
         // Loop through user participating challenges and check if an end date is colliding with a start date
