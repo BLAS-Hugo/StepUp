@@ -1,4 +1,0 @@
-module FirebaseAppDistributionTarget {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebaseAppDistributionWrap/include"
-export *
-}

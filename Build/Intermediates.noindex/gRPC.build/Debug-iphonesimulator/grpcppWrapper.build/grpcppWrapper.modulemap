@@ -1,4 +1,0 @@
-module grpcppWrapper {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/grpc-binary/grpcpp-Wrapper/include"
-export *
-}

@@ -1,4 +1,0 @@
-module FirebaseAuthInterop {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseAuth/Interop/Public"
-export *
-}

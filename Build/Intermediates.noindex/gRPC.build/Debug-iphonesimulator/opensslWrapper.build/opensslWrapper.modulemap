@@ -1,4 +1,0 @@
-module opensslWrapper {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/grpc-binary/openssl-grpc-Wrapper/include"
-export *
-}

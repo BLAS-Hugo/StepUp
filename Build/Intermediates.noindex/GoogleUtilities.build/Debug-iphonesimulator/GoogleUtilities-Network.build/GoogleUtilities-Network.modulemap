@@ -1,4 +1,0 @@
-module GoogleUtilities_Network {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/Network/Public"
-export *
-}

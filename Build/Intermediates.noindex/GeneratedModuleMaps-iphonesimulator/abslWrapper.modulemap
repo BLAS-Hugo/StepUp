@@ -1,4 +1,0 @@
-module abslWrapper {
-umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/abseil-cpp-binary/absl-Wrapper/include"
-export *
-}
