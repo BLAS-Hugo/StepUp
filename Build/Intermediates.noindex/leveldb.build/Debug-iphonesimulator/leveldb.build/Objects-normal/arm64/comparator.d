@@ -1,10 +1,10 @@
 dependencies: \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/util/comparator.cc \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/include/leveldb/comparator.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/include/leveldb/export.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/include/leveldb/slice.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/util/logging.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/port/port.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/port/port_stdcxx.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/port/thread_annotations.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/leveldb/util/no_destructor.h
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/util/comparator.cc \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/include/leveldb/comparator.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/include/leveldb/export.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/include/leveldb/slice.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/util/logging.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/port/port.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/port/port_stdcxx.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/port/thread_annotations.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/leveldb/util/no_destructor.h

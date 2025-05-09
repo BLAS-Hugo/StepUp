@@ -1,4 +1,4 @@
 module FirebaseAuthInterop {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseAuth/Interop/Public"
+umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseAuth/Interop/Public"
 export *
 }

@@ -4,50 +4,58 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "My challenges",
+        "key": "Terminé depuis %lld jours",
         "location": {
-          "startingColumn": 22,
-          "startingLine": 21
-        }
-      },
-      {
-        "comment": "",
-        "key": "See more",
-        "location": {
-          "startingColumn": 34,
-          "startingLine": 36
-        }
-      },
-      {
-        "comment": "",
-        "key": "current_challenge",
-        "location": {
-          "startingColumn": 41,
-          "startingLine": 46
+          "startingColumn": 25,
+          "startingLine": 38
         }
       },
       {
         "comment": "",
         "key": "Se termine dans %lld jours",
         "location": {
-          "startingColumn": 34,
-          "startingLine": 68
+          "startingColumn": 25,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "My challenges",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "Voir plus",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "current_challenge",
+        "location": {
+          "startingColumn": 37,
+          "startingLine": 105
         }
       },
       {
         "comment": "",
         "key": "Pas de challenge actif",
         "location": {
-          "startingColumn": 34,
-          "startingLine": 86
+          "startingColumn": 22,
+          "startingLine": 147
         }
       },
       {
         "comment": "",
         "key": "Créez un challenge",
         "location": {
-          "startingColumn": 34,
-          "startingLine": 88
+          "startingColumn": 22,
+          "startingLine": 149
         }
       }
     ]

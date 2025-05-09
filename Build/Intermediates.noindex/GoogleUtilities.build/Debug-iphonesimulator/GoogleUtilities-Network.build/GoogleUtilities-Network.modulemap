@@ -1,4 +1,4 @@
 module GoogleUtilities_Network {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/Network/Public"
+umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/GoogleUtilities/GoogleUtilities/Network/Public"
 export *
 }

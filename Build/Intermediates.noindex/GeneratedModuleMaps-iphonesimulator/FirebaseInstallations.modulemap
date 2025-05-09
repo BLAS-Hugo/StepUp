@@ -1,4 +1,4 @@
 module FirebaseInstallations {
-umbrella header "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseInstallations/Source/Library/Public/FirebaseInstallations/FirebaseInstallations.h"
+umbrella header "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseInstallations/Source/Library/Public/FirebaseInstallations/FirebaseInstallations.h"
 export *
 }

@@ -7,7 +7,7 @@
         "key": "challenges",
         "location": {
           "startingColumn": 54,
-          "startingLine": 40
+          "startingLine": 46
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "home",
         "location": {
           "startingColumn": 62,
-          "startingLine": 23
+          "startingLine": 27
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "home",
         "location": {
           "startingColumn": 41,
-          "startingLine": 28
+          "startingLine": 32
         }
       },
       {
@@ -31,7 +31,7 @@
         "key": "challenges",
         "location": {
           "startingColumn": 62,
-          "startingLine": 33
+          "startingLine": 39
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "challenges",
         "location": {
           "startingColumn": 41,
-          "startingLine": 38
+          "startingLine": 44
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "profile",
         "location": {
           "startingColumn": 62,
-          "startingLine": 45
+          "startingLine": 52
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "profile",
         "location": {
           "startingColumn": 41,
-          "startingLine": 50
+          "startingLine": 57
         }
       }
     ]

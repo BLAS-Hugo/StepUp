@@ -1,4 +1,4 @@
 module FirebaseCoreExtension {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseCore/Extension"
+umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseCore/Extension"
 export *
 }

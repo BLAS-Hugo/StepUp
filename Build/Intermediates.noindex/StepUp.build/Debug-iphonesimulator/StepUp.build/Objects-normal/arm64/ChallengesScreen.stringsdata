@@ -1,16 +1,5 @@
 {
   "source": "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ChallengeScreen/ChallengesScreen.swift",
-  "tables": {
-    "Localizable": [
-      {
-        "comment": "",
-        "key": "Challenges",
-        "location": {
-          "startingColumn": 14,
-          "startingLine": 12
-        }
-      }
-    ]
-  },
+  "tables": {},
   "version": 1
 }

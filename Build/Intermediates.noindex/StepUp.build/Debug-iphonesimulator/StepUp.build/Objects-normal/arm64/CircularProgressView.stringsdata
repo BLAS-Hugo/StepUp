@@ -6,8 +6,16 @@
         "comment": "",
         "key": "%lld Steps",
         "location": {
-          "startingColumn": 18,
-          "startingLine": 34
+          "startingColumn": 22,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "%.1f KM",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 27
         }
       }
     ]

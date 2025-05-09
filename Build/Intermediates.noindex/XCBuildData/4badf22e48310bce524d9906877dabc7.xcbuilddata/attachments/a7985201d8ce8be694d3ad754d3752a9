@@ -1,4 +1,0 @@
-module FirebaseAnalyticsWithoutAdIdSupportTarget {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/SwiftPM-PlatformExclude/FirebaseAnalyticsWithoutAdIdSupportWrap/include"
-export *
-}

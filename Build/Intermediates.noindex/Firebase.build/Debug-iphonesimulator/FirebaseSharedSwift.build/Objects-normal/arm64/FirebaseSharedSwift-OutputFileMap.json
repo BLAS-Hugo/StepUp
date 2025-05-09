@@ -5,7 +5,7 @@
     "emit-module-diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master-emit-module.dia",
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master.swiftdeps"
   },
-  "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseSharedSwift/Sources/FirebaseRemoteConfigValueDecoding.swift" : {
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseSharedSwift/Sources/FirebaseRemoteConfigValueDecoding.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.swiftconstvalues",
     "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.d",
     "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.dia",
@@ -15,7 +15,7 @@
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding~partial.swiftmodule"
   },
-  "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseSharedSwift/Sources/third_party/FirebaseDataEncoder/FirebaseDataEncoder.swift" : {
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseSharedSwift/Sources/third_party/FirebaseDataEncoder/FirebaseDataEncoder.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.swiftconstvalues",
     "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.d",
     "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.dia",

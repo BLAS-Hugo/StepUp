@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/FirebaseAnalyticsOnDeviceConversionWrapper/dummy.m
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/FirebaseAnalyticsOnDeviceConversionWrapper/dummy.m

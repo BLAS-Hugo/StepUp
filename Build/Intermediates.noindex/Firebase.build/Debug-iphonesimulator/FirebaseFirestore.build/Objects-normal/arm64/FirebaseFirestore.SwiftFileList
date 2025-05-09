@@ -1,28 +1,28 @@
 /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/Build/Intermediates.noindex/Firebase.build/Debug-iphonesimulator/FirebaseFirestore.build/DerivedSources/resource_bundle_accessor.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/CollectionReference+AsyncAwait.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/Firestore+AsyncAwait.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CodableErrors.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CodablePassThroughTypes.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CollectionReference+WriteEncodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentID.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+Codable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+ReadDecodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+WriteEncodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentSnapshot+ReadDecodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/EncoderDecoder.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/ExplicitNull.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/FieldValue+Encodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/GeoPoint+Codable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/ServerTimestamp.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/Timestamp+Codable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/TimestampDecodingStrategy.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/TimestampEncodingStrategy.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/Transaction+WriteEncodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/VectorValue+Codable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/WriteBatch+WriteEncodable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/FirestoreQuery.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/FirestoreQueryObservable.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/QueryPredicate.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftAPI/FieldValue+Swift.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftAPI/VectorValue+Swift.swift
-/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftHeaderWorkaround.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/CollectionReference+AsyncAwait.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/AsyncAwait/Firestore+AsyncAwait.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CodableErrors.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CodablePassThroughTypes.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/CollectionReference+WriteEncodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentID.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+Codable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+ReadDecodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentReference+WriteEncodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/DocumentSnapshot+ReadDecodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/EncoderDecoder.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/ExplicitNull.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/FieldValue+Encodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/GeoPoint+Codable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/ServerTimestamp.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/Timestamp+Codable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/TimestampDecodingStrategy.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/TimestampEncodingStrategy.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/Transaction+WriteEncodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/VectorValue+Codable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/Codable/WriteBatch+WriteEncodable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/FirestoreQuery.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/FirestoreQueryObservable.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/PropertyWrapper/QueryPredicate.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftAPI/FieldValue+Swift.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftAPI/VectorValue+Swift.swift
+/Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/firebase-ios-sdk/Firestore/Swift/Source/SwiftHeaderWorkaround.swift

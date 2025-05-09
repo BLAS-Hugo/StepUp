@@ -1,4 +1,4 @@
 module third_party_IsAppEncrypted {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/GoogleUtilities/third_party/IsAppEncrypted/Public"
+umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/GoogleUtilities/third_party/IsAppEncrypted/Public"
 export *
 }

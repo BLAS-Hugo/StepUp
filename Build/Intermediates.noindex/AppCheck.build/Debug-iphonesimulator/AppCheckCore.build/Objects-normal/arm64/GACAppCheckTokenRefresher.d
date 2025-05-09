@@ -1,7 +1,7 @@
 dependencies: \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefresher.m \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefresher.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefresher.m \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefresher.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Modules/module.modulemap \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTimer.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Public/AppCheckCore/GACAppCheckSettings.h \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefreshResult.h
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTimer.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Public/AppCheckCore/GACAppCheckSettings.h \
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/app-check/AppCheckCore/Sources/Core/TokenRefresh/GACAppCheckTokenRefreshResult.h

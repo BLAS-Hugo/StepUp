@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/interop-ios-for-google-sdks/RecaptchaEnterprise/RecaptchaInterop/placeholder.m
+  /Volumes/SSD\ Mac/Dev/Open\ Classroom/projet\ libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/interop-ios-for-google-sdks/RecaptchaEnterprise/RecaptchaInterop/placeholder.m

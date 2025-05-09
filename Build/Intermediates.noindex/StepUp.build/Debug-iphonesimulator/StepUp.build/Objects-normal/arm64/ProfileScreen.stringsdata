@@ -4,18 +4,10 @@
     "Localizable": [
       {
         "comment": "",
-        "key": "blas.hugo.dev@gmail.com",
+        "key": "Mes objectifs",
         "location": {
-          "startingColumn": 30,
-          "startingLine": 33
-        }
-      },
-      {
-        "comment": "",
-        "key": "profile",
-        "location": {
-          "startingColumn": 1,
-          "startingLine": 56
+          "startingColumn": 51,
+          "startingLine": 44
         }
       }
     ]

@@ -65,6 +65,26 @@
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AppMainView.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AppMainView~partial.swiftmodule"
   },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ChallengeScreen/ChallengeCreationSheet.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCreationSheet~partial.swiftmodule"
+  },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ChallengeScreen/ChallengeListScreen.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeListScreen~partial.swiftmodule"
+  },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ChallengeScreen/ChallengesScreen.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengesScreen.swiftconstvalues",
     "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengesScreen.d",
@@ -85,6 +105,16 @@
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ColorExtension.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ColorExtension~partial.swiftmodule"
   },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/HomeScreen/ChallengeDetailScreen.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeDetailScreen~partial.swiftmodule"
+  },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/HomeScreen/HomeScreen.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HomeScreen.swiftconstvalues",
     "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HomeScreen.d",
@@ -94,6 +124,16 @@
     "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HomeScreen.o",
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HomeScreen.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HomeScreen~partial.swiftmodule"
+  },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/HomeScreen/widgets/ChallengeCard.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard~partial.swiftmodule"
   },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/LoginScreen/LoginScreen.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/LoginScreen.swiftconstvalues",
@@ -115,6 +155,16 @@
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/RegisterScreen~partial.swiftmodule"
   },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ProfileScreen/ObjectivesScreen.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesScreen~partial.swiftmodule"
+  },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/ProfileScreen/ProfileScreen.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ProfileScreen.swiftconstvalues",
     "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ProfileScreen.d",
@@ -134,16 +184,6 @@
     "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/SettingCard.o",
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/SettingCard.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/SettingCard~partial.swiftmodule"
-  },
-  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/ChallengeCard.swift" : {
-    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftconstvalues",
-    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.d",
-    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.dia",
-    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.o",
-    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.bc",
-    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.o",
-    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard.swiftdeps",
-    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ChallengeCard~partial.swiftmodule"
   },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/Screens/widgets/CircularProgressView.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/CircularProgressView.swiftconstvalues",
@@ -204,6 +244,26 @@
     "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.o",
     "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService.swiftdeps",
     "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/AuthenticationService~partial.swiftmodule"
+  },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/ViewModel/HealthKitService.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/HealthKitService~partial.swiftmodule"
+  },
+  "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/ViewModel/ObjectivesViewModel.swift" : {
+    "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.swiftconstvalues",
+    "dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.d",
+    "diagnostics" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.dia",
+    "index-unit-output-path" : "/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.o",
+    "llvm-bc" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.bc",
+    "object" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.o",
+    "swift-dependencies" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel.swiftdeps",
+    "swiftmodule" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/ObjectivesViewModel~partial.swiftmodule"
   },
   "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/StepUp/ViewModel/UserChallengesService.swift" : {
     "const-values" : "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/Build/Intermediates.noindex/StepUp.build/Debug-iphonesimulator/StepUp.build/Objects-normal/arm64/UserChallengesService.swiftconstvalues",

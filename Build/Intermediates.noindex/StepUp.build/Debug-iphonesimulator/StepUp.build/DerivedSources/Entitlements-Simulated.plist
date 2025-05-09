@@ -4,5 +4,7 @@
 <dict>
 	<key>application-identifier</key>
 	<string>VNWZ6NJ89U.com.hugoblas.StepUp</string>
+	<key>com.apple.developer.healthkit</key>
+	<true/>
 </dict>
 </plist>

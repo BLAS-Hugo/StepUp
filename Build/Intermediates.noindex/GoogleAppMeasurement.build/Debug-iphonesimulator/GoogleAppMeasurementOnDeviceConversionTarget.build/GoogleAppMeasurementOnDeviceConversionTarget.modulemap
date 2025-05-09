@@ -1,4 +1,4 @@
 module GoogleAppMeasurementOnDeviceConversionTarget {
-umbrella "/Users/hugo/Library/Developer/Xcode/DerivedData/StepUp-bjrsiozzhuosacdplgloqcyvxagg/SourcePackages/checkouts/GoogleAppMeasurement/GoogleAppMeasurementOnDeviceConversionWrapper/include"
+umbrella "/Volumes/SSD Mac/Dev/Open Classroom/projet libre/StepUp/DerivedData/StepUp/SourcePackages/checkouts/GoogleAppMeasurement/GoogleAppMeasurementOnDeviceConversionWrapper/include"
 export *
 }
