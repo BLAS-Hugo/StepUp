@@ -23,7 +23,7 @@ struct ChallengeDetailScreen: View {
     }
 
     var progress: Int {
-        if !isParticipating {
+        if isParticipating {
             return challenge.getParticipantProgress(userID: authenticationService.currentUser!.id)
         }
         return 0

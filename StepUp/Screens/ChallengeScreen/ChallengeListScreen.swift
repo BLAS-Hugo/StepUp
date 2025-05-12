@@ -14,7 +14,7 @@ struct ChallengeListScreen: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 8) {
-                ForEach(0...challenges.count, id: \.self) { index in
+                ForEach(0..<challenges.count, id: \.self) { index in
                     NavigationLink {
                         ChallengeDetailScreen(challenge: challenges[index])
                             .navigationTitle(Text(challenges[index].name))

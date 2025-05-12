@@ -175,6 +175,9 @@
         }
       }
     },
+    "Historique de challenges" : {
+
+    },
     "home" : {
       "localizations" : {
         "en" : {
@@ -255,6 +258,9 @@
 
     },
     "Participer" : {
+
+    },
+    "Participez aux challenges des autres utilisateurs" : {
 
     },
     "Pas" : {
@@ -402,6 +408,9 @@
 
     },
     "Voir plus" : {
+
+    },
+    "Vous y participez déjà" : {
 
     },
     "welcome" : {

@@ -47,11 +47,15 @@ struct ProfileScreen: View {
                     } label: {
                         SettingCard(title: "Mes objectifs")
                     }
-                    NavigationLink {
-                        ChallengeListScreen(challenges: challengesService.userChallengesHistory)
-                            .environmentObject(authenticationService)
-                    } label: {
-                        SettingCard(title: "Mon historique de challenges")
+                    if challengesService.userChallengesHistory.count > 0 {
+                        NavigationLink {
+                            ChallengeListScreen(challenges: challengesService.userChallengesHistory)
+                                .environmentObject(authenticationService)
+                                .navigationTitle(Text("Historique de challenges"))
+                                .navigationBarTitleDisplayMode(.large)
+                        } label: {
+                            SettingCard(title: "Mon historique de challenges")
+                        }
                     }
                     SettingCard(title: "Politique de confidentialités")
                 }

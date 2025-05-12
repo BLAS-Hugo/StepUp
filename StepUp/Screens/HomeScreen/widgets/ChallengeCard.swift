@@ -41,6 +41,5 @@ struct ChallengeCard: View {
         )
         .background(Color(.systemFill))
         .clipShape(RoundedRectangle(cornerRadius: 18))
-        .padding(.leading, 16)
     }
 }

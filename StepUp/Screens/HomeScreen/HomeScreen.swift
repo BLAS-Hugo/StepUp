@@ -60,36 +60,38 @@ struct HomeScreen: View {
             currentChallengeSection
         }
         .frame(maxHeight: .infinity, alignment: .top)
-        .padding(.vertical, 24)
+        .padding(.all, 16)
     }
 
     private var challengesSection: some View {
-            VStack {
-                HStack {
-                    Text("My challenges")
-                        .font(.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Button("Voir plus") {
-                        // TODO: Swap tab
+        VStack {
+            HStack {
+                Text("My challenges")
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                SeeMoreButton(
+                    title: "Mes challenges",
+                    challenges: challengesService.userCreatedChallenges
+                )
+                .environmentObject(authenticationService)
+            }
+            .padding(.horizontal, 16)
+            if challengesService.userCreatedChallenges.count > 0 {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: 16) {
+                        ForEach(0..<min(3, challengesService.userCreatedChallenges.count), id: \.self) { index in
+                            createdChallengeLink(index: index)
+                        }
                     }
                 }
-                .padding(.horizontal, 16)
-                if challengesService.userCreatedChallenges.count > 0 {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(alignment: .top, spacing: 10) {
-                            ForEach(0..<min(3, challengesService.userCreatedChallenges.count), id: \.self) { index in
-                                participatingChallengeLink(index: index)
-                            }
-                        }
-                }
-                } else {
-                    Text("Pas de challenges en cours")
-                        .padding(.vertical, 16)
-                }
+            } else {
+                Text("Pas de challenges en cours")
+                    .padding(.vertical, 16)
+            }
         }
     }
 
-    private func participatingChallengeLink(index: Int) -> some View {
+    private func createdChallengeLink(index: Int) -> some View {
         let challenge = challengesService.userCreatedChallenges[index]
 
         return NavigationLink {
@@ -121,7 +123,9 @@ struct HomeScreen: View {
 
     private func currentChallengeView(challenge: Challenge) -> some View {
         NavigationLink {
-            // Action for challenge button
+            ChallengeDetailScreen(challenge: challenge)
+                .navigationTitle(Text(challenge.name))
+                .navigationBarTitleDisplayMode(.large)
         } label: {
             VStack(alignment: .leading, spacing: 10) {
                 Text(challenge.name)
@@ -135,9 +139,9 @@ struct HomeScreen: View {
                 challengeTimeText(remainingDays: remainingDays)
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
-            .padding(.all, 8)
+            .padding(.all, 16)
         }
-        .frame(width: UIScreen.main.bounds.size.width * 0.8, height: 118, alignment: .topLeading)
+        .frame(width: UIScreen.main.bounds.size.width * 0.8, height: 152, alignment: .topLeading)
         .background(Color.primaryOrange)
         .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 18))
