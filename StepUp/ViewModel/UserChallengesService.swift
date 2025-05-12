@@ -17,8 +17,9 @@ class UserChallengesService: ObservableObject {
     @Published var userParticipatingChallenges: [Challenge] = []
     @Published var userCurrentChallenge: Challenge? = nil
     @Published var otherChallenges: [Challenge] = []
+    @Published var userChallengesHistory: [Challenge] = []
 
-    init(authenticationService: AuthenticationService) {
+    init(with authenticationService: AuthenticationService) {
         self.authenticationService = authenticationService
         if self.authenticationService.currentUser == nil {
             return
@@ -74,18 +75,30 @@ class UserChallengesService: ObservableObject {
     private func filterChallenges() {
         userParticipatingChallenges = challenges.filter {
             $0.participants.contains(
-                where: { $0.userID == self.authenticationService.currentUser?.id})
+                where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate > Date.now
         }
 
-        userCurrentChallenge = userParticipatingChallenges.first { $0.date.addingTimeInterval(TimeInterval($0.duration)) > Date.now }
+        userCurrentChallenge = userParticipatingChallenges.first { $0.endDate > Date.now }
 
         userCreatedChallenges = challenges.filter {
-            $0.creatorUserID == self.authenticationService.currentUser?.id
+            $0.creatorUserID == self.authenticationService.currentUser?.id && $0.endDate > Date.now
         }
         otherChallenges = challenges.filter {
             $0.creatorUserID != self.authenticationService.currentUser?.id &&
-            !$0.participants.contains(where: { $0.userID == self.authenticationService.currentUser?.id })
+            !$0.participants.contains(where: { $0.userID == self.authenticationService.currentUser?.id }) &&
+            $0.endDate > Date.now
         }
+
+        userChallengesHistory = challenges.filter {
+            $0.participants.contains(
+                where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate < Date.now
+        }
+
+        print(userParticipatingChallenges.count)
+        print(userCreatedChallenges.count)
+        print(otherChallenges.count)
+        print(userChallengesHistory.count)
+        print(challenges.count)
     }
 
     func participateToChallenge(_ challenge: Challenge, user: User) async {
@@ -103,13 +116,13 @@ class UserChallengesService: ObservableObject {
         // Take new challenge start date and is should NOT be contained within another challenge start date and end date
         var isColliding: Bool = false
         challengesToCheck.forEach {
-            if startDate >= $0.date && startDate <= $0.date.addingTimeInterval(TimeInterval($0.duration)) {
+            if startDate >= $0.date && startDate <= $0.endDate {
                 isColliding = true
             }
         }
         // Take new challenge end date and is should NOT be contained within another challenge start date and end date
         challengesToCheck.forEach {
-            if endDate >= $0.date && endDate <= $0.date.addingTimeInterval(TimeInterval($0.duration)) {
+            if endDate >= $0.date && endDate <= $0.endDate {
                 isColliding = true
             }
         }

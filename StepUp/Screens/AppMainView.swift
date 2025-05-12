@@ -12,9 +12,7 @@ struct AppMainView: View {
     @StateObject var healthKitService = HealthKitService()
     @StateObject var objectivesViewModel = ObjectivesViewModel()
     @State var selection: Int = 0
-    var challengesService: UserChallengesService {
-        return UserChallengesService(authenticationService: authenticationService)
-    }
+    @EnvironmentObject var challengesService: UserChallengesService
 
     var body: some View {
         TabView(selection: $selection) {
@@ -48,7 +46,9 @@ struct AppMainView: View {
 
             NavigationStack {
                 ProfileScreen()
+                    .environmentObject(authenticationService)
                     .environmentObject(objectivesViewModel)
+                    .environmentObject(challengesService)
                     .navigationTitle(Text(LocalizedStringKey("profile")))
                     .navigationBarTitleDisplayMode(.large)
             }

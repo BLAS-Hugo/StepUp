@@ -64,24 +64,28 @@ struct HomeScreen: View {
     }
 
     private var challengesSection: some View {
-        VStack {
-            HStack {
-                Text("My challenges")
-                    .font(.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Button("Voir plus") {
-                    // TODO: Swap tab
-                }
-            }
-            .padding(.horizontal, 16)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 10) {
-                    ForEach(0..<min(3, challengesService.userCreatedChallenges.count), id: \.self) { index in
-                        participatingChallengeLink(index: index)
+            VStack {
+                HStack {
+                    Text("My challenges")
+                        .font(.title)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Button("Voir plus") {
+                        // TODO: Swap tab
                     }
                 }
-            }
+                .padding(.horizontal, 16)
+                if challengesService.userCreatedChallenges.count > 0 {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 10) {
+                            ForEach(0..<min(3, challengesService.userCreatedChallenges.count), id: \.self) { index in
+                                participatingChallengeLink(index: index)
+                            }
+                        }
+                }
+                } else {
+                    Text("Pas de challenges en cours")
+                        .padding(.vertical, 16)
+                }
         }
     }
 
@@ -139,6 +143,10 @@ struct HomeScreen: View {
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 
+    private func closeBottomSheet() {
+        shouldShowChallengesSheet = false
+    }
+
     private var noChallengeView: some View {
         Button {
             shouldShowChallengesSheet.toggle()
@@ -153,8 +161,8 @@ struct HomeScreen: View {
             .padding(.all, 8)
         }
         .sheet(isPresented: $shouldShowChallengesSheet) {
-            ChallengeCreationSheet()
-                .presentationDetents([.medium, .large])
+            ChallengeCreationSheet(closeCallback: closeBottomSheet)
+                .presentationDetents([.large])
                 .environmentObject(challengesService)
                 .environmentObject(authenticationService)
         }

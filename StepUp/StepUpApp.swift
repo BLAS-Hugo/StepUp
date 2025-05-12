@@ -30,7 +30,9 @@ struct StepUpApp: App {
     var body: some Scene {
         WindowGroup {
             if authenticationService.currentUserSession != nil {
-                AppMainView().environmentObject(authenticationService)
+                AppMainView()
+                    .environmentObject(authenticationService)
+                    .environmentObject(UserChallengesService(with: authenticationService))
             } else {
                 AuthNavigationView().environmentObject(authenticationService)
             }

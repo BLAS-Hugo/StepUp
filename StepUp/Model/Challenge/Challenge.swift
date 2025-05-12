@@ -21,6 +21,10 @@ struct Challenge: Identifiable {
         return participants.first(where: { $0.userID == userID })!.progress
     }
 
+    var endDate: Date {
+        date.addingTimeInterval(TimeInterval(duration))
+    }
+
     func addParticipant(_ user: User) -> Challenge {
         var participantsArray = participants
         participantsArray.append(Participant(userID: user.id, name: user.firstName, progress: 0))

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChallengeCreationSheet: View {
+    let closeCallback: () -> Void
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var authenticationService: AuthenticationService
     @State private var challengeName: String = ""
@@ -47,12 +48,21 @@ struct ChallengeCreationSheet: View {
                                 Text("Pas").tag(1)
                             }
                             .pickerStyle(.segmented)
-                            TextField("", text: $challengeGoal)
-                                .textFieldStyle(.roundedBorder)
+                            HStack {
+                                TextField("", text: $challengeGoal)
+                                    .textFieldStyle(.roundedBorder)
+                                    .keyboardType(.numberPad)
+                                if challengeGoalType == 0 {
+                                    Text("KM")
+                                }
+                            }
                         }
                     }
                     Button {
-                        print("Confirm")
+                        print(canCreateChallenge)
+                        Task {
+                            await createChallenge()
+                        }
                     } label: {
                         Text("Confirmer")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -77,9 +87,11 @@ struct ChallengeCreationSheet: View {
             return
         }
 
-        let goal = challengeGoalType == 0 ? Goal(distance: Int(challengeGoal), steps: nil) : Goal(distance: nil, steps: Int(challengeGoal))
+        print("Dates are ok")
+        let goal = challengeGoalType == 0 ? Goal(distance: Int(challengeGoal) ?? 0 * 1000, steps: nil) : Goal(distance: nil, steps: Int(challengeGoal))
+        print("Parsed goal")
         let duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
-
+        print("Parsed duration")
         let challenge = Challenge(
             creatorUserID: authenticationService.currentUser!.id,
             participants: [],
@@ -90,11 +102,13 @@ struct ChallengeCreationSheet: View {
             date: challengeDate,
             id: nil
         )
+        print("Parsed challenge")
 
         do {
             try await challengesService.createChallenge(challenge, forUser: authenticationService.currentUser)
         } catch {
             // Display error to user
         }
+        closeCallback()
     }
 }
