@@ -24,7 +24,6 @@ struct ChallengeCreationSheet: View {
 
     var body: some View {
         ScrollView {
-            GeometryReader { geometry in
                 VStack(spacing: 32) {
                     Text("Créer un nouveau Challenge")
                         .font(.title2)
@@ -39,8 +38,16 @@ struct ChallengeCreationSheet: View {
                             TextField("", text: $challengeDescription)
                                 .textFieldStyle(.roundedBorder)
                         }
-                        DatePicker("Date de départ du challenge", selection: $challengeDate, displayedComponents: [.date])
-                        DatePicker("Date de fin du challenge", selection: $challengeEndDate, displayedComponents: [.date])
+                        DatePicker(
+                            "Date de départ du challenge",
+                            selection: $challengeDate,
+                            displayedComponents: [.date]
+                        )
+                        DatePicker(
+                            "Date de fin du challenge",
+                            selection: $challengeEndDate,
+                            displayedComponents: [.date]
+                        )
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Objectif du challenge: ")
                             Picker("Type de challenge", selection: $challengeGoalType) {
@@ -77,7 +84,6 @@ struct ChallengeCreationSheet: View {
                 }
                 .padding(.all, 32)
             }
-        }
     }
 
     private func createChallenge() async {
@@ -88,7 +94,9 @@ struct ChallengeCreationSheet: View {
         }
 
         print("Dates are ok")
-        let goal = challengeGoalType == 0 ? Goal(distance: Int(challengeGoal) ?? 0 * 1000, steps: nil) : Goal(distance: nil, steps: Int(challengeGoal))
+        let goal = challengeGoalType == 0
+        ? Goal(distance: Int(challengeGoal) ?? 0 * 1000, steps: nil)
+        : Goal(distance: nil, steps: Int(challengeGoal))
         print("Parsed goal")
         let duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
         print("Parsed duration")

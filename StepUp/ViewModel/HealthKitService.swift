@@ -55,13 +55,19 @@ class HealthKitService: ObservableObject {
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: Date())
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
-        let query = HKStatisticsCollectionQueryDescriptor(predicate: sample, options: .mostRecent, anchorDate: Date(), intervalComponents: DateComponents(day:1))
+        let query = HKStatisticsCollectionQueryDescriptor(
+            predicate: sample,
+            options: .mostRecent,
+            anchorDate: Date(),
+            intervalComponents: DateComponents(day: 1)
+        )
 
         let data = try? await query.result(for: healthStore)
 
         var result: Int = 5000
 
-        data?.enumerateStatistics(from: Date(), to: Date()) { (statistic, stop) in
+        data?.enumerateStatistics(
+            from: Date(), to: Date()) { (statistic, _) in
             let count = statistic.sumQuantity()?.doubleValue(for: .count())
             result = Int(count ?? 5000)
             DispatchQueue.main.async {

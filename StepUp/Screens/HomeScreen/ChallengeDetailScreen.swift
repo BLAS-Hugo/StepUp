@@ -31,7 +31,9 @@ struct ChallengeDetailScreen: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            CircularProgressView(progress: progress, type: challenge.goal.steps != nil ? .steps : .distance, goal: challenge.goal.getGoal())
+            CircularProgressView(
+                progress: progress,
+                type: challenge.goal.steps != nil ? .steps : .distance, goal: challenge.goal.getGoal())
             Text(challenge.description)
                 .frame(alignment: .leading)
             let remainingTime = challenge.date.addingTimeInterval(
@@ -53,7 +55,9 @@ struct ChallengeDetailScreen: View {
                         HStack {
                             Text(participant.name)
                                 .frame(minWidth: 56, alignment: .leading)
-                            ProgressView(value: Double(challenge.getParticipantProgress(userID: participant.userID)), total: Double(challenge.goal.getGoal()))
+                            ProgressView(
+                                value: Double(challenge.getParticipantProgress(userID: participant.userID)),
+                                total: Double(challenge.goal.getGoal()))
                                 .progressViewStyle(LinearProgressStyle())
                                 .padding(.horizontal, 4)
                             Text("\(participant.progress)")
@@ -73,7 +77,8 @@ struct ChallengeDetailScreen: View {
             if canParticipate {
                 Button {
                     Task {
-                        await challengesService.participateToChallenge(challenge, user: authenticationService.currentUser!)
+                        await challengesService.participateToChallenge(
+                            challenge, user: authenticationService.currentUser!)
                     }
                 } label: {
                     Text("Participer")

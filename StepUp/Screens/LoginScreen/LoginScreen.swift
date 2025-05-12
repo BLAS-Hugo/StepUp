@@ -51,7 +51,7 @@ struct LoginScreen: View {
                             shouldHideErrorText: isEmailValid,
                             shouldUseAutoCapitalization: false
                         )
-                        .onChange(of: email) { oldValue, newValue in
+                        .onChange(of: email) { _, newValue in
                                         if !newValue.isEmpty {
                                             isEmailValid = isValidEmail(newValue)
                                         } else {
@@ -66,7 +66,7 @@ struct LoginScreen: View {
                                 isSecureField: true,
                                 shouldHideErrorText: isPasswordValid
                             )
-                            .onChange(of: password) { oldValue, newValue in
+                            .onChange(of: password) { _, newValue in
                                             if !newValue.isEmpty {
                                                 isPasswordValid = isValidPassword(newValue)
                                             } else {

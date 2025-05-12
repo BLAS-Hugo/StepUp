@@ -149,6 +149,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9ABF0D9D2DD2920800E4CE7A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				9AC00AB02D6889820032E01C /* StepUp */,
@@ -249,6 +250,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				9ABF0D9B2DD2919400E4CE7A /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9AC00AAF2D6889820032E01C /* Products */;
@@ -312,6 +314,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9ABF0D9D2DD2920800E4CE7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 9ABF0D9C2DD2920800E4CE7A /* SwiftLintBuildToolPlugin */;
+		};
 		9AC00AC22D6889840032E01C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9AC00AAD2D6889820032E01C /* StepUp */;
@@ -628,6 +634,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9ABF0D9B2DD2919400E4CE7A /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
 		9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -639,6 +653,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9ABF0D9C2DD2920800E4CE7A /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ABF0D9B2DD2919400E4CE7A /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
 		9AC00AE02D688E1A0032E01C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

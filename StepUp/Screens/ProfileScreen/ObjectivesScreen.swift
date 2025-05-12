@@ -20,7 +20,7 @@ struct ObjectivesScreen: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Nombre de pas")
                         .font(.title3)
-                    HStack() {
+                    HStack {
                         Button {
                             objectivesViewModel.decrementData(for: "steps")
                             objectivesViewModel.saveData(for: "steps", data: objectivesViewModel.numberOfSteps)
@@ -55,7 +55,7 @@ struct ObjectivesScreen: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Nombre de kilomètres")
                         .font(.title3)
-                    HStack() {
+                    HStack {
                         Button {
                             objectivesViewModel.decrementData(for: "distance")
                             objectivesViewModel.saveData(for: "distance", data: objectivesViewModel.distance)

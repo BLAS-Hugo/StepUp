@@ -15,15 +15,18 @@ struct ChallengeCard: View {
         return challenge.participants.count(where: { $0.userID == userID }) > 0
     }
 
-    var body : some View {
+    var body: some View {
         VStack {
             VStack(spacing: 16) {
                 Text(challenge.name)
                     .bold()
                     .foregroundStyle(.black)
                 if isUserParticipating {
-                    ProgressView(value: Double(challenge.getParticipantProgress(userID: userID)), total: Double(challenge.goal.getGoal()))
-                        .progressViewStyle(LinearProgressStyle())
+                    ProgressView(
+                        value: Double(challenge.getParticipantProgress(userID: userID)),
+                        total: Double(challenge.goal.getGoal())
+                    )
+                    .progressViewStyle(LinearProgressStyle())
                 }
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)

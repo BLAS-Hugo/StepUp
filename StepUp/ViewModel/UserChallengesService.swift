@@ -15,7 +15,7 @@ class UserChallengesService: ObservableObject {
     @Published var challenges: [Challenge] = []
     @Published var userCreatedChallenges: [Challenge] = []
     @Published var userParticipatingChallenges: [Challenge] = []
-    @Published var userCurrentChallenge: Challenge? = nil
+    @Published var userCurrentChallenge: Challenge?
     @Published var otherChallenges: [Challenge] = []
     @Published var userChallengesHistory: [Challenge] = []
 

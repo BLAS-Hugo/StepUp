@@ -14,8 +14,7 @@ struct LinearProgressStyle: ProgressViewStyle {
     func makeBody(configuration: Configuration) -> some View {
         let fractionCompleted = configuration.fractionCompleted ?? 0
 
-        GeometryReader {
-            geometry in
+        GeometryReader { geometry in
             ZStack {
                 RoundedRectangle(cornerRadius: 10.0)
                     .fill(.gray.opacity(0.2))
