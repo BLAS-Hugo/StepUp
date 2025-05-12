@@ -22,7 +22,8 @@ struct ChallengeListScreen: View {
                     } label: {
                         ChallengeCard(
                             challenge: challenges[index],
-                            userID: authenticationService.currentUserSession!.uid
+                            userID: authenticationService.currentUserSession!.uid,
+                            style: .wide
                         )
                     }
                 }

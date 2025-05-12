@@ -13,6 +13,11 @@ struct AppMainView: View {
     @StateObject var objectivesViewModel = ObjectivesViewModel()
     @State var selection: Int = 0
     @EnvironmentObject var challengesService: UserChallengesService
+    @State private var shouldShowChallengesSheet = false
+
+    private func closeBottomSheet() {
+        shouldShowChallengesSheet = false
+    }
 
     var body: some View {
         TabView(selection: $selection) {
@@ -36,6 +41,21 @@ struct AppMainView: View {
                     .environmentObject(challengesService)
                     .navigationTitle(Text(LocalizedStringKey("challenges")))
                     .navigationBarTitleDisplayMode(.large)
+                    .toolbar {
+                        ToolbarItem(placement: .primaryAction) {
+                            Button {
+                                shouldShowChallengesSheet.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                            }
+                            .sheet(isPresented: $shouldShowChallengesSheet) {
+                                ChallengeCreationSheet(closeCallback: closeBottomSheet)
+                                    .presentationDetents([.large])
+                                    .environmentObject(challengesService)
+                                    .environmentObject(authenticationService)
+                            }
+                        }
+                    }
             }
             .tabItem {
                 Image(systemName: "rosette")
