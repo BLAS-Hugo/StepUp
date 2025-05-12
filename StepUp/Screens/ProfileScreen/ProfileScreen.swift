@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
 
     var body: some View {
@@ -46,7 +47,12 @@ struct ProfileScreen: View {
                     } label: {
                         SettingCard(title: "Mes objectifs")
                     }
-                    SettingCard(title: "Mon historique de challenges")
+                    NavigationLink {
+                        ChallengeListScreen(challenges: challengesService.userChallengesHistory)
+                            .environmentObject(authenticationService)
+                    } label: {
+                        SettingCard(title: "Mon historique de challenges")
+                    }
                     SettingCard(title: "Politique de confidentialités")
                 }
                 .frame(maxHeight: .infinity, alignment: .top)

@@ -16,7 +16,7 @@ struct CircularProgressView: View {
 
     var body: some View {
         VStack {
-            ProgressView(value: Double(progress), total: Double(goal))
+            ProgressView(value: Double(min(progress, goal)), total: Double(goal))
                 .progressViewStyle(GaugeProgressStyle(strokeColor: color))
                 .frame(width: 128, height: 128)
                 .contentShape(Rectangle())

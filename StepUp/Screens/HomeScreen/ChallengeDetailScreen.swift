@@ -12,12 +12,18 @@ struct ChallengeDetailScreen: View {
     @EnvironmentObject var authenticationService: AuthenticationService
     @EnvironmentObject var challengesService: UserChallengesService
 
-    private var isUserParticipating: Bool {
+    private var canParticipate: Bool {
+        return challenge.participants.count(where: { $0.userID == authenticationService.currentUser!.id }) < 1
+        && challenge.endDate < Date.now
+        && challengesService.areChallengeDatesValid(from: challenge.date, to: challenge.endDate)
+    }
+
+    private var isParticipating: Bool {
         return challenge.participants.count(where: { $0.userID == authenticationService.currentUser!.id }) > 0
     }
 
     var progress: Int {
-        if isUserParticipating {
+        if !isParticipating {
             return challenge.getParticipantProgress(userID: authenticationService.currentUser!.id)
         }
         return 0
@@ -64,7 +70,7 @@ struct ChallengeDetailScreen: View {
             .background(Color.appLightGray)
             .clipShape(RoundedRectangle(cornerRadius: 18))
 
-            if !isUserParticipating {
+            if canParticipate {
                 Button {
                     Task {
                         await challengesService.participateToChallenge(challenge, user: authenticationService.currentUser!)

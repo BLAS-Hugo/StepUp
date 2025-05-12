@@ -191,6 +191,9 @@
         }
       }
     },
+    "KM" : {
+
+    },
     "Mes objectifs" : {
 
     },
@@ -258,6 +261,9 @@
 
     },
     "Pas de challenge actif" : {
+
+    },
+    "Pas de challenges en cours" : {
 
     },
     "password" : {

@@ -16,29 +16,29 @@ struct ChallengeCard: View {
     }
 
     var body : some View {
-        VStack(spacing: 16) {
-            Text(challenge.name)
-                .bold()
+        VStack {
+            VStack(spacing: 16) {
+                Text(challenge.name)
+                    .bold()
+                    .foregroundStyle(.black)
+                if isUserParticipating {
+                    ProgressView(value: Double(challenge.getParticipantProgress(userID: userID)), total: Double(challenge.goal.getGoal()))
+                        .progressViewStyle(LinearProgressStyle())
+                }
+                Text(challenge.goal.getGoalForDisplay())
+                    .foregroundStyle(.black)
+                Text(
+                    challenge.date,
+                    format: .dateTime.day().month().year())
                 .foregroundStyle(.black)
-            if isUserParticipating {
-                ProgressView(value: Double(challenge.getParticipantProgress(userID: userID)), total: Double(challenge.goal.getGoal()))
-                    .progressViewStyle(LinearProgressStyle())
             }
-            Text(challenge.goal.getGoalForDisplay())
-                .foregroundStyle(.black)
-            Text(
-                challenge.date,
-                format: .dateTime.day().month().year())
-            .foregroundStyle(.black)
+            .padding(.all, 8)
         }
         .frame(
-            minWidth: 128,
-            maxWidth: 156,
-            minHeight: 128,
-            maxHeight: 200,
+            width: 150,
+            height: 128,
             alignment: .topLeading
         )
-        .padding(.all, 8)
         .background(Color(.systemFill))
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .padding(.leading, 16)
