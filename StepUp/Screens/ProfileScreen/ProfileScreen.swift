@@ -30,7 +30,7 @@ struct ProfileScreen: View {
                                 .foregroundStyle(.black)
                                 .font(.caption)
                         }
-                        Text(authenticationService.currentUser!.firstName)
+                        Text(authenticationService.currentUser?.firstName ?? "Prénom")
                             .bold()
                     }
                 }
@@ -58,6 +58,11 @@ struct ProfileScreen: View {
                         }
                     }
                     SettingCard(title: "Politique de confidentialités")
+                    Button {
+                        authenticationService.signOut()
+                    } label: {
+                        SettingCard(title: "Déconnexion")
+                    }
                 }
                 .frame(maxHeight: .infinity, alignment: .top)
                 .background(Color.appLightGray)
