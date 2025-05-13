@@ -14,7 +14,7 @@ struct ChallengeDetailScreen: View {
 
     private var canParticipate: Bool {
         return challenge.participants.count(where: { $0.userID == authenticationService.currentUser!.id }) < 1
-        && challenge.endDate < Date.now
+        && challenge.endDate > Date.now
         && challengesService.areChallengeDatesValid(from: challenge.date, to: challenge.endDate)
     }
 

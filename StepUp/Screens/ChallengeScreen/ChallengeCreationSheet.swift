@@ -66,7 +66,6 @@ struct ChallengeCreationSheet: View {
                         }
                     }
                     Button {
-                        print(canCreateChallenge)
                         Task {
                             await createChallenge()
                         }
@@ -93,13 +92,10 @@ struct ChallengeCreationSheet: View {
             return
         }
 
-        print("Dates are ok")
         let goal = challengeGoalType == 0
         ? Goal(distance: Int(challengeGoal) ?? 0 * 1000, steps: nil)
         : Goal(distance: nil, steps: Int(challengeGoal))
-        print("Parsed goal")
         let duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
-        print("Parsed duration")
         let challenge = Challenge(
             creatorUserID: authenticationService.currentUser!.id,
             participants: [],
@@ -110,7 +106,6 @@ struct ChallengeCreationSheet: View {
             date: challengeDate,
             id: nil
         )
-        print("Parsed challenge")
 
         do {
             try await challengesService.createChallenge(challenge, forUser: authenticationService.currentUser)

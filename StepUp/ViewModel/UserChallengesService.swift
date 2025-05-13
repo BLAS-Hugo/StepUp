@@ -93,12 +93,6 @@ class UserChallengesService: ObservableObject {
             $0.participants.contains(
                 where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate < Date.now
         }
-
-        print(userParticipatingChallenges.count)
-        print(userCreatedChallenges.count)
-        print(otherChallenges.count)
-        print(userChallengesHistory.count)
-        print(challenges.count)
     }
 
     func participateToChallenge(_ challenge: Challenge, user: User) async {

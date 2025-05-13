@@ -47,8 +47,6 @@ class HealthKitService: ObservableObject {
     private func fetchAllData() async {
         let steps = await fetchData(for: HKQuantityType(.stepCount))
         let distance = await fetchData(for: HKQuantityType(.distanceWalkingRunning))
-
-        print(steps, distance)
     }
 
     private func fetchData(for datatype: HKQuantityType) async -> Int {
@@ -76,6 +74,39 @@ class HealthKitService: ObservableObject {
                     self.stepCount = Int(count ?? 5000)
                 case HKQuantityType(.distanceWalkingRunning):
                     self.distance = Int(count ?? 5000)
+                default:
+                    break
+                }
+            }
+        }
+        return result
+    }
+
+    func fetchDataForDatatypeAndDate(for datatype: HKQuantityType, from startDate: Date, to endDate: Date) async -> Int {
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+        let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
+
+        let query = HKStatisticsCollectionQueryDescriptor(
+            predicate: sample,
+            options: .cumulativeSum,
+            anchorDate: startDate,
+            intervalComponents: DateComponents(day: 1)
+        )
+
+        let data = try? await query.result(for: healthStore)
+
+        var result: Int = 0
+
+        data?.enumerateStatistics(
+            from: Date(), to: Date()) { (statistic, _) in
+            let count = statistic.sumQuantity()?.doubleValue(for: .count())
+            result = Int(count ?? 0)
+            DispatchQueue.main.async {
+                switch datatype {
+                case HKQuantityType(.stepCount):
+                    self.stepCount = Int(count ?? 0)
+                case HKQuantityType(.distanceWalkingRunning):
+                    self.distance = Int(count ?? 0)
                 default:
                     break
                 }
