@@ -45,8 +45,8 @@ class HealthKitService: ObservableObject {
     }
 
     private func fetchAllData() async {
-        let steps = await fetchData(for: HKQuantityType(.stepCount))
-        let distance = await fetchData(for: HKQuantityType(.distanceWalkingRunning))
+        _ = await fetchData(for: HKQuantityType(.stepCount))
+        _ = await fetchData(for: HKQuantityType(.distanceWalkingRunning))
     }
 
     private func fetchData(for datatype: HKQuantityType) async -> Int {
@@ -66,7 +66,16 @@ class HealthKitService: ObservableObject {
 
         data?.enumerateStatistics(
             from: Date(), to: Date()) { (statistic, _) in
-            let count = statistic.sumQuantity()?.doubleValue(for: .count())
+            let unit: HKUnit
+            switch datatype {
+            case HKQuantityType(.stepCount):
+                unit = .count()
+            case HKQuantityType(.distanceWalkingRunning):
+                unit = .meter()
+            default:
+                unit = .count()
+            }
+            let count = statistic.sumQuantity()?.doubleValue(for: unit)
             result = Int(count ?? 5000)
             DispatchQueue.main.async {
                 switch datatype {
@@ -82,7 +91,10 @@ class HealthKitService: ObservableObject {
         return result
     }
 
-    func fetchDataForDatatypeAndDate(for datatype: HKQuantityType, from startDate: Date, to endDate: Date) async -> Int {
+    func fetchDataForDatatypeAndDate(
+        for datatype: HKQuantityType,
+        from startDate: Date,
+        to endDate: Date) async -> Int {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
@@ -98,19 +110,18 @@ class HealthKitService: ObservableObject {
         var result: Int = 0
 
         data?.enumerateStatistics(
-            from: Date(), to: Date()) { (statistic, _) in
-            let count = statistic.sumQuantity()?.doubleValue(for: .count())
-            result = Int(count ?? 0)
-            DispatchQueue.main.async {
-                switch datatype {
-                case HKQuantityType(.stepCount):
-                    self.stepCount = Int(count ?? 0)
-                case HKQuantityType(.distanceWalkingRunning):
-                    self.distance = Int(count ?? 0)
-                default:
-                    break
-                }
+            from: startDate, to: endDate) { (statistic, _) in
+            let unit: HKUnit
+            switch datatype {
+            case HKQuantityType(.stepCount):
+                unit = .count()
+            case HKQuantityType(.distanceWalkingRunning):
+                unit = .meter()
+            default:
+                unit = .count()
             }
+            let count = statistic.sumQuantity()?.doubleValue(for: unit)
+            result += Int(count ?? 0)
         }
         return result
     }

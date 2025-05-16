@@ -7,10 +7,12 @@
 
 import FirebaseCore
 import FirebaseFirestore
+import HealthKit
 
 @MainActor
 class UserChallengesService: ObservableObject {
     let authenticationService: AuthenticationService
+    let healthKitService: HealthKitService
 
     @Published var challenges: [Challenge] = []
     @Published var userCreatedChallenges: [Challenge] = []
@@ -19,13 +21,15 @@ class UserChallengesService: ObservableObject {
     @Published var otherChallenges: [Challenge] = []
     @Published var userChallengesHistory: [Challenge] = []
 
-    init(with authenticationService: AuthenticationService) {
+    init(with authenticationService: AuthenticationService, _ healthKitService: HealthKitService) {
         self.authenticationService = authenticationService
+        self.healthKitService = healthKitService
         if self.authenticationService.currentUser == nil {
             return
         }
         Task {
             await fetchChallenges(forUser: self.authenticationService.currentUser)
+            await updateUserCurrentChallenge()
         }
     }
 
@@ -93,6 +97,10 @@ class UserChallengesService: ObservableObject {
             $0.participants.contains(
                 where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate < Date.now
         }
+
+        challenges.removeAll(where: {
+            $0.endDate < Date.now
+        })
     }
 
     func participateToChallenge(_ challenge: Challenge, user: User) async {
@@ -102,6 +110,25 @@ class UserChallengesService: ObservableObject {
             // display error
         }
         await fetchChallenges(forUser: user)
+    }
+
+    func updateUserCurrentChallenge() async {
+        if let userCurrentChallenge {
+            let type = userCurrentChallenge.goal.steps ?? 0 > 0
+            ? HKQuantityType.quantityType(forIdentifier: .stepCount)!
+            : HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+            print(type)
+            let progress = await healthKitService.fetchDataForDatatypeAndDate(
+                for: type,
+                from: userCurrentChallenge.date,
+                to: userCurrentChallenge.endDate
+            )
+            print(progress)
+            let updatedChallenge = userCurrentChallenge.editParticipantProgress(
+                authenticationService.currentUser!,
+                progress: progress)
+            try? await editChallenge(updatedChallenge, forUser: authenticationService.currentUser)
+        }
     }
 
     func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
