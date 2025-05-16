@@ -35,7 +35,10 @@ struct ChallengesScreen: View {
                     Text(LocalizedStringKey("participate_to_other_challenges"))
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(title: LocalizedStringKey("challenges"), challenges: challengesService.otherChallenges)
+                    SeeMoreButton(
+                        title: LocalizedStringKey("challenges"),
+                        challenges: challengesService.otherChallenges
+                    )
                         .environmentObject(authenticationService)
                 }
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -52,7 +55,10 @@ struct ChallengesScreen: View {
                     Text(LocalizedStringKey("already_participating"))
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(title: LocalizedStringKey("challenges"), challenges: challengesService.userParticipatingChallenges)
+                    SeeMoreButton(
+                        title: LocalizedStringKey("challenges"),
+                        challenges: challengesService.userParticipatingChallenges
+                    )
                         .environmentObject(authenticationService)
                 }
                 ScrollView(.horizontal, showsIndicators: false) {

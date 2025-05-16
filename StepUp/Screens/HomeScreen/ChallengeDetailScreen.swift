@@ -40,10 +40,10 @@ struct ChallengeDetailScreen: View {
                 Double(challenge.duration)).timeIntervalSince(Date.now)
             let remainingDays = Int(remainingTime / 86400)
             if remainingDays < 0 {
-                Text("\(LocalizedStringKey("ended_since")) \(remainingDays * -1) \(LocalizedStringKey("day"))\(remainingDays > 1 ? "s" : "")")
+                Text("Ended since \(remainingDays * -1) day")
                     .frame(alignment: .leading)
             } else {
-                Text("\(LocalizedStringKey("ends_in")) \(remainingDays) \(LocalizedStringKey("day"))\(remainingDays > 1 ? "s" : "")")
+                Text("Ends in \(remainingDays) day")
                     .frame(alignment: .leading)
             }
             ScrollView(showsIndicators: false) {
@@ -70,7 +70,7 @@ struct ChallengeDetailScreen: View {
                         }
                     }
                     Text(
-                        "\(challenge.participants.count) \(LocalizedStringKey("participant"))\(challenge.participants.count > 1 ? "s":"")")
+                        "\(challenge.participants.count) participant")
                         .bold()
                         .frame(alignment: .bottom)
                 }

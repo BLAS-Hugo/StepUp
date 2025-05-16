@@ -76,7 +76,6 @@ struct LoginScreen: View {
                         }
                     }
 
-                    // Remember me button
                     if shouldDisplaySignInPage {
                     Button {
                         Task {
@@ -120,11 +119,10 @@ struct LoginScreen: View {
                         .navigationDestination(isPresented: $navigateToRegister) {
                             RegisterScreen(prefilledEmail: email)
                                 .environmentObject(authenticationService)
-                                .navigationBarBackButtonHidden(true)
+                                // .navigationBarBackButtonHidden(true)
                         }
                     }
                     Button {
-                        // Change view to sign in page
                         shouldDisplaySignInPage.toggle()
                         email = ""
                         password = ""
@@ -136,9 +134,6 @@ struct LoginScreen: View {
                             .underline()
                             .foregroundStyle(Color.primaryOrange)
                     }
-
-                    // Other connection methods
-                    // Google
                 }
                 .ignoresSafeArea()
                 .frame(

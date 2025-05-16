@@ -35,9 +35,9 @@ struct HomeScreen: View {
 
     private func challengeTimeText(remainingDays: Int) -> Text {
         if remainingDays < 0 {
-            return Text("Terminé depuis \(remainingDays * -1) jours")
+            return Text("Ended since \(remainingDays * -1) day")
         } else {
-            return Text("Se termine dans \(remainingDays) jours")
+            return Text("Ends in \(remainingDays) day")
         }
     }
 

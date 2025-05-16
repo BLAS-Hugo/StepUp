@@ -64,7 +64,12 @@ struct ChallengeCard: View {
                         .foregroundStyle(.black)
                     if isUserParticipating {
                         ProgressView(
-                            value: Double(min(challenge.getParticipantProgress(userID: userID), challenge.goal.getGoal())),
+                            value: Double(
+                                min(
+                                    challenge.getParticipantProgress(userID: userID),
+                                    challenge.goal.getGoal()
+                                )
+                            ),
                             total: Double(challenge.goal.getGoal())
                         )
                         .progressViewStyle(LinearProgressStyle())
