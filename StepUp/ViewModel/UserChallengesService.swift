@@ -13,6 +13,7 @@ import HealthKit
 class UserChallengesService: ObservableObject {
     let authenticationService: AuthenticationService
     let healthKitService: HealthKitService
+    private var timer: Timer?
 
     @Published var challenges: [Challenge] = []
     @Published var userCreatedChallenges: [Challenge] = []
@@ -30,7 +31,27 @@ class UserChallengesService: ObservableObject {
         Task {
             await fetchChallenges(forUser: self.authenticationService.currentUser)
             await updateUserCurrentChallenge()
+            startUpdateTimer()
         }
+    }
+
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    private func startUpdateTimer() {
+        stopUpdateTimer()
+        timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { [weak self] _ in
+            Task { [weak self] in
+                await self?.updateUserCurrentChallenge()
+            }
+        }
+    }
+
+    private func stopUpdateTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 
     func createChallenge(_ challenge: Challenge, forUser user: User?) async throws {
@@ -113,35 +134,40 @@ class UserChallengesService: ObservableObject {
     }
 
     func updateUserCurrentChallenge() async {
-        if let userCurrentChallenge {
-            let type = userCurrentChallenge.goal.steps ?? 0 > 0
-            ? HKQuantityType.quantityType(forIdentifier: .stepCount)!
-            : HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
-            print(type)
-            let progress = await healthKitService.fetchDataForDatatypeAndDate(
-                for: type,
-                from: userCurrentChallenge.date,
-                to: userCurrentChallenge.endDate
-            )
-            print(progress)
+        guard let userCurrentChallenge, let currentUser = authenticationService.currentUser else { return }
+
+        let type = userCurrentChallenge.goal.steps ?? 0 > 0
+        ? HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        : HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+
+        let newProgress = await healthKitService.fetchDataForDatatypeAndDate(
+            for: type,
+            from: userCurrentChallenge.date,
+            to: userCurrentChallenge.endDate
+        )
+
+        let currentProgress = userCurrentChallenge.participants.first(
+            where: { $0.userID == currentUser.id })?.progress ?? 0
+
+        if newProgress > currentProgress {
+            print("Updating challenge progress: \(currentProgress) -> \(newProgress)")
             let updatedChallenge = userCurrentChallenge.editParticipantProgress(
-                authenticationService.currentUser!,
-                progress: progress)
-            try? await editChallenge(updatedChallenge, forUser: authenticationService.currentUser)
+                currentUser,
+                progress: newProgress)
+            try? await editChallenge(updatedChallenge, forUser: currentUser)
         }
     }
 
     func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
         let challengesToCheck = userParticipatingChallenges
-        // Loop through user participating challenges and check if an end date is colliding with a start date
-        // Take new challenge start date and is should NOT be contained within another challenge start date and end date
+
         var isColliding: Bool = false
         challengesToCheck.forEach {
             if startDate >= $0.date && startDate <= $0.endDate {
                 isColliding = true
             }
         }
-        // Take new challenge end date and is should NOT be contained within another challenge start date and end date
+
         challengesToCheck.forEach {
             if endDate >= $0.date && endDate <= $0.endDate {
                 isColliding = true
