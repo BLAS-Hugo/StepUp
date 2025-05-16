@@ -32,7 +32,7 @@ struct ChallengeDetailScreen: View {
     var body: some View {
         VStack(spacing: 8) {
             CircularProgressView(
-                progress: progress,
+                progress: min(progress, challenge.goal.getGoal()),
                 type: challenge.goal.steps != nil ? .steps : .distance, goal: challenge.goal.getGoal())
             Text(challenge.description)
                 .frame(alignment: .leading)
@@ -40,31 +40,37 @@ struct ChallengeDetailScreen: View {
                 Double(challenge.duration)).timeIntervalSince(Date.now)
             let remainingDays = Int(remainingTime / 86400)
             if remainingDays < 0 {
-                Text("Terminé depuis \(remainingDays * -1) jours")
+                Text("\(LocalizedStringKey("ended_since")) \(remainingDays * -1) \(LocalizedStringKey("day"))\(remainingDays > 1 ? "s" : "")")
                     .frame(alignment: .leading)
             } else {
-                Text("Se termine dans \(remainingDays) jours")
+                Text("\(LocalizedStringKey("ends_in")) \(remainingDays) \(LocalizedStringKey("day"))\(remainingDays > 1 ? "s" : "")")
                     .frame(alignment: .leading)
             }
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading) {
-                    Text("Classement des participants")
-                        .font(.title3)
+                    HStack {
+                        Text(LocalizedStringKey("participant_rankings"))
+                            .font(.title3)
+                        Spacer()
+                    }
                     ForEach(0..<challenge.participants.count, id: \.self) { index in
                         let participant = challenge.participants[index]
                         HStack {
                             Text(participant.name)
                                 .frame(minWidth: 56, alignment: .leading)
                             ProgressView(
-                                value: Double(challenge.getParticipantProgress(userID: participant.userID)),
+                                value: Double(
+                                    min(challenge.getParticipantProgress(userID: participant.userID),
+                                        challenge.goal.getGoal())),
                                 total: Double(challenge.goal.getGoal()))
                                 .progressViewStyle(LinearProgressStyle())
                                 .padding(.horizontal, 4)
-                            Text("\(participant.progress)")
+                            Text("\(participant.progress / (challenge.goal.steps ?? 0 > 0 ? 1 : 1000))")
                                 .frame(minWidth: 56, alignment: .trailing)
                         }
                     }
-                    Text("\(challenge.participants.count) participant\(challenge.participants.count > 1 ? "s" : "")")
+                    Text(
+                        "\(challenge.participants.count) \(LocalizedStringKey("participant"))\(challenge.participants.count > 1 ? "s":"")")
                         .bold()
                         .frame(alignment: .bottom)
                 }
@@ -81,7 +87,7 @@ struct ChallengeDetailScreen: View {
                             challenge, user: authenticationService.currentUser!)
                     }
                 } label: {
-                    Text("Participer")
+                    Text(LocalizedStringKey("participate"))
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                         .padding(.vertical, 12)
                         .padding(.horizontal, 48)

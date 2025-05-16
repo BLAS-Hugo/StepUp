@@ -22,7 +22,7 @@ struct CircularProgressView: View {
                 .contentShape(Rectangle())
                 .padding()
             if type == .steps {
-                Text("\(progress) Steps")
+                Text("\(progress) \(LocalizedStringKey("steps"))")
             } else {
                 Text("\(Double(progress) / 1000, specifier: "%.1f") KM")
             }

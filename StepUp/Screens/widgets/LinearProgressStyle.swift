@@ -29,7 +29,3 @@ struct LinearProgressStyle: ProgressViewStyle {
         .frame(maxHeight: strokeHeight + 4)
     }
 }
-
-#Preview {
-    HomeScreen()
-}

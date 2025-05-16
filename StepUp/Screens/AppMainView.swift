@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AppMainView: View {
     @EnvironmentObject var authenticationService: AuthenticationService
-    @StateObject var healthKitService = HealthKitService()
-    @StateObject var objectivesViewModel = ObjectivesViewModel()
+    @EnvironmentObject var healthKitService: HealthKitService
+    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
     @State var selection: Int = 0
     @EnvironmentObject var challengesService: UserChallengesService
     @State private var shouldShowChallengesSheet = false

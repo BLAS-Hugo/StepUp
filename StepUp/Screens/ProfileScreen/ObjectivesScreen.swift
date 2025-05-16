@@ -18,7 +18,7 @@ struct ObjectivesScreen: View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 32) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Nombre de pas")
+                    Text(LocalizedStringKey("number_of_steps"))
                         .font(.title3)
                     HStack {
                         Button {
@@ -53,7 +53,7 @@ struct ObjectivesScreen: View {
                 }
                 .padding(.horizontal, 32)
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Nombre de kilomètres")
+                    Text(LocalizedStringKey("number_of_km"))
                         .font(.title3)
                     HStack {
                         Button {

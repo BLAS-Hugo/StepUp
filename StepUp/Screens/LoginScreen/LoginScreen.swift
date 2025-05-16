@@ -218,7 +218,3 @@ extension View {
         opacity(shouldHide ? 0 : 1)
     }
 }
-
-#Preview {
-    LoginScreen()
-}

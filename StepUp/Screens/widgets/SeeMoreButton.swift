@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SeeMoreButton: View {
-    let title: String
+    let title: LocalizedStringKey
     let challenges: [Challenge]
     @EnvironmentObject var authenticationService: AuthenticationService
 
     var body: some View {
-        NavigationLink("Voir plus") {
+        NavigationLink(LocalizedStringKey("see_more")) {
             ChallengeListScreen(challenges: challenges)
                 .environmentObject(authenticationService)
                 .navigationTitle(Text(title))

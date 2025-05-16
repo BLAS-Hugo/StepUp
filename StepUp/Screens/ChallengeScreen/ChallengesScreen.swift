@@ -32,10 +32,10 @@ struct ChallengesScreen: View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Participez aux challenges des autres utilisateurs")
+                    Text(LocalizedStringKey("participate_to_other_challenges"))
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(title: "Challenges", challenges: challengesService.otherChallenges)
+                    SeeMoreButton(title: LocalizedStringKey("challenges"), challenges: challengesService.otherChallenges)
                         .environmentObject(authenticationService)
                 }
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -49,10 +49,10 @@ struct ChallengesScreen: View {
             }
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Vous y participez déjà")
+                    Text(LocalizedStringKey("already_participating"))
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(title: "Challenges", challenges: challengesService.userParticipatingChallenges)
+                    SeeMoreButton(title: LocalizedStringKey("challenges"), challenges: challengesService.userParticipatingChallenges)
                         .environmentObject(authenticationService)
                 }
                 ScrollView(.horizontal, showsIndicators: false) {

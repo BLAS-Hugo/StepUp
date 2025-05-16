@@ -39,6 +39,23 @@ struct Challenge: Identifiable {
             id: id
         )
     }
+
+    func editParticipantProgress(_ user: User, progress: Int) -> Challenge {
+        var participantsArray = participants
+        let participant = participantsArray.first(where: { $0.userID == user.id })!
+        participantsArray[participantsArray.firstIndex(of: participant)!]
+        = Participant(userID: user.id, name: user.name, progress: progress)
+        return Challenge(
+            creatorUserID: creatorUserID,
+            participants: participantsArray,
+            name: name,
+            description: description,
+            goal: goal,
+            duration: duration,
+            date: date,
+            id: id
+        )
+    }
 }
 
 extension Challenge: Codable {

@@ -14,3 +14,5 @@ struct Participant {
 extension Participant: Codable {
 
 }
+
+extension Participant: Equatable { }

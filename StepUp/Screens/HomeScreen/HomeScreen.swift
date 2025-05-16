@@ -66,11 +66,11 @@ struct HomeScreen: View {
     private var challengesSection: some View {
         VStack {
             HStack {
-                Text("My challenges")
+                Text(LocalizedStringKey("my_challenges"))
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 SeeMoreButton(
-                    title: "Mes challenges",
+                    title: LocalizedStringKey("my_challenges"),
                     challenges: challengesService.userCreatedChallenges
                 )
                 .environmentObject(authenticationService)
@@ -85,7 +85,7 @@ struct HomeScreen: View {
                     }
                 }
             } else {
-                Text("Pas de challenges en cours")
+                Text(LocalizedStringKey("no_current_challenge"))
                     .padding(.vertical, 16)
             }
         }
@@ -132,7 +132,9 @@ struct HomeScreen: View {
                     .font(.title2)
 
                 let progress = challengeProgress(for: challenge)
-                ProgressView(value: progress, total: Double(challenge.goal.getGoal()))
+                ProgressView(
+                    value: min(progress, Double(challenge.goal.getGoal())),
+                    total: Double(challenge.goal.getGoal()))
                     .progressViewStyle(LinearProgressStyle())
 
                 let remainingDays = challengeRemainingDays(for: challenge)
@@ -156,9 +158,9 @@ struct HomeScreen: View {
             shouldShowChallengesSheet.toggle()
         } label: {
             VStack(alignment: .center, spacing: 10) {
-                Text("Pas de challenge actif")
+                Text(LocalizedStringKey("no_active_challenge"))
                     .font(.title2)
-                Text("Créez un challenge")
+                Text(LocalizedStringKey("create_challenge"))
                     .font(.subheadline)
             }
             .frame(maxWidth: .infinity)

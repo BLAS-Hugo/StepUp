@@ -30,38 +30,38 @@ struct ProfileScreen: View {
                                 .foregroundStyle(.black)
                                 .font(.caption)
                         }
-                        Text(authenticationService.currentUser?.firstName ?? "Prénom")
+                        Text(authenticationService.currentUser?.firstName ?? "first_name")
                             .bold()
                     }
                 }
                 .frame(maxWidth: geometry.size.width, maxHeight: 96, alignment: .leading)
                 .padding(.horizontal, 16)
                 VStack(spacing: 10) {
-                    SettingCard(title: "Mon compte")
+                    SettingCard(title: LocalizedStringKey("my_account"))
                         .padding(.top, 16)
                     NavigationLink {
                         ObjectivesScreen()
                             .environmentObject(objectivesViewModel)
-                            .navigationTitle(Text("Mes objectifs"))
+                            .navigationTitle(Text(LocalizedStringKey("my_objectives")))
                             .navigationBarTitleDisplayMode(.large)
                     } label: {
-                        SettingCard(title: "Mes objectifs")
+                        SettingCard(title: LocalizedStringKey("my_objectives"))
                     }
                     if challengesService.userChallengesHistory.count > 0 {
                         NavigationLink {
                             ChallengeListScreen(challenges: challengesService.userChallengesHistory)
                                 .environmentObject(authenticationService)
-                                .navigationTitle(Text("Historique de challenges"))
+                                .navigationTitle(Text(LocalizedStringKey("challenge_history")))
                                 .navigationBarTitleDisplayMode(.large)
                         } label: {
-                            SettingCard(title: "Mon historique de challenges")
+                            SettingCard(title: LocalizedStringKey("challenge_history"))
                         }
                     }
-                    SettingCard(title: "Politique de confidentialités")
+                    SettingCard(title: LocalizedStringKey("privacy_policy"))
                     Button {
                         authenticationService.signOut()
                     } label: {
-                        SettingCard(title: "Déconnexion")
+                        SettingCard(title: LocalizedStringKey("disconnect"))
                     }
                 }
                 .frame(maxHeight: .infinity, alignment: .top)

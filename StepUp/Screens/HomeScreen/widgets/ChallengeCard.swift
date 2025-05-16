@@ -32,7 +32,7 @@ struct ChallengeCard: View {
                     .foregroundStyle(.black)
                 if isUserParticipating {
                     ProgressView(
-                        value: Double(challenge.getParticipantProgress(userID: userID)),
+                        value: Double(min(challenge.getParticipantProgress(userID: userID), challenge.goal.getGoal())),
                         total: Double(challenge.goal.getGoal())
                     )
                     .progressViewStyle(LinearProgressStyle())
@@ -57,25 +57,46 @@ struct ChallengeCard: View {
 
     private var wideCard: some View {
         VStack {
-            VStack(spacing: 16) {
-                Text(challenge.name)
-                    .bold()
+            HStack {
+                VStack(spacing: 16) {
+                    Text(challenge.name)
+                        .bold()
+                        .foregroundStyle(.black)
+                    if isUserParticipating {
+                        ProgressView(
+                            value: Double(min(challenge.getParticipantProgress(userID: userID), challenge.goal.getGoal())),
+                            total: Double(challenge.goal.getGoal())
+                        )
+                        .progressViewStyle(LinearProgressStyle())
+                    }
+                    Text(challenge.goal.getGoalForDisplay())
+                        .foregroundStyle(.black)
+                    Text(
+                        challenge.date,
+                        format: .dateTime.day().month().year())
                     .foregroundStyle(.black)
-                if isUserParticipating {
-                    ProgressView(
-                        value: Double(challenge.getParticipantProgress(userID: userID)),
-                        total: Double(challenge.goal.getGoal())
-                    )
-                    .progressViewStyle(LinearProgressStyle())
                 }
-                Text(challenge.goal.getGoalForDisplay())
-                    .foregroundStyle(.black)
-                Text(
-                    challenge.date,
-                    format: .dateTime.day().month().year())
-                .foregroundStyle(.black)
+                .padding(.all, 8)
+                if !isUserParticipating {
+                    Spacer()
+                    VStack(spacing: 8) {
+                        Text(LocalizedStringKey("participate_to_challenge"))
+                            .bold()
+                            .foregroundStyle(.black)
+                        ForEach(0..<min(challenge.participants.count, 3), id: \.self) { index in
+                            let participant = challenge.participants[index]
+                            Text(participant.name)
+                                .foregroundStyle(.black)
+                        }
+                        if challenge.participants.count == 0 {
+                            Spacer()
+                        }
+                    }
+                    .frame(alignment: .top)
+                    .padding(.trailing, 16)
+                    .padding(.top, 16)
+                }
             }
-            .padding(.all, 8)
         }
         .frame(
             maxWidth: .infinity,
@@ -85,7 +106,7 @@ struct ChallengeCard: View {
         )
         .background(Color(.systemFill))
         .clipShape(RoundedRectangle(cornerRadius: 18))
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 8)
     }
 }
 

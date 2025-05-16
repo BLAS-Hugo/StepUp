@@ -25,34 +25,34 @@ struct ChallengeCreationSheet: View {
     var body: some View {
         ScrollView {
                 VStack(spacing: 32) {
-                    Text("Créer un nouveau Challenge")
+                    Text(LocalizedStringKey("create_challenge"))
                         .font(.title2)
                     VStack(alignment: .leading, spacing: 16) {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Nom du challenge")
+                            Text(LocalizedStringKey("challenge_name"))
                             TextField("", text: $challengeName)
                                 .textFieldStyle(.roundedBorder)
                         }
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Description du challenge")
+                            Text(LocalizedStringKey("challenge_description"))
                             TextField("", text: $challengeDescription)
                                 .textFieldStyle(.roundedBorder)
                         }
                         DatePicker(
-                            "Date de départ du challenge",
+                            LocalizedStringKey("challenge_start_date"),
                             selection: $challengeDate,
                             displayedComponents: [.date]
                         )
                         DatePicker(
-                            "Date de fin du challenge",
+                            LocalizedStringKey("challenge_end_date"),
                             selection: $challengeEndDate,
                             displayedComponents: [.date]
                         )
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Objectif du challenge: ")
-                            Picker("Type de challenge", selection: $challengeGoalType) {
-                                Text("Distance").tag(0)
-                                Text("Pas").tag(1)
+                            Text(LocalizedStringKey("challenge_goal"))
+                            Picker(LocalizedStringKey("challenge_type"), selection: $challengeGoalType) {
+                                Text(LocalizedStringKey("distance")).tag(0)
+                                Text(LocalizedStringKey("steps")).tag(1)
                             }
                             .pickerStyle(.segmented)
                             HStack {
@@ -70,7 +70,7 @@ struct ChallengeCreationSheet: View {
                             await createChallenge()
                         }
                     } label: {
-                        Text("Confirmer")
+                        Text(LocalizedStringKey("confirm"))
                             .font(.system(size: 20, weight: .bold, design: .rounded))
                             .padding(.vertical, 12)
                             .padding(.horizontal, 48)

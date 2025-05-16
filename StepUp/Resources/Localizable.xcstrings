@@ -13,22 +13,18 @@
     "%lld" : {
 
     },
-    "%lld participant%@" : {
+    "already_participating" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld participant%2$@"
+            "state" : "translated",
+            "value" : "You are already participating"
           }
-        }
-      }
-    },
-    "%lld Steps" : {
-      "localizations" : {
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld Pas"
+            "value" : "Vous y participez déjà"
           }
         }
       }
@@ -49,6 +45,118 @@
         }
       }
     },
+    "challenge_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge description"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Description du challenge"
+          }
+        }
+      }
+    },
+    "challenge_end_date" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge end date"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Date de fin du challenge"
+          }
+        }
+      }
+    },
+    "challenge_goal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge goal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Objectif du challenge"
+          }
+        }
+      }
+    },
+    "challenge_history" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge history"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mon historique de challenges"
+          }
+        }
+      }
+    },
+    "challenge_name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nom du challenge"
+          }
+        }
+      }
+    },
+    "challenge_start_date" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge start date"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Date de début du challenge"
+          }
+        }
+      }
+    },
+    "challenge_type" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Challenge type"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Type de challenge"
+          }
+        }
+      }
+    },
     "challenges" : {
       "localizations" : {
         "en" : {
@@ -65,8 +173,21 @@
         }
       }
     },
-    "Classement des participants" : {
-
+    "confirm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Confirmer"
+          }
+        }
+      }
     },
     "confirm_password" : {
       "localizations" : {
@@ -84,14 +205,31 @@
         }
       }
     },
-    "Confirmer" : {
-
+    "create_challenge" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create a new challenge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un nouveau challenge"
+          }
+        }
+      }
     },
-    "Créer un nouveau Challenge" : {
-
-    },
-    "Créez un challenge" : {
-
+    "create_new_challenge" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un nouveau challenge"
+          }
+        }
+      }
     },
     "current_challenge" : {
       "localizations" : {
@@ -104,22 +242,58 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Challenges en cours"
+            "value" : "Challenge en cours"
           }
         }
       }
     },
-    "Date de départ du challenge" : {
-
+    "day" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "day"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "jour"
+          }
+        }
+      }
     },
-    "Date de fin du challenge" : {
-
+    "disconnect" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disconnect"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déconnexion"
+          }
+        }
+      }
     },
-    "Description du challenge" : {
-
-    },
-    "Distance" : {
-
+    "distance" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance"
+          }
+        }
+      }
     },
     "email" : {
       "localizations" : {
@@ -154,10 +328,55 @@
       }
     },
     "email_required" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email required"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email requis"
+          }
+        }
+      }
     },
     "email_required_message" : {
 
+    },
+    "ended_since" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ended since"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Terminé depuis"
+          }
+        }
+      }
+    },
+    "ends_in" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ends in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Se termine dans"
+          }
+        }
+      }
     },
     "first_name" : {
       "localizations" : {
@@ -174,9 +393,6 @@
           }
         }
       }
-    },
-    "Historique de challenges" : {
-
     },
     "home" : {
       "localizations" : {
@@ -195,17 +411,59 @@
       }
     },
     "KM" : {
-
-    },
-    "Mes objectifs" : {
-
-    },
-    "My challenges" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "KM"
+          }
+        }
+      }
+    },
+    "my_account" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My account"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mon compte"
+          }
+        }
+      }
+    },
+    "my_challenges" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My challenges"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mes challenges"
+          }
+        }
+      }
+    },
+    "my_objectives" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My goals"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes objectifs"
           }
         }
       }
@@ -226,14 +484,37 @@
         }
       }
     },
-    "Nom du challenge" : {
-
+    "no_active_challenge" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No active challenge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de challenge en cours"
+          }
+        }
+      }
     },
-    "Nombre de kilomètres" : {
-
-    },
-    "Nombre de pas" : {
-
+    "no_current_challenge" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No challenges"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas de challenge"
+          }
+        }
+      }
     },
     "not_registered_signup" : {
       "localizations" : {
@@ -251,26 +532,127 @@
         }
       }
     },
-    "Objectif du challenge: " : {
-
+    "number_of_km" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number of KM"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nombre de kilomètres"
+          }
+        }
+      }
+    },
+    "number_of_steps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number of steps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nombre de pas"
+          }
+        }
+      }
     },
     "OK" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
     },
-    "Participer" : {
-
+    "participant" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participant"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Participant"
+          }
+        }
+      }
     },
-    "Participez aux challenges des autres utilisateurs" : {
-
+    "participant_rankings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participant rankings"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Classement des participants"
+          }
+        }
+      }
     },
-    "Pas" : {
-
+    "participate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Participer"
+          }
+        }
+      }
     },
-    "Pas de challenge actif" : {
-
+    "participate_to_challenge" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participate to challenge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participe au challenge"
+          }
+        }
+      }
     },
-    "Pas de challenges en cours" : {
-
+    "participate_to_other_challenges" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participate to other users challenges"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participez au challenges des autres utilisateurs"
+          }
+        }
+      }
     },
     "password" : {
       "localizations" : {
@@ -320,6 +702,22 @@
         }
       }
     },
+    "privacy_policy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy policy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Politique de confidentialité"
+          }
+        }
+      }
+    },
     "profile" : {
       "localizations" : {
         "en" : {
@@ -339,9 +737,14 @@
     "Se termine dans %lld jours" : {
 
     },
-    "See more" : {
-      "extractionState" : "stale",
+    "see_more" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See more"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -401,16 +804,23 @@
     "Step up" : {
 
     },
+    "steps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steps"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas"
+          }
+        }
+      }
+    },
     "Terminé depuis %lld jours" : {
-
-    },
-    "Type de challenge" : {
-
-    },
-    "Voir plus" : {
-
-    },
-    "Vous y participez déjà" : {
 
     },
     "welcome" : {
