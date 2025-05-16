@@ -11,7 +11,7 @@ class ObjectivesViewModel: ObservableObject {
     @Published var numberOfSteps = 0
     @Published var distance = 0
 
-    let defaults = UserDefaults.standard
+    var defaults = UserDefaults.standard
 
     init(numberOfSteps: Int = 0, distance: Int = 0) {
         fetchData()
