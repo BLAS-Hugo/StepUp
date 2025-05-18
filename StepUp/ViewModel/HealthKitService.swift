@@ -7,18 +7,64 @@
 
 import HealthKit
 
-class HealthKitService: ObservableObject {
+struct HKStatisticsAdapter: CustomStatisticsProtocol {
+    private let hkStatistics: HKStatistics
+
+    init(hkStatistics: HKStatistics) {
+        self.hkStatistics = hkStatistics
+    }
+
+    func sumQuantity() -> HKQuantity? {
+        return hkStatistics.sumQuantity()
+    }
+
+    var quantityType: HKQuantityType {
+        return hkStatistics.quantityType
+    }
+}
+
+struct HKStatisticsCollectionAdapter: CustomStatisticsCollectionProtocol {
+    private let hkStatisticsCollection: HKStatisticsCollection
+
+    init(hkStatisticsCollection: HKStatisticsCollection) {
+        self.hkStatisticsCollection = hkStatisticsCollection
+    }
+
+    func enumerateStatistics(
+        from startDate: Date,
+        to endDate: Date,
+        with block: @escaping (CustomStatisticsProtocol, UnsafeMutablePointer<ObjCBool>) -> Void) {
+        hkStatisticsCollection.enumerateStatistics(from: startDate, to: endDate) { (hkStatistic, stop) in
+            let adapter = HKStatisticsAdapter(hkStatistics: hkStatistic)
+            block(adapter, stop)
+        }
+    }
+}
+
+extension HKHealthStore: HealthKitStoreProtocol {
+    func execute(_ descriptor: HKStatisticsCollectionQueryDescriptor)
+        async throws -> CustomStatisticsCollectionProtocol {
+        let realCollection = try await descriptor.result(for: self)
+        return await HKStatisticsCollectionAdapter(hkStatisticsCollection: realCollection)
+    }
+}
+
+class HealthKitService: HealthKitServiceProtocol {
     @Published var stepCount: Int = 0
     @Published var distance: Int = 0
 
-    private let healthStore = HKHealthStore()
+    var healthStore: HealthKitStoreProtocol
 
-    private let datatypeToRead = Set([
-        HKObjectType.quantityType(forIdentifier: .stepCount)!,
-        HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!
-    ])
+    let datatypeToRead: Set<HKObjectType> = {
+        guard let stepType = HKObjectType.quantityType(forIdentifier: .stepCount),
+              let distanceType = HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning) else {
+            return Set()
+        }
+        return [stepType, distanceType]
+    }()
 
-    init() {
+    init(healthStore: HealthKitStoreProtocol = HKHealthStore()) {
+        self.healthStore = healthStore
         Task {
             await initialize()
         }
@@ -34,22 +80,21 @@ class HealthKitService: ObservableObject {
         await fetchAllData()
     }
 
-    private func askUserPermission() async throws {
+    func askUserPermission() async throws {
         guard HKHealthStore.isHealthDataAvailable() else {
-              print("health data not available!")
-              return
-            }
+            print("health data not available!")
+            return
+        }
 
-            try await healthStore.requestAuthorization(toShare: [], read: datatypeToRead)
-
+        try await healthStore.requestAuthorization(toShare: [], read: datatypeToRead)
     }
 
-    private func fetchAllData() async {
+    func fetchAllData() async {
         _ = await fetchData(for: HKQuantityType(.stepCount))
         _ = await fetchData(for: HKQuantityType(.distanceWalkingRunning))
     }
 
-    private func fetchData(for datatype: HKQuantityType) async -> Int {
+    func fetchData(for datatype: HKQuantityType) async -> Int {
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: Date())
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
@@ -60,32 +105,22 @@ class HealthKitService: ObservableObject {
             intervalComponents: DateComponents(day: 1)
         )
 
-        let data = try? await query.result(for: healthStore)
+        let data: CustomStatisticsCollectionProtocol?
+        do {
+            data = try await healthStore.execute(query)
+        } catch {
+            data = nil
+        }
 
         var result: Int = 5000
 
         data?.enumerateStatistics(
             from: Date(), to: Date()) { (statistic, _) in
-            let unit: HKUnit
-            switch datatype {
-            case HKQuantityType(.stepCount):
-                unit = .count()
-            case HKQuantityType(.distanceWalkingRunning):
-                unit = .meter()
-            default:
-                unit = .count()
-            }
+            let unit = self.unitFor(datatype: datatype)
             let count = statistic.sumQuantity()?.doubleValue(for: unit)
             result = Int(count ?? 5000)
             DispatchQueue.main.async {
-                switch datatype {
-                case HKQuantityType(.stepCount):
-                    self.stepCount = Int(count ?? 5000)
-                case HKQuantityType(.distanceWalkingRunning):
-                    self.distance = Int(count ?? 5000)
-                default:
-                    break
-                }
+                self.updatePublishedProperties(for: datatype, with: count ?? 5000)
             }
         }
         return result
@@ -94,7 +129,8 @@ class HealthKitService: ObservableObject {
     func fetchDataForDatatypeAndDate(
         for datatype: HKQuantityType,
         from startDate: Date,
-        to endDate: Date) async -> Int {
+        to endDate: Date
+    ) async -> Int {
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
@@ -105,24 +141,45 @@ class HealthKitService: ObservableObject {
             intervalComponents: DateComponents(day: 1)
         )
 
-        let data = try? await query.result(for: healthStore)
+        let data: CustomStatisticsCollectionProtocol?
+        do {
+            data = try await healthStore.execute(query)
+        } catch {
+            data = nil
+        }
 
         var result: Int = 0
 
         data?.enumerateStatistics(
             from: startDate, to: endDate) { (statistic, _) in
-            let unit: HKUnit
-            switch datatype {
-            case HKQuantityType(.stepCount):
-                unit = .count()
-            case HKQuantityType(.distanceWalkingRunning):
-                unit = .meter()
-            default:
-                unit = .count()
-            }
+            let unit = self.unitFor(datatype: datatype)
             let count = statistic.sumQuantity()?.doubleValue(for: unit)
             result += Int(count ?? 0)
         }
         return result
+    }
+
+
+    private func updatePublishedProperties(for datatype: HKQuantityType, with value: Double) {
+        let intValue = Int(value)
+        switch datatype {
+        case HKQuantityType(.stepCount):
+            self.stepCount = intValue
+        case HKQuantityType(.distanceWalkingRunning):
+            self.distance = intValue
+        default:
+            break
+        }
+    }
+
+    private func unitFor(datatype: HKQuantityType) -> HKUnit {
+        switch datatype {
+        case HKQuantityType(.stepCount):
+            return .count()
+        case HKQuantityType(.distanceWalkingRunning):
+            return .meter()
+        default:
+            return .count()
+        }
     }
 }
