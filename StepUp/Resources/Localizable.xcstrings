@@ -317,6 +317,22 @@
         }
       }
     },
+    "decrement_goal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reduce goal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réduire l’objectif"
+          }
+        }
+      }
+    },
     "disconnect" : {
       "localizations" : {
         "en" : {
@@ -509,6 +525,22 @@
         }
       }
     },
+    "hide_password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cacher le mot de passe"
+          }
+        }
+      }
+    },
     "home" : {
       "localizations" : {
         "en" : {
@@ -521,6 +553,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "increment_goal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Increment goal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Augmenter l’objectif"
           }
         }
       }
@@ -604,6 +652,25 @@
           }
         }
       }
+    },
+    "navigate_to_setting" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Navigate to setting"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accéder au paramètre"
+          }
+        }
+      }
+    },
+    "network_error" : {
+
     },
     "no_active_challenge" : {
       "localizations" : {
@@ -781,6 +848,9 @@
         }
       }
     },
+    "password_error" : {
+
+    },
     "password_not_equal" : {
       "localizations" : {
         "en" : {
@@ -857,6 +927,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voir plus"
+          }
+        }
+      }
+    },
+    "show_password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher le mot de passe"
           }
         }
       }

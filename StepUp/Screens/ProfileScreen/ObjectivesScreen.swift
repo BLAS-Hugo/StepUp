@@ -10,10 +10,6 @@ import SwiftUI
 struct ObjectivesScreen: View {
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
 
-//    init() {
-//        objectivesViewModel.fetchData()
-//    }
-
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading, spacing: 32) {
@@ -27,6 +23,7 @@ struct ObjectivesScreen: View {
                         } label: {
                             ZStack {
                                 Image(systemName: "minus")
+                                    .accessibilityLabel(LocalizedStringKey("decrement_goal"))
                                     .padding(.vertical, 16)
                             }
                             .frame(width: 16, height: 16)
@@ -42,6 +39,7 @@ struct ObjectivesScreen: View {
                         } label: {
                             ZStack {
                                 Image(systemName: "plus")
+                                    .accessibilityLabel(LocalizedStringKey("increment_goal"))
                                     .padding(.vertical, 16)
                             }
                             .frame(width: 16, height: 16)
@@ -62,6 +60,7 @@ struct ObjectivesScreen: View {
                         } label: {
                             ZStack {
                                 Image(systemName: "minus")
+                                    .accessibilityLabel(LocalizedStringKey("decrement_goal"))
                                     .padding(.vertical, 16)
                             }
                             .frame(width: 16, height: 16)
@@ -77,6 +76,7 @@ struct ObjectivesScreen: View {
                         } label: {
                             ZStack {
                                 Image(systemName: "plus")
+                                    .accessibilityLabel(LocalizedStringKey("increment_goal"))
                                     .padding(.vertical, 16)
                             }
                             .frame(width: 16, height: 16)

@@ -92,6 +92,9 @@ struct PasswordField: View {
                     showText.toggle()
                 } label: {
                     Image(systemName: showText ? "eye.fill" : "eye.slash.fill")
+                        .accessibilityLabel(showText
+                        ? LocalizedStringKey("hide_password")
+                        : LocalizedStringKey("show_password"))
                         .foregroundStyle(Color.primaryOrange)
                 }
             }

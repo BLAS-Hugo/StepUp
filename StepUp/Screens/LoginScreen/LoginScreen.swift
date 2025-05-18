@@ -24,6 +24,8 @@ struct LoginScreen: View {
     @State private var isButtonLoading = false
 
     @State private var showAlert = false
+    @State private var showNetworkErrorAlert = false
+    @State private var showPasswordErrorAlert = false
     @State private var navigateToRegister = false
 
     @EnvironmentObject var authenticationService: AuthenticationService
@@ -119,7 +121,6 @@ struct LoginScreen: View {
                         .navigationDestination(isPresented: $navigateToRegister) {
                             RegisterScreen(prefilledEmail: email)
                                 .environmentObject(authenticationService)
-                                // .navigationBarBackButtonHidden(true)
                         }
                     }
                     Button {
@@ -153,14 +154,28 @@ struct LoginScreen: View {
         } message: {
             Text(LocalizedStringKey("email_required_message"))
         }
+        .alert(LocalizedStringKey("network_error"), isPresented: $showNetworkErrorAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(LocalizedStringKey("email_required_message"))
+        }
+        .alert(LocalizedStringKey("password_error"), isPresented: $showPasswordErrorAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text(LocalizedStringKey("email_required_message"))
+        }
     }
 
     private func onSigninButtonTap() async {
         isButtonLoading = true
-        try? await authenticationService.signIn(
-            withEmail: email,
-            password: password
-        )
+        do {
+            try await authenticationService.signIn(
+                withEmail: email,
+                password: password
+            )
+        } catch {
+            // display error
+        }
         isButtonLoading = false
     }
 }

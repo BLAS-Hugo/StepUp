@@ -21,6 +21,7 @@ struct ProfileScreen: View {
                             .resizable()
                             .frame(width: 48, height: 48)
                             .padding(.all, 16)
+                            .accessibilityLabel(LocalizedStringKey("profile"))
                     }
                     .background(Color.appMediumGray.opacity(0.5))
                     .clipShape(Circle())

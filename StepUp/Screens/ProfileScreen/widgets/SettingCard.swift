@@ -18,6 +18,7 @@ struct SettingCard: View {
                 Spacer()
                 ZStack {
                     Image(systemName: "chevron.right")
+                        .accessibilityLabel(LocalizedStringKey("navigate_to_setting"))
                         .padding(.all, 6)
                 }
                 .background(Color.appMediumGray.opacity(0.25))

@@ -44,7 +44,7 @@ struct Challenge: Identifiable {
         var participantsArray = participants
         let participant = participantsArray.first(where: { $0.userID == user.id })!
         participantsArray[participantsArray.firstIndex(of: participant)!]
-        = Participant(userID: user.id, name: user.name, progress: progress)
+        = Participant(userID: user.id, name: user.firstName, progress: progress)
         return Challenge(
             creatorUserID: creatorUserID,
             participants: participantsArray,

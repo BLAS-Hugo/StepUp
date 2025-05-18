@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChallengeDetailScreen: View {
-    let challenge: Challenge
+    var challenge: Challenge
     @EnvironmentObject var authenticationService: AuthenticationService
     @EnvironmentObject var challengesService: UserChallengesService
 
@@ -54,7 +54,9 @@ struct ChallengeDetailScreen: View {
                         Spacer()
                     }
                     ForEach(0..<challenge.participants.count, id: \.self) { index in
-                        let participant = challenge.participants[index]
+                        let sortedParticipant = challenge.participants.sorted { $0.progress > $1.progress }
+                        let participant = sortedParticipant[index]
+
                         HStack {
                             Text(participant.name)
                                 .frame(minWidth: 56, alignment: .leading)

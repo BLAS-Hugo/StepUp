@@ -32,6 +32,7 @@ struct AppMainView: View {
             }
             .tabItem {
                 Image(systemName: "house")
+                    .accessibilityLabel(LocalizedStringKey("home"))
                 Text(LocalizedStringKey("home"))
             }
 
@@ -41,28 +42,29 @@ struct AppMainView: View {
                     .environmentObject(challengesService)
                     .navigationTitle(Text(LocalizedStringKey("challenges")))
                     .navigationBarTitleDisplayMode(.large)
+                    .sheet(isPresented: $shouldShowChallengesSheet) {
+                        ChallengeCreationSheet(closeCallback: closeBottomSheet)
+                            .presentationDetents([.large])
+                            .environmentObject(challengesService)
+                            .environmentObject(authenticationService)
+                    }
                     .toolbar {
-                        ToolbarItem(placement: .primaryAction) {
+                        ToolbarItem(placement: .topBarTrailing) {
                             Button {
                                 shouldShowChallengesSheet.toggle()
                             } label: {
                                 Image(systemName: "plus.circle.fill")
-                            }
-                            .sheet(isPresented: $shouldShowChallengesSheet) {
-                                ChallengeCreationSheet(closeCallback: closeBottomSheet)
-                                    .presentationDetents([.large])
-                                    .environmentObject(challengesService)
-                                    .environmentObject(authenticationService)
+                                    .accessibilityLabel(LocalizedStringKey("create_challenge"))
                             }
                         }
                     }
+
             }
             .tabItem {
                 Image(systemName: "rosette")
+                    .accessibilityLabel(LocalizedStringKey("challenges"))
                 Text(LocalizedStringKey("challenges"))
             }
-            .navigationTitle(Text(LocalizedStringKey("challenges")))
-            .navigationBarTitleDisplayMode(.large)
 
             NavigationStack {
                 ProfileScreen()
@@ -74,6 +76,7 @@ struct AppMainView: View {
             }
             .tabItem {
                 Image(systemName: "person.fill")
+                    .accessibilityLabel(LocalizedStringKey("profile"))
                 Text(LocalizedStringKey("profile"))
             }
 
