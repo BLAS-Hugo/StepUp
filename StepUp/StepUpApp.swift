@@ -26,7 +26,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct StepUpApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    @StateObject var authenticationService = AuthenticationService()
+    @StateObject var authenticationService = FirebaseAuthProvider()
     @StateObject var healthKitService = HealthKitService()
     @StateObject var objectivesViewModel = ObjectivesViewModel()
 
@@ -46,7 +46,7 @@ struct StepUpApp: App {
 }
 
 struct AuthNavigationView: View {
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
 
     var body: some View {
         NavigationStack {

@@ -19,7 +19,7 @@ struct RegisterScreen: View {
 
     @State private var isButtonLoading = false
 
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
 
     init(prefilledEmail: String = "") {
         _email = State(initialValue: prefilledEmail)

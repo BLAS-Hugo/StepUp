@@ -159,7 +159,6 @@ class HealthKitService: HealthKitServiceProtocol {
         return result
     }
 
-
     private func updatePublishedProperties(for datatype: HKQuantityType, with value: Double) {
         let intValue = Int(value)
         switch datatype {

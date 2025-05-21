@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChallengeDetailScreen: View {
     var challenge: Challenge
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var challengesService: UserChallengesService
 
     private var canParticipate: Bool {

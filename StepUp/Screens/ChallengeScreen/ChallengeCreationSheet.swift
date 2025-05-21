@@ -10,7 +10,7 @@ import SwiftUI
 struct ChallengeCreationSheet: View {
     let closeCallback: () -> Void
     @EnvironmentObject var challengesService: UserChallengesService
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @State private var challengeName: String = ""
     @State private var challengeDescription: String = ""
     @State private var challengeDate: Date = Date()

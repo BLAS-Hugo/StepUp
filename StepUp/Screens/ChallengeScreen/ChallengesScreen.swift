@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChallengesScreen: View {
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var challengesService: UserChallengesService
 
     private var userSessionId: String {

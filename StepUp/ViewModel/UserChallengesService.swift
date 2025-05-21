@@ -11,7 +11,7 @@ import HealthKit
 
 @MainActor
 class UserChallengesService: ObservableObject {
-    let authenticationService: AuthenticationService
+    let authenticationService: FirebaseAuthProvider
     let healthKitService: HealthKitService
     private var timer: Timer?
 
@@ -22,7 +22,7 @@ class UserChallengesService: ObservableObject {
     @Published var otherChallenges: [Challenge] = []
     @Published var userChallengesHistory: [Challenge] = []
 
-    init(with authenticationService: AuthenticationService, _ healthKitService: HealthKitService) {
+    init(with authenticationService: FirebaseAuthProvider, _ healthKitService: HealthKitService) {
         self.authenticationService = authenticationService
         self.healthKitService = healthKitService
         if self.authenticationService.currentUser == nil {

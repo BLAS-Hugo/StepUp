@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @EnvironmentObject var authenticationService: AuthenticationService
+    @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var healthKitService: HealthKitService
     @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
