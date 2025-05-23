@@ -12,6 +12,8 @@ struct ChallengeDetailScreen: View {
     @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var challengesService: UserChallengesService
 
+    @State private var showParticipateAlert: Bool = false
+
     private var canParticipate: Bool {
         return challenge.participants.count(where: { $0.userID == authenticationService.currentUser!.id }) < 1
         && challenge.endDate > Date.now
@@ -24,7 +26,7 @@ struct ChallengeDetailScreen: View {
 
     var progress: Int {
         if isParticipating {
-            return challenge.getParticipantProgress(userID: authenticationService.currentUser!.id)
+            return challenge.getParticipantProgress(userID: authenticationService.currentUser!.id) ?? 0
         }
         return 0
     }
@@ -62,7 +64,7 @@ struct ChallengeDetailScreen: View {
                                 .frame(minWidth: 56, alignment: .leading)
                             ProgressView(
                                 value: Double(
-                                    min(challenge.getParticipantProgress(userID: participant.userID),
+                                    min(challenge.getParticipantProgress(userID: participant.userID) ?? 0,
                                         challenge.goal.getGoal())),
                                 total: Double(challenge.goal.getGoal()))
                                 .progressViewStyle(LinearProgressStyle())
@@ -85,8 +87,12 @@ struct ChallengeDetailScreen: View {
             if canParticipate {
                 Button {
                     Task {
-                        await challengesService.participateToChallenge(
-                            challenge, user: authenticationService.currentUser!)
+                        do {
+                            try await challengesService.participateToChallenge(
+                                challenge, user: authenticationService.currentUser!)
+                        } catch {
+                            showParticipateAlert.toggle()
+                        }
                     }
                 } label: {
                     Text(LocalizedStringKey("participate"))
@@ -101,5 +107,12 @@ struct ChallengeDetailScreen: View {
             }
         }
         .padding(.horizontal, 16)
+        .alert(LocalizedStringKey("network_error"), isPresented: $showParticipateAlert) {
+            Button("OK", role: .cancel) {
+                showParticipateAlert.toggle()
+            }
+        } message: {
+            Text(LocalizedStringKey("network_error_message"))
+        }
     }
 }

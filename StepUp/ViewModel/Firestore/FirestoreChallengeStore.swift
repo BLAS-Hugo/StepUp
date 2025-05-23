@@ -29,7 +29,8 @@ class FirestoreChallengeStore: ChallengeStoring {
 
     func editChallenge(_ challenge: Challenge) async throws {
         guard let challengeID = challenge.id else {
-            struct MissingIDError: Error, LocalizedError { var errorDescription: String? = "Challenge ID is missing for edit." }
+            struct MissingIDError: Error, LocalizedError {
+                var errorDescription: String? = "Challenge ID is missing for edit." }
             throw MissingIDError()
         }
         let encodedChallenge = try encoder.encode(challenge)
@@ -38,7 +39,8 @@ class FirestoreChallengeStore: ChallengeStoring {
 
     func deleteChallenge(_ challenge: Challenge) async throws {
         guard let challengeID = challenge.id else {
-            struct MissingIDError: Error, LocalizedError { var errorDescription: String? = "Challenge ID is missing for delete." }
+            struct MissingIDError: Error, LocalizedError {
+                var errorDescription: String? = "Challenge ID is missing for delete." }
             throw MissingIDError()
         }
         try await challengesCollection.document(challengeID).delete()

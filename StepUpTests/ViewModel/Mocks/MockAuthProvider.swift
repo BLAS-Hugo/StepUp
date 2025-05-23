@@ -1,34 +1,38 @@
+//
+//  MockAuthProvider.swift
+//  StepUpTests
+//
+//  Created by Hugo Blas on 16/05/2025.
+//
 import Foundation
 import FirebaseAuth
-@testable import StepUp // Required for the User type if not defined in test target
+@testable import StepUp
 
-// --- Mock Auth Provider ---
 @MainActor
 class MockAuthProvider: AuthProviding {
     @Published var currentUserSession: AppAuthUserProtocol?
     @Published var currentUser: StepUp.User?
 
-    // Control Properties
     var signUpError: Error?
     var signInError: Error?
-    var signOutError: Error? // For simulating internal errors if SUT logs them
-    var deleteAccountError: Error? // Used because deleteAccount is now async throws
-    var fetchUserDataError: Error? // For simulating internal errors if SUT logs them
+    var signOutError: Error?
+    var deleteAccountError: Error?
+    var fetchUserDataError: Error?
     var addUserToDBError: Error?
+    var updateUserDataError: Error?
 
-    var mockSignUpUserResult: AppAuthUserProtocol? // User returned by Firebase Auth on sign up
-    var mockSignInUserResult: AppAuthUserProtocol? // User returned by Firebase Auth on sign in
-    var mockFetchedUserData: StepUp.User? // User data returned by Firestore fetch
+    var mockSignUpUserResult: AppAuthUserProtocol?
+    var mockSignInUserResult: AppAuthUserProtocol?
+    var mockFetchedUserData: StepUp.User?
 
-    // Call Trackers
     private(set) var signUpCalledCount = 0
     private(set) var signInCalledCount = 0
     private(set) var signOutCalledCount = 0
     private(set) var deleteAccountCalledCount = 0
     private(set) var fetchUserDataCalledCount = 0
     private(set) var addUserToDBCalledCount = 0
+    private(set) var updateUserDataCalledCount = 0
 
-    // Parameter Storage
     private(set) var lastSignUpEmail: String?
     private(set) var lastSignUpPassword: String?
     private(set) var lastSignUpFirstName: String?
@@ -36,6 +40,8 @@ class MockAuthProvider: AuthProviding {
     private(set) var lastSignInEmail: String?
     private(set) var lastSignInPassword: String?
     private(set) var lastAddedUserToDB: StepUp.User?
+    private(set) var lastUpdateUserDataName: String?
+    private(set) var lastUpdateUserDataFirstName: String?
 
     init(currentUserSession: AppAuthUserProtocol? = nil, currentUser: StepUp.User? = nil) {
         self.currentUserSession = currentUserSession
@@ -93,8 +99,6 @@ class MockAuthProvider: AuthProviding {
 
     func deleteAccount() async throws {
         deleteAccountCalledCount += 1
-        // This mock behavior aligns with the SUT's current strategy of clearing local state 
-        // before rethrowing, or just clearing if successful.
         self.currentUserSession = nil
         self.currentUser = nil
         if let error = deleteAccountError {
@@ -117,6 +121,29 @@ class MockAuthProvider: AuthProviding {
         self.currentUser = mockFetchedUserData 
     }
 
+    func updateUserData(name: String, firstName: String) async throws {
+        updateUserDataCalledCount += 1
+        lastUpdateUserDataName = name
+        lastUpdateUserDataFirstName = firstName
+        
+        if let error = updateUserDataError {
+            throw error
+        }
+        
+        guard let currentUser = currentUser else {
+            throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No current user data"])
+        }
+        
+        // Update the current user with new data
+        let updatedUser = StepUp.User(
+            id: currentUser.id,
+            email: currentUser.email,
+            name: name,
+            firstName: firstName
+        )
+        self.currentUser = updatedUser
+    }
+
     func reset() {
         currentUserSession = nil
         currentUser = nil
@@ -126,6 +153,7 @@ class MockAuthProvider: AuthProviding {
         deleteAccountError = nil
         fetchUserDataError = nil
         addUserToDBError = nil
+        updateUserDataError = nil
         mockSignUpUserResult = nil
         mockSignInUserResult = nil
         mockFetchedUserData = nil
@@ -135,6 +163,7 @@ class MockAuthProvider: AuthProviding {
         deleteAccountCalledCount = 0
         fetchUserDataCalledCount = 0
         addUserToDBCalledCount = 0
+        updateUserDataCalledCount = 0
         lastSignUpEmail = nil
         lastSignUpPassword = nil
         lastSignUpFirstName = nil
@@ -142,5 +171,7 @@ class MockAuthProvider: AuthProviding {
         lastSignInEmail = nil
         lastSignInPassword = nil
         lastAddedUserToDB = nil
+        lastUpdateUserDataName = nil
+        lastUpdateUserDataFirstName = nil
     }
 } 

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @EnvironmentObject var challengesService: UserChallengesService
-    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+    @EnvironmentObject var goalViewModel: GoalViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -26,23 +26,31 @@ struct ProfileScreen: View {
                     .background(Color.appMediumGray.opacity(0.5))
                     .clipShape(Circle())
                     VStack(alignment: .leading) {
-                        if let email = authenticationService.currentUserSession?.email {
+                        if let email = authenticationViewModel.currentUserEmail {
                             Text(email)
                                 .foregroundStyle(.black)
                                 .font(.caption)
                         }
-                        Text(authenticationService.currentUser?.firstName ?? "first_name")
+                        Text(authenticationViewModel.currentUser?.firstName ?? "first_name")
                             .bold()
                     }
                 }
                 .frame(maxWidth: geometry.size.width, maxHeight: 96, alignment: .leading)
                 .padding(.horizontal, 16)
                 VStack(spacing: 10) {
-                    SettingCard(title: LocalizedStringKey("my_account"))
-                        .padding(.top, 16)
+                    NavigationLink {
+                        AccountScreen()
+                            .environmentObject(authenticationViewModel)
+                            .environmentObject(challengesService)
+                            .navigationTitle(Text(LocalizedStringKey("my_account")))
+                            .navigationBarTitleDisplayMode(.large)
+                    } label: {
+                        SettingCard(title: LocalizedStringKey("my_account"))
+                            .padding(.top, 16)
+                    }
                     NavigationLink {
                         ObjectivesScreen()
-                            .environmentObject(objectivesViewModel)
+                            .environmentObject(goalViewModel)
                             .navigationTitle(Text(LocalizedStringKey("my_objectives")))
                             .navigationBarTitleDisplayMode(.large)
                     } label: {
@@ -51,7 +59,7 @@ struct ProfileScreen: View {
                     if challengesService.userChallengesHistory.count > 0 {
                         NavigationLink {
                             ChallengeListScreen(challenges: challengesService.userChallengesHistory)
-                                .environmentObject(authenticationService)
+                                .environmentObject(authenticationViewModel)
                                 .navigationTitle(Text(LocalizedStringKey("challenge_history")))
                                 .navigationBarTitleDisplayMode(.large)
                         } label: {
@@ -60,7 +68,7 @@ struct ProfileScreen: View {
                     }
                     SettingCard(title: LocalizedStringKey("privacy_policy"))
                     Button {
-                        authenticationService.signOut()
+                        authenticationViewModel.signOut()
                     } label: {
                         SettingCard(title: LocalizedStringKey("disconnect"))
                     }

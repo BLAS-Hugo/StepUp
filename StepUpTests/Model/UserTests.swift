@@ -2,8 +2,6 @@ import XCTest
 @testable import StepUp
 
 final class UserTests: XCTestCase {
-    
-    // Test data
     private var sampleUser: User!
     
     override func setUp() {
@@ -16,8 +14,7 @@ final class UserTests: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - Initialization Tests
-    
+
     func testInitialization() {
         XCTAssertEqual(sampleUser.id, "user123")
         XCTAssertEqual(sampleUser.email, "test@example.com")
@@ -25,19 +22,15 @@ final class UserTests: XCTestCase {
         XCTAssertEqual(sampleUser.firstName, "Test")
     }
     
-    // MARK: - Codable Tests
-    
+
     func testCodable() {
         do {
-            // Test encoding
             let encoder = JSONEncoder()
             let data = try encoder.encode(sampleUser)
             
-            // Test decoding
             let decoder = JSONDecoder()
             let decodedUser = try decoder.decode(User.self, from: data)
             
-            // Verify decoded properties
             XCTAssertEqual(decodedUser.id, sampleUser.id)
             XCTAssertEqual(decodedUser.email, sampleUser.email)
             XCTAssertEqual(decodedUser.name, sampleUser.name)

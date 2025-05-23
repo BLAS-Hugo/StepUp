@@ -12,7 +12,6 @@ protocol AuthenticationFormProtocol {
 }
 
 struct LoginScreen: View {
-
     @State private var email: String = ""
     @State private var isEmailValid: Bool = true
     @State private var password: String = ""
@@ -155,14 +154,18 @@ struct LoginScreen: View {
             Text(LocalizedStringKey("email_required_message"))
         }
         .alert(LocalizedStringKey("network_error"), isPresented: $showNetworkErrorAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {
+                showNetworkErrorAlert.toggle()
+            }
         } message: {
-            Text(LocalizedStringKey("email_required_message"))
+            Text(LocalizedStringKey("network_error_message"))
         }
         .alert(LocalizedStringKey("password_error"), isPresented: $showPasswordErrorAlert) {
-            Button("OK", role: .cancel) { }
+            Button("OK", role: .cancel) {
+                showPasswordErrorAlert.toggle()
+            }
         } message: {
-            Text(LocalizedStringKey("email_required_message"))
+            Text(LocalizedStringKey("password_error_message"))
         }
     }
 
@@ -174,7 +177,11 @@ struct LoginScreen: View {
                 password: password
             )
         } catch {
-            // display error
+            if error.localizedDescription.contains("auth credential") {
+                showPasswordErrorAlert.toggle()
+            } else {
+                showNetworkErrorAlert.toggle()
+            }
         }
         isButtonLoading = false
     }

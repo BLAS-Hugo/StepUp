@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ObjectivesScreen: View {
-    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+    @EnvironmentObject var goalViewModel: GoalViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -18,8 +18,8 @@ struct ObjectivesScreen: View {
                         .font(.title3)
                     HStack {
                         Button {
-                            objectivesViewModel.decrementData(for: "steps")
-                            objectivesViewModel.saveData(for: "steps", data: objectivesViewModel.numberOfSteps)
+                            goalViewModel.decrementData(for: "steps")
+                            goalViewModel.saveData(for: "steps", data: goalViewModel.numberOfSteps)
                         } label: {
                             ZStack {
                                 Image(systemName: "minus")
@@ -31,11 +31,11 @@ struct ObjectivesScreen: View {
                             .clipShape(Circle())
                         }
                         Spacer()
-                        Text("\(objectivesViewModel.numberOfSteps)")
+                        Text("\(goalViewModel.numberOfSteps)")
                         Spacer()
                         Button {
-                            objectivesViewModel.incrementData(for: "steps")
-                            objectivesViewModel.saveData(for: "steps", data: objectivesViewModel.numberOfSteps)
+                            goalViewModel.incrementData(for: "steps")
+                            goalViewModel.saveData(for: "steps", data: goalViewModel.numberOfSteps)
                         } label: {
                             ZStack {
                                 Image(systemName: "plus")
@@ -55,8 +55,8 @@ struct ObjectivesScreen: View {
                         .font(.title3)
                     HStack {
                         Button {
-                            objectivesViewModel.decrementData(for: "distance")
-                            objectivesViewModel.saveData(for: "distance", data: objectivesViewModel.distance)
+                            goalViewModel.decrementData(for: "distance")
+                            goalViewModel.saveData(for: "distance", data: goalViewModel.distance)
                         } label: {
                             ZStack {
                                 Image(systemName: "minus")
@@ -68,11 +68,11 @@ struct ObjectivesScreen: View {
                             .clipShape(Circle())
                         }
                         Spacer()
-                        Text("\(Double(objectivesViewModel.distance) / 1000, specifier: "%.1f")")
+                        Text("\(Double(goalViewModel.distance) / 1000, specifier: "%.1f")")
                         Spacer()
                         Button {
-                            objectivesViewModel.incrementData(for: "distance")
-                            objectivesViewModel.saveData(for: "distance", data: objectivesViewModel.distance)
+                            goalViewModel.incrementData(for: "distance")
+                            goalViewModel.saveData(for: "distance", data: goalViewModel.distance)
                         } label: {
                             ZStack {
                                 Image(systemName: "plus")

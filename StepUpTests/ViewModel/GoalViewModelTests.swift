@@ -1,27 +1,23 @@
 import XCTest
 @testable import StepUp
 
-final class ObjectivesViewModelTests: XCTestCase {
-    
+final class GoalViewModelTests: XCTestCase {
+
     // Test data
-    private var viewModel: ObjectivesViewModel!
+    private var viewModel: GoalViewModel!
     private let testUserDefaults = UserDefaults(suiteName: "test_objectives")!
     
     override func setUp() {
         super.setUp()
-        // Clear any existing values
         testUserDefaults.removeObject(forKey: "steps")
         testUserDefaults.removeObject(forKey: "distance")
         
-        // Set initial test values
         testUserDefaults.set(5000, forKey: "steps")
         testUserDefaults.set(2000, forKey: "distance")
         
-        // Initialize with our test defaults
-        viewModel = ObjectivesViewModel(numberOfSteps: 0, distance: 0)
+        viewModel = GoalViewModel(numberOfSteps: 0, distance: 0)
         viewModel.defaults = testUserDefaults
         
-        // Fetch data from our test defaults
         viewModel.fetchData()
     }
     

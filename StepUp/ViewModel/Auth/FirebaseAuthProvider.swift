@@ -105,4 +105,24 @@ class FirebaseAuthProvider: AuthProviding {
     private func addUserToDB(user: User) throws {
         try usersCollection.document(user.id).setData(from: user)
     }
+
+    func updateUserData(name: String, firstName: String) async throws {
+        guard currentUserSession != nil else {
+            throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No authenticated user"])
+        }
+
+        guard let currentUser = currentUser else {
+            throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No current user data"])
+        }
+
+        let updatedUser = User(
+            id: currentUser.id,
+            email: currentUser.email,
+            name: name,
+            firstName: firstName
+        )
+
+        try usersCollection.document(currentUser.id).setData(from: updatedUser)
+        await fetchUserData()
+    }
 }

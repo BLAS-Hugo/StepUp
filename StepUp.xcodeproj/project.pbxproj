@@ -26,19 +26,11 @@
 			remoteGlobalIDString = 9AC00AAD2D6889820032E01C;
 			remoteInfo = StepUp;
 		};
-		9AC00ACB2D6889840032E01C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9AC00AA62D6889820032E01C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9AC00AAD2D6889820032E01C;
-			remoteInfo = StepUp;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9AC00AAE2D6889820032E01C /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC00AC02D6889840032E01C /* StepUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AC00ACA2D6889840032E01C /* StepUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AD5CA582DA656D1001F07BF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,13 +83,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AC00AC72D6889840032E01C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,7 +102,6 @@
 			children = (
 				9AC00AAE2D6889820032E01C /* StepUp.app */,
 				9AC00AC02D6889840032E01C /* StepUpTests.xctest */,
-				9AC00ACA2D6889840032E01C /* StepUpUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,26 +170,6 @@
 			productReference = 9AC00AC02D6889840032E01C /* StepUpTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9AC00AC92D6889840032E01C /* StepUpUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9AC00ADA2D6889840032E01C /* Build configuration list for PBXNativeTarget "StepUpUITests" */;
-			buildPhases = (
-				9AC00AC62D6889840032E01C /* Sources */,
-				9AC00AC72D6889840032E01C /* Frameworks */,
-				9AC00AC82D6889840032E01C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9AC00ACC2D6889840032E01C /* PBXTargetDependency */,
-			);
-			name = StepUpUITests;
-			packageProductDependencies = (
-			);
-			productName = StepUpUITests;
-			productReference = 9AC00ACA2D6889840032E01C /* StepUpUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,10 +184,6 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					9AC00ABF2D6889840032E01C = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 9AC00AAD2D6889820032E01C;
-					};
-					9AC00AC92D6889840032E01C = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 9AC00AAD2D6889820032E01C;
 					};
@@ -250,7 +210,6 @@
 			targets = (
 				9AC00AAD2D6889820032E01C /* StepUp */,
 				9AC00ABF2D6889840032E01C /* StepUpTests */,
-				9AC00AC92D6889840032E01C /* StepUpUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,13 +224,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9AC00ABE2D6889840032E01C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9AC00AC82D6889840032E01C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,13 +247,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AC00AC62D6889840032E01C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -313,11 +258,6 @@
 			isa = PBXTargetDependency;
 			target = 9AC00AAD2D6889820032E01C /* StepUp */;
 			targetProxy = 9AC00AC12D6889840032E01C /* PBXContainerItemProxy */;
-		};
-		9AC00ACC2D6889840032E01C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9AC00AAD2D6889820032E01C /* StepUp */;
-			targetProxy = 9AC00ACB2D6889840032E01C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -549,38 +489,6 @@
 			};
 			name = Release;
 		};
-		9AC00ADB2D6889840032E01C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hugoblas.StepUpUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StepUp;
-			};
-			name = Debug;
-		};
-		9AC00ADC2D6889840032E01C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hugoblas.StepUpUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = StepUp;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -607,15 +515,6 @@
 			buildConfigurations = (
 				9AC00AD82D6889840032E01C /* Debug */,
 				9AC00AD92D6889840032E01C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9AC00ADA2D6889840032E01C /* Build configuration list for PBXNativeTarget "StepUpUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9AC00ADB2D6889840032E01C /* Debug */,
-				9AC00ADC2D6889840032E01C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

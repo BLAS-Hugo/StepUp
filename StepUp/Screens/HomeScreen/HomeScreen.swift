@@ -11,7 +11,7 @@ struct HomeScreen: View {
     @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var healthKitService: HealthKitService
-    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+    @EnvironmentObject var goalViewModel: GoalViewModel
 
     @State private var shouldShowChallengesSheet = false
 
@@ -23,8 +23,8 @@ struct HomeScreen: View {
         authenticationService.currentUserSession?.uid ?? ""
     }
 
-    private func challengeProgress(for challenge: Challenge) -> Double {
-        Double(challenge.getParticipantProgress(userID: userId))
+    private func challengeProgress(for challenge: Challenge) -> Int? {
+        challenge.getParticipantProgress(userID: userId)
     }
 
     private func challengeRemainingDays(for challenge: Challenge) -> Int {
@@ -46,13 +46,13 @@ struct HomeScreen: View {
             HStack {
                 CircularProgressView(
                     progress: healthKitService.stepCount,
-                    goal: objectivesViewModel.numberOfSteps
+                    goal: goalViewModel.numberOfSteps
                 )
                 CircularProgressView(
                     color: Color.primaryOrange,
                     progress: healthKitService.distance,
                     type: .distance,
-                    goal: objectivesViewModel.distance
+                    goal: goalViewModel.distance
                 )
             }
 
@@ -132,10 +132,12 @@ struct HomeScreen: View {
                     .font(.title2)
 
                 let progress = challengeProgress(for: challenge)
-                ProgressView(
-                    value: min(progress, Double(challenge.goal.getGoal())),
-                    total: Double(challenge.goal.getGoal()))
+                if let progress {
+                    ProgressView(
+                        value: min(Double(progress), Double(challenge.goal.getGoal())),
+                        total: Double(challenge.goal.getGoal()))
                     .progressViewStyle(LinearProgressStyle())
+                }
 
                 let remainingDays = challengeRemainingDays(for: challenge)
                 challengeTimeText(remainingDays: remainingDays)

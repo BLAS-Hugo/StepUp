@@ -104,7 +104,7 @@ class UserChallengesService: ObservableObject {
             $0.participants.contains(
                 where: { $0.userID == currentUser?.id}) && $0.endDate > Date.now
         }.sorted(by: { $0.date < $1.date })
-        
+
         userCurrentChallenge = userParticipatingChallenges.first(
             where: { $0.date <= Date.now && $0.endDate > Date.now })
 
@@ -115,7 +115,7 @@ class UserChallengesService: ObservableObject {
         userCreatedChallenges = challenges.filter {
             $0.creatorUserID == currentUser?.id && $0.endDate > Date.now
         }
-        
+
         otherChallenges = challenges.filter {
             $0.creatorUserID != currentUser?.id &&
             !$0.participants.contains(where: { $0.userID == currentUser?.id }) &&
@@ -132,11 +132,12 @@ class UserChallengesService: ObservableObject {
         })
     }
 
-    func participateToChallenge(_ challenge: Challenge, user: User) async {
+    func participateToChallenge(_ challenge: Challenge, user: User) async throws {
         do {
             try await editChallenge(challenge.addParticipant(user), forUser: user)
         } catch {
             print("Error participating in challenge: \(error)")
+            throw error
         }
     }
 
@@ -168,28 +169,57 @@ class UserChallengesService: ObservableObject {
 
     func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
         let challengesToCheck = userParticipatingChallenges
-        
+
         if challengesToCheck.isEmpty {
             return true
         }
 
         for challenge in challengesToCheck {
-            // Case 1: New challenge start date is within an existing challenge
             if startDate >= challenge.date && startDate < challenge.endDate {
                 return false
             }
-            
-            // Case 2: New challenge end date is within an existing challenge
+
             if endDate > challenge.date && endDate <= challenge.endDate {
                 return false
             }
-            
-            // Case 3: New challenge completely surrounds an existing challenge
+
             if startDate <= challenge.date && endDate >= challenge.endDate {
                 return false
             }
         }
 
         return true
+    }
+
+    func updateUserNameInAllChallenges(for user: User, newFirstName: String) async throws {
+        let challengesToUpdate = challenges.filter { challenge in
+            challenge.participants.contains { $0.userID == user.id }
+        }
+
+        for challenge in challengesToUpdate {
+            var updatedParticipants = challenge.participants
+            if let participantIndex = updatedParticipants.firstIndex(where: { $0.userID == user.id }) {
+                let currentParticipant = updatedParticipants[participantIndex]
+                updatedParticipants[participantIndex] = Participant(
+                    userID: currentParticipant.userID,
+                    name: newFirstName,
+                    progress: currentParticipant.progress
+                )
+
+                let updatedChallenge = Challenge(
+                    creatorUserID: challenge.creatorUserID,
+                    participants: updatedParticipants,
+                    name: challenge.name,
+                    description: challenge.description,
+                    goal: challenge.goal,
+                    duration: challenge.duration,
+                    date: challenge.date,
+                    id: challenge.id
+                )
+
+                try await challengeStore.editChallenge(updatedChallenge)
+            }
+        }
+        await fetchChallenges(forUser: user)
     }
 }

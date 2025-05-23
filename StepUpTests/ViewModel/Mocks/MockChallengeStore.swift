@@ -1,6 +1,12 @@
+//
+//  MockChallengeStore.swift
+//  StepUpTests
+//
+//  Created by Hugo Blas on 16/05/2025.
+//
 import Foundation
-@testable import StepUp // To access Challenge and ChallengeStoring
-import XCTest // For UUID, though Foundation might be enough if UUID is the only thing
+@testable import StepUp
+import XCTest
 
 class MockChallengeStore: ChallengeStoring {
     var challengesToReturn: [Challenge] = []
@@ -10,13 +16,11 @@ class MockChallengeStore: ChallengeStoring {
     var shouldThrowOnEdit: Bool = false
     var shouldThrowOnDelete: Bool = false
 
-    // To track calls and passed data
     private(set) var fetchedChallengesCalled = false
     private(set) var createdChallenge: Challenge?
     private(set) var editedChallenge: Challenge?
     private(set) var deletedChallenge: Challenge?
 
-    // In-memory store for basic simulation
     var challenges: [Challenge] = []
 
     func fetchChallenges() async throws -> [Challenge] {
@@ -32,11 +36,10 @@ class MockChallengeStore: ChallengeStoring {
         if shouldThrowOnCreate, let error = errorToThrow {
             throw error
         }
-        // Simulate adding to an in-memory store if needed for more complex tests
         if !shouldThrowOnCreate {
             var newChallenge = challenge
             if newChallenge.id == nil {
-                newChallenge.id = UUID().uuidString // Simulate ID generation
+                newChallenge.id = UUID().uuidString
             }
             challenges.append(newChallenge)
         }
@@ -58,7 +61,6 @@ class MockChallengeStore: ChallengeStoring {
         if shouldThrowOnDelete, let error = errorToThrow {
             throw error
         }
-        // Simulate deleting from an in-memory store
         if !shouldThrowOnDelete {
             challenges.removeAll(where: { $0.id == challenge.id })
         }

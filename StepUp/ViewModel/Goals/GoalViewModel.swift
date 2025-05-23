@@ -1,5 +1,5 @@
 //
-//  ObjectivesViewModel.swift
+//  GoalViewModel.swift
 //  StepUp
 //
 //  Created by Hugo Blas on 11/04/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ObjectivesViewModel: ObservableObject {
+class GoalViewModel: ObservableObject {
     @Published var numberOfSteps = 0
     @Published var distance = 0
 

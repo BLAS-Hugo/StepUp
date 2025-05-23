@@ -10,7 +10,7 @@ import SwiftUI
 struct AppMainView: View {
     @EnvironmentObject var authenticationService: FirebaseAuthProvider
     @EnvironmentObject var healthKitService: HealthKitService
-    @EnvironmentObject var objectivesViewModel: ObjectivesViewModel
+    @EnvironmentObject var goalViewModel: GoalViewModel
     @State var selection: Int = 0
     @EnvironmentObject var challengesService: UserChallengesService
     @State private var shouldShowChallengesSheet = false
@@ -26,7 +26,7 @@ struct AppMainView: View {
                     .environmentObject(authenticationService)
                     .environmentObject(challengesService)
                     .environmentObject(healthKitService)
-                    .environmentObject(objectivesViewModel)
+                    .environmentObject(goalViewModel)
                     .navigationTitle(Text(LocalizedStringKey("home")))
                     .navigationBarTitleDisplayMode(.large)
             }
@@ -69,7 +69,7 @@ struct AppMainView: View {
             NavigationStack {
                 ProfileScreen()
                     .environmentObject(authenticationService)
-                    .environmentObject(objectivesViewModel)
+                    .environmentObject(goalViewModel)
                     .environmentObject(challengesService)
                     .navigationTitle(Text(LocalizedStringKey("profile")))
                     .navigationBarTitleDisplayMode(.large)

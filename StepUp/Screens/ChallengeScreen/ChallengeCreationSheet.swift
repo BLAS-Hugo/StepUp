@@ -18,6 +18,9 @@ struct ChallengeCreationSheet: View {
     @State private var challengeGoal: String = "0"
     @State private var challengeGoalType = 0
 
+    @State private var showCreationErrorAlert: Bool = false
+    @State private var showDatesErrorAlert: Bool = false
+
     private var canCreateChallenge: Bool {
         !challengeName.isEmpty && !challengeDescription.isEmpty && Int(challengeGoal) != nil && Int(challengeGoal)! > 0
     }
@@ -83,12 +86,25 @@ struct ChallengeCreationSheet: View {
                 }
                 .padding(.all, 32)
             }
+        .alert(LocalizedStringKey("network_error"), isPresented: $showCreationErrorAlert) {
+            Button("OK", role: .cancel) {
+                showCreationErrorAlert.toggle()
+            }
+        } message: {
+            Text(LocalizedStringKey("network_error_message"))
+        }
+        .alert(LocalizedStringKey("invalid_dates_error"), isPresented: $showDatesErrorAlert) {
+            Button("OK", role: .cancel) {
+                showDatesErrorAlert.toggle()
+            }
+        } message: {
+            Text(LocalizedStringKey("invalid_dates_error_message"))
+        }
     }
 
     private func createChallenge() async {
-        // Check if challenge can be created
         if !challengesService.areChallengeDatesValid(from: challengeDate, to: challengeEndDate) {
-            // Display error to user
+            showDatesErrorAlert.toggle()
             return
         }
 
@@ -110,7 +126,7 @@ struct ChallengeCreationSheet: View {
         do {
             try await challengesService.createChallenge(challenge, forUser: authenticationService.currentUser)
         } catch {
-            // Display error to user
+            showCreationErrorAlert.toggle()
         }
         closeCallback()
     }

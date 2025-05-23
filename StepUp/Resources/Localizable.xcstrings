@@ -333,6 +333,9 @@
         }
       }
     },
+    "delete_account" : {
+
+    },
     "disconnect" : {
       "localizations" : {
         "en" : {
@@ -573,6 +576,38 @@
         }
       }
     },
+    "invalid_dates_error" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid dates"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dates non valides"
+          }
+        }
+      }
+    },
+    "invalid_dates_error_message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select other dates, you are already participating to a challenge at these dates"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner d’autres dates, vous participez déjà à un challenges à ces dates."
+          }
+        }
+      }
+    },
     "KM" : {
       "localizations" : {
         "en" : {
@@ -670,7 +705,36 @@
       }
     },
     "network_error" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Network error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur réseau"
+          }
+        }
+      }
+    },
+    "network_error_message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There was a network error, you can retry logging in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur inattendue est survenue, vous pouvez réessayer de vous connecter"
+          }
+        }
+      }
     },
     "no_active_challenge" : {
       "localizations" : {
@@ -849,7 +913,36 @@
       }
     },
     "password_error" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrong password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mot de passe erronné"
+          }
+        }
+      }
+    },
+    "password_error_message" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verify you password and retry logging in"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vérifiez votre mot de passe et réessayez de vous connecter"
+          }
+        }
+      }
     },
     "password_not_equal" : {
       "localizations" : {

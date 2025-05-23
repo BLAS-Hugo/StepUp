@@ -17,8 +17,8 @@ struct Challenge: Identifiable {
     let date: Date
     var id: String?
 
-    func getParticipantProgress(userID: String) -> Int {
-        return participants.first(where: { $0.userID == userID })!.progress
+    func getParticipantProgress(userID: String) -> Int? {
+        return participants.first(where: { $0.userID == userID })?.progress
     }
 
     var endDate: Date {

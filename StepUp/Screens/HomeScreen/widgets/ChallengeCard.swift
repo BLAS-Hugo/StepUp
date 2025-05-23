@@ -31,11 +31,13 @@ struct ChallengeCard: View {
                     .bold()
                     .foregroundStyle(.black)
                 if isUserParticipating {
-                    ProgressView(
-                        value: Double(min(challenge.getParticipantProgress(userID: userID), challenge.goal.getGoal())),
-                        total: Double(challenge.goal.getGoal())
-                    )
-                    .progressViewStyle(LinearProgressStyle())
+                    if let progress {
+                        ProgressView(
+                            value: Double(min(progress, challenge.goal.getGoal())),
+                            total: Double(challenge.goal.getGoal())
+                        )
+                        .progressViewStyle(LinearProgressStyle())
+                    }
                 }
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)
@@ -55,6 +57,10 @@ struct ChallengeCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 
+    private var progress: Int? {
+        challenge.getParticipantProgress(userID: userID)
+    }
+
     private var wideCard: some View {
         VStack {
             HStack {
@@ -63,16 +69,18 @@ struct ChallengeCard: View {
                         .bold()
                         .foregroundStyle(.black)
                     if isUserParticipating {
-                        ProgressView(
-                            value: Double(
-                                min(
-                                    challenge.getParticipantProgress(userID: userID),
-                                    challenge.goal.getGoal()
-                                )
-                            ),
-                            total: Double(challenge.goal.getGoal())
-                        )
-                        .progressViewStyle(LinearProgressStyle())
+                        if let progress {
+                            ProgressView(
+                                value: Double(
+                                    min(
+                                        progress,
+                                        challenge.goal.getGoal()
+                                    )
+                                ),
+                                total: Double(challenge.goal.getGoal())
+                            )
+                            .progressViewStyle(LinearProgressStyle())
+                        }
                     }
                     Text(challenge.goal.getGoalForDisplay())
                         .foregroundStyle(.black)

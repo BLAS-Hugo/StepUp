@@ -28,16 +28,21 @@ struct StepUpApp: App {
 
     @StateObject var authenticationService = FirebaseAuthProvider()
     @StateObject var healthKitService = HealthKitService()
-    @StateObject var objectivesViewModel = ObjectivesViewModel()
+    @StateObject var goalViewModel = GoalViewModel()
 
     var body: some Scene {
         WindowGroup {
             if authenticationService.currentUserSession != nil {
                 AppMainView()
                     .environmentObject(authenticationService)
-                    .environmentObject(UserChallengesService(with: authenticationService, healthKitService, challengeStore: FirestoreChallengeStore()))
+                    .environmentObject(
+                        UserChallengesService(
+                            with: authenticationService,
+                            healthKitService,
+                            challengeStore: FirestoreChallengeStore()
+                        ))
                     .environmentObject(healthKitService)
-                    .environmentObject(objectivesViewModel)
+                    .environmentObject(goalViewModel)
             } else {
                 AuthNavigationView().environmentObject(authenticationService)
             }

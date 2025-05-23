@@ -2,8 +2,6 @@ import XCTest
 @testable import StepUp
 
 final class ParticipantTests: XCTestCase {
-    
-    // Test data
     private var sampleParticipant: Participant!
     
     override func setUp() {
@@ -15,28 +13,21 @@ final class ParticipantTests: XCTestCase {
         sampleParticipant = nil
         super.tearDown()
     }
-    
-    // MARK: - Initialization Tests
-    
+
     func testInitialization() {
         XCTAssertEqual(sampleParticipant.userID, "user1")
         XCTAssertEqual(sampleParticipant.name, "Test User")
         XCTAssertEqual(sampleParticipant.progress, 75)
     }
-    
-    // MARK: - Codable Tests
-    
+
     func testCodable() {
         do {
-            // Test encoding
             let encoder = JSONEncoder()
             let data = try encoder.encode(sampleParticipant)
             
-            // Test decoding
             let decoder = JSONDecoder()
             let decodedParticipant = try decoder.decode(Participant.self, from: data)
             
-            // Verify decoded properties
             XCTAssertEqual(decodedParticipant.userID, sampleParticipant.userID)
             XCTAssertEqual(decodedParticipant.name, sampleParticipant.name)
             XCTAssertEqual(decodedParticipant.progress, sampleParticipant.progress)
@@ -44,15 +35,11 @@ final class ParticipantTests: XCTestCase {
             XCTFail("Codable test failed with error: \(error)")
         }
     }
-    
-    // MARK: - Equatable Tests
-    
+
     func testEquatable() {
-        // Create identical participant
         let identicalParticipant = Participant(userID: "user1", name: "Test User", progress: 75)
         XCTAssertEqual(sampleParticipant, identicalParticipant)
         
-        // Create different participants
         let differentIDParticipant = Participant(userID: "user2", name: "Test User", progress: 75)
         XCTAssertNotEqual(sampleParticipant, differentIDParticipant)
         

@@ -18,6 +18,8 @@ struct RegisterScreen: View {
     @State private var name: String = ""
 
     @State private var isButtonLoading = false
+    @State private var showNetworkErrorAlert = false
+    @State private var showPasswordErrorAlert = false
 
     @EnvironmentObject var authenticationService: FirebaseAuthProvider
 
@@ -94,9 +96,6 @@ struct RegisterScreen: View {
                     .frame(minWidth: 135, minHeight: 64)
                     .background(Color.primaryOrange)
                     .clipShape(.rect(cornerRadius: 8))
-
-                    // Other connection methods
-                    // Google
                 }
                 .ignoresSafeArea()
                 .frame(
@@ -111,18 +110,40 @@ struct RegisterScreen: View {
         }
         .ignoresSafeArea()
         .frame(alignment: .bottom)
+        .alert(LocalizedStringKey("network_error"), isPresented: $showNetworkErrorAlert) {
+            Button("OK", role: .cancel) {
+                showNetworkErrorAlert.toggle()
+            }
+        } message: {
+            Text(LocalizedStringKey("network_error_message"))
+        }
+        .alert(LocalizedStringKey("password_error"), isPresented: $showNetworkErrorAlert) {
+            Button("OK", role: .cancel) {
+                showNetworkErrorAlert.toggle()
+            }
+        } message: {
+            Text(LocalizedStringKey("password_error_message"))
+        }
     }
 
     private func onSignupButtonTap() async {
         isButtonLoading = true
         isPasswordEqual = password == confirmPassword
 
-        try? await authenticationService.signUp(
-            email: email,
-            password: password,
-            firstName: firstName,
-            name: name
-        )
+        do {
+            try await authenticationService.signUp(
+                email: email,
+                password: password,
+                firstName: firstName,
+                name: name
+            )
+        } catch {
+            if error.localizedDescription.contains("Password") {
+                showPasswordErrorAlert.toggle()
+            } else {
+                showNetworkErrorAlert.toggle()
+            }
+        }
         isButtonLoading = false
     }
 }
