@@ -9,8 +9,6 @@ import Foundation
 import HealthKit
 import Combine
 
-// MARK: - Custom Protocols for Mockable HealthKit Data
-
 @MainActor
 protocol CustomStatisticsProtocol {
     func sumQuantity() -> HKQuantity?
@@ -26,7 +24,6 @@ protocol CustomStatisticsCollectionProtocol {
                                UnsafeMutablePointer<ObjCBool>) -> Void)
 }
 
-// MARK: - Original HealthKitStore Protocol (Modified)
 protocol HealthKitStoreProtocol {
     func requestAuthorization(
         toShare: Set<HKSampleType>,

@@ -11,8 +11,9 @@ import HealthKit
 
 @MainActor
 class UserChallengesService: ObservableObject {
-    let authenticationService: FirebaseAuthProvider
-    let healthKitService: HealthKitService
+    let authenticationService: any AuthProviding
+    let healthKitService: any HealthKitServiceProtocol
+    private let challengeStore: ChallengeStoring
     private var timer: Timer?
 
     @Published var challenges: [Challenge] = []
@@ -22,15 +23,19 @@ class UserChallengesService: ObservableObject {
     @Published var otherChallenges: [Challenge] = []
     @Published var userChallengesHistory: [Challenge] = []
 
-    init(with authenticationService: FirebaseAuthProvider, _ healthKitService: HealthKitService) {
+    init(
+        with authenticationService: any AuthProviding,
+        _ healthKitService: any HealthKitServiceProtocol,
+        challengeStore: ChallengeStoring) {
         self.authenticationService = authenticationService
         self.healthKitService = healthKitService
+        self.challengeStore = challengeStore
         if self.authenticationService.currentUser == nil {
             return
         }
         Task {
             await fetchChallenges(forUser: self.authenticationService.currentUser)
-            await updateUserCurrentChallenge()
+            await updateUserCurrentChallenge(forUser: self.authenticationService.currentUser)
             startUpdateTimer()
         }
     }
@@ -44,7 +49,7 @@ class UserChallengesService: ObservableObject {
         stopUpdateTimer()
         timer = Timer.scheduledTimer(withTimeInterval: 120, repeats: true) { [weak self] _ in
             Task { [weak self] in
-                await self?.updateUserCurrentChallenge()
+                await self?.updateUserCurrentChallenge(forUser: self?.authenticationService.currentUser)
             }
         }
     }
@@ -58,8 +63,7 @@ class UserChallengesService: ObservableObject {
         if user == nil {
             return
         }
-        let encodedChallenge = try Firestore.Encoder().encode(challenge)
-        try await challengesCollection.addDocument(data: encodedChallenge)
+        try await challengeStore.createChallenge(challenge)
         await fetchChallenges(forUser: user)
     }
 
@@ -67,8 +71,7 @@ class UserChallengesService: ObservableObject {
         if user == nil || challenge.id == nil {
             return
         }
-        let encodedChallenge = try Firestore.Encoder().encode(challenge)
-        try await challengesCollection.document(challenge.id!).setData(encodedChallenge)
+        try await challengeStore.editChallenge(challenge)
         await fetchChallenges(forUser: user)
     }
 
@@ -76,7 +79,7 @@ class UserChallengesService: ObservableObject {
         if user == nil || challenge.id == nil {
             return
         }
-        try await challengesCollection.document(challenge.id!).delete()
+        try await challengeStore.deleteChallenge(challenge)
         await fetchChallenges(forUser: user)
     }
 
@@ -85,38 +88,43 @@ class UserChallengesService: ObservableObject {
         if user == nil {
             return
         }
-        guard let collectionSnapshot = try? await challengesCollection.getDocuments()
-        else { return }
-
-        for document in collectionSnapshot.documents {
-            guard var challengeData = try? document.data(as: Challenge.self)
-            else { continue }
-            challengeData.id = document.documentID
-            challenges.append(challengeData)
+        do {
+            let fetchedChallenges = try await challengeStore.fetchChallenges()
+            self.challenges = fetchedChallenges
+        } catch {
+            print("Error fetching challenges: \(error)")
         }
-        filterChallenges()
+        filterChallenges(forUser: user)
     }
 
-    private func filterChallenges() {
+    func filterChallenges(forUser user: User? = nil) {
+        let currentUser = user ?? self.authenticationService.currentUser
+
         userParticipatingChallenges = challenges.filter {
             $0.participants.contains(
-                where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate > Date.now
-        }
+                where: { $0.userID == currentUser?.id}) && $0.endDate > Date.now
+        }.sorted(by: { $0.date < $1.date })
+        
+        userCurrentChallenge = userParticipatingChallenges.first(
+            where: { $0.date <= Date.now && $0.endDate > Date.now })
 
-        userCurrentChallenge = userParticipatingChallenges.first { $0.endDate > Date.now }
+        if userCurrentChallenge == nil {
+            userCurrentChallenge = userParticipatingChallenges.first
+        }
 
         userCreatedChallenges = challenges.filter {
-            $0.creatorUserID == self.authenticationService.currentUser?.id && $0.endDate > Date.now
+            $0.creatorUserID == currentUser?.id && $0.endDate > Date.now
         }
+        
         otherChallenges = challenges.filter {
-            $0.creatorUserID != self.authenticationService.currentUser?.id &&
-            !$0.participants.contains(where: { $0.userID == self.authenticationService.currentUser?.id }) &&
+            $0.creatorUserID != currentUser?.id &&
+            !$0.participants.contains(where: { $0.userID == currentUser?.id }) &&
             $0.endDate > Date.now
         }
 
         userChallengesHistory = challenges.filter {
             $0.participants.contains(
-                where: { $0.userID == self.authenticationService.currentUser?.id}) && $0.endDate < Date.now
+                where: { $0.userID == currentUser?.id}) && $0.endDate < Date.now
         }
 
         challenges.removeAll(where: {
@@ -128,13 +136,13 @@ class UserChallengesService: ObservableObject {
         do {
             try await editChallenge(challenge.addParticipant(user), forUser: user)
         } catch {
-            // display error
+            print("Error participating in challenge: \(error)")
         }
-        await fetchChallenges(forUser: user)
     }
 
-    func updateUserCurrentChallenge() async {
-        guard let userCurrentChallenge, let currentUser = authenticationService.currentUser else { return }
+    func updateUserCurrentChallenge(forUser user: User? = nil) async {
+        let currentUser = user ?? authenticationService.currentUser
+        guard let userCurrentChallenge, let currentUser = currentUser else { return }
 
         let type = userCurrentChallenge.goal.steps ?? 0 > 0
         ? HKQuantityType.quantityType(forIdentifier: .stepCount)!
@@ -160,22 +168,28 @@ class UserChallengesService: ObservableObject {
 
     func areChallengeDatesValid(from startDate: Date, to endDate: Date) -> Bool {
         let challengesToCheck = userParticipatingChallenges
+        
+        if challengesToCheck.isEmpty {
+            return true
+        }
 
-        var isColliding: Bool = false
-        challengesToCheck.forEach {
-            if startDate >= $0.date && startDate <= $0.endDate {
-                isColliding = true
+        for challenge in challengesToCheck {
+            // Case 1: New challenge start date is within an existing challenge
+            if startDate >= challenge.date && startDate < challenge.endDate {
+                return false
+            }
+            
+            // Case 2: New challenge end date is within an existing challenge
+            if endDate > challenge.date && endDate <= challenge.endDate {
+                return false
+            }
+            
+            // Case 3: New challenge completely surrounds an existing challenge
+            if startDate <= challenge.date && endDate >= challenge.endDate {
+                return false
             }
         }
 
-        challengesToCheck.forEach {
-            if endDate >= $0.date && endDate <= $0.endDate {
-                isColliding = true
-            }
-        }
-
-        return !isColliding
+        return true
     }
-
-    private let challengesCollection = Firestore.firestore().collection("challenges")
 }

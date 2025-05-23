@@ -109,6 +109,12 @@ class MockHealthKitStore: HealthKitStoreProtocol {
 class MockHealthKitService: HealthKitServiceProtocol {
     @Published var stepCount: Int = 0
     @Published var distance: Int = 0
+    
+    // Add properties to track method calls
+    var fetchDataCallCount: Int = 0
+    var fetchDataForDatatypeAndDateCallCount: Int = 0
+    var lastFetchType: HKQuantityType?
+    var mockDataToReturn: Int?
 
     private var mockHealthStore: MockHealthKitStore
 
@@ -147,6 +153,16 @@ class MockHealthKitService: HealthKitServiceProtocol {
     }
 
     func fetchData(for datatype: HKQuantityType) async -> Int {
+        // Increment call counter and store the last type
+        fetchDataCallCount += 1
+        lastFetchType = datatype
+        
+        // Return mockDataToReturn if it's set, otherwise proceed with normal mock behavior
+        if let mockData = mockDataToReturn {
+            self.updatePublishedProperties(for: datatype, with: mockData)
+            return mockData
+        }
+        
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: Date())
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
@@ -181,6 +197,14 @@ class MockHealthKitService: HealthKitServiceProtocol {
         from startDate: Date,
         to endDate: Date
     ) async -> Int {
+        // Track the method call
+        fetchDataForDatatypeAndDateCallCount += 1
+        lastFetchType = datatype
+        
+        // Return mockDataToReturn if it's set
+        if let mockData = mockDataToReturn {
+            return mockData
+        }
 
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
@@ -229,5 +253,15 @@ class MockHealthKitService: HealthKitServiceProtocol {
         default:
             break
         }
+    }
+    
+    // Add a reset method for clean test setup
+    func reset() {
+        fetchDataCallCount = 0
+        fetchDataForDatatypeAndDateCallCount = 0
+        lastFetchType = nil
+        mockDataToReturn = nil
+        stepCount = 0
+        distance = 0
     }
 }

@@ -66,11 +66,6 @@
 			path = StepUpTests;
 			sourceTree = "<group>";
 		};
-		9AC00ACD2D6889840032E01C /* StepUpUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = StepUpUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +107,6 @@
 				9AD5CA582DA656D1001F07BF /* .gitignore */,
 				9AC00AB02D6889820032E01C /* StepUp */,
 				9AC00AC32D6889840032E01C /* StepUpTests */,
-				9AC00ACD2D6889840032E01C /* StepUpUITests */,
 				9ACEBAEC2D760DB100799AEA /* Frameworks */,
 				9AC00AAF2D6889820032E01C /* Products */,
 			);
@@ -204,9 +198,6 @@
 			);
 			dependencies = (
 				9AC00ACC2D6889840032E01C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				9AC00ACD2D6889840032E01C /* StepUpUITests */,
 			);
 			name = StepUpUITests;
 			packageProductDependencies = (

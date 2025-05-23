@@ -35,7 +35,7 @@ struct StepUpApp: App {
             if authenticationService.currentUserSession != nil {
                 AppMainView()
                     .environmentObject(authenticationService)
-                    .environmentObject(UserChallengesService(with: authenticationService, healthKitService))
+                    .environmentObject(UserChallengesService(with: authenticationService, healthKitService, challengeStore: FirestoreChallengeStore()))
                     .environmentObject(healthKitService)
                     .environmentObject(objectivesViewModel)
             } else {
