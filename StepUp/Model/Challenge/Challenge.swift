@@ -42,9 +42,10 @@ struct Challenge: Identifiable {
 
     func editParticipantProgress(_ user: User, progress: Int) -> Challenge {
         var participantsArray = participants
-        let participant = participantsArray.first(where: { $0.userID == user.id })!
-        participantsArray[participantsArray.firstIndex(of: participant)!]
-        = Participant(userID: user.id, name: user.firstName, progress: progress)
+        guard let participantIndex = participantsArray.firstIndex(where: { $0.userID == user.id }) else {
+            return self
+        }
+        participantsArray[participantIndex] = Participant(userID: user.id, name: user.firstName, progress: progress)
         return Challenge(
             creatorUserID: creatorUserID,
             participants: participantsArray,

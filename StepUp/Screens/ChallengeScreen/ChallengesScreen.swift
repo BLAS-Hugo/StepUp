@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ChallengesScreen: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
     @EnvironmentObject var challengesService: UserChallengesService
 
     private var userSessionId: String {
-        authenticationService.currentUserSession?.uid ?? ""
+        authenticationService.currentUser?.id ?? ""
     }
 
     private func createdChallengeLink(challenge: Challenge) -> some View {

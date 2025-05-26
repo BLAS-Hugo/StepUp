@@ -10,7 +10,7 @@ import SwiftUI
 struct ChallengeCreationSheet: View {
     let closeCallback: () -> Void
     @EnvironmentObject var challengesService: UserChallengesService
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
     @State private var challengeName: String = ""
     @State private var challengeDescription: String = ""
     @State private var challengeDate: Date = Date()
@@ -109,7 +109,7 @@ struct ChallengeCreationSheet: View {
         }
 
         let goal = challengeGoalType == 0
-        ? Goal(distance: Int(challengeGoal) ?? 0 * 1000, steps: nil)
+        ? Goal(distance: (Int(challengeGoal) ?? 0) * 1000, steps: nil)
         : Goal(distance: nil, steps: Int(challengeGoal))
         let duration = challengeEndDate.timeIntervalSince(challengeDate).rounded(.towardZero)
         let challenge = Challenge(

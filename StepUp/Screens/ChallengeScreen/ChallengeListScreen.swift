@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChallengeListScreen: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
     let challenges: [Challenge]
 
     var body: some View {
@@ -22,7 +22,7 @@ struct ChallengeListScreen: View {
                     } label: {
                         ChallengeCard(
                             challenge: challenges[index],
-                            userID: authenticationService.currentUserSession!.uid,
+                            userID: authenticationService.currentUser?.id ?? "",
                             style: .wide
                         )
                     }

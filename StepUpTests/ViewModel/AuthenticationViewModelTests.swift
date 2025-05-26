@@ -120,7 +120,7 @@ final class AuthenticationViewModelTests: XCTestCase {
         mockAuthProvider.mockFetchedUserData = user
         
         // Act
-        try await viewModel.signIn(email: email, password: password)
+        try await viewModel.signIn(withEmail: email, password: password)
         
         // Assert
         XCTAssertEqual(mockAuthProvider.signInCalledCount, 1)
@@ -141,7 +141,7 @@ final class AuthenticationViewModelTests: XCTestCase {
         
         // Act & Assert
         do {
-            try await viewModel.signIn(email: email, password: password)
+            try await viewModel.signIn(withEmail: email, password: password)
             XCTFail("Expected signIn to throw an error")
         } catch {
             XCTAssertEqual(error.localizedDescription, expectedError.localizedDescription)

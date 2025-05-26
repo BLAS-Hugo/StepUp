@@ -74,7 +74,6 @@ class HealthKitService: HealthKitServiceProtocol {
         do {
             try await askUserPermission()
         } catch {
-            print(error.localizedDescription)
             return
         }
         await fetchAllData()
@@ -82,7 +81,6 @@ class HealthKitService: HealthKitServiceProtocol {
 
     func askUserPermission() async throws {
         guard HKHealthStore.isHealthDataAvailable() else {
-            print("health data not available!")
             return
         }
 

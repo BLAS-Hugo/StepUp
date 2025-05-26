@@ -35,7 +35,11 @@ struct MockCustomStatisticsCollection: CustomStatisticsCollectionProtocol, @unch
     let quantityType: HKQuantityType
     let mockValue: Double
 
-    func enumerateStatistics(from startDate: Date, to endDate: Date, with block: @escaping (CustomStatisticsProtocol, UnsafeMutablePointer<ObjCBool>) -> Void) {
+    func enumerateStatistics(
+        from startDate: Date,
+        to endDate: Date,
+        with block: @escaping (CustomStatisticsProtocol,
+        UnsafeMutablePointer<ObjCBool>) -> Void) {
         let statistic = MockCustomStatistics(
             mockQuantityType: self.quantityType,
             mockValue: self.mockValue
@@ -64,7 +68,8 @@ class MockHealthKitStore: HealthKitStoreProtocol {
         }
     }
 
-    func execute(_ descriptor: HKStatisticsCollectionQueryDescriptor) async throws -> CustomStatisticsCollectionProtocol {
+    func execute(_ descriptor: HKStatisticsCollectionQueryDescriptor)
+        async throws -> CustomStatisticsCollectionProtocol {
         if shouldThrowQueryError {
             throw NSError(
                 domain: "MockError",
@@ -109,8 +114,7 @@ class MockHealthKitStore: HealthKitStoreProtocol {
 class MockHealthKitService: HealthKitServiceProtocol {
     @Published var stepCount: Int = 0
     @Published var distance: Int = 0
-    
-    // Add properties to track method calls
+
     var fetchDataCallCount: Int = 0
     var fetchDataForDatatypeAndDateCallCount: Int = 0
     var lastFetchType: HKQuantityType?
@@ -134,7 +138,6 @@ class MockHealthKitService: HealthKitServiceProtocol {
         do {
             try await askUserPermission()
         } catch {
-            print("Mock auth error in initialize: \(error.localizedDescription)")
             self.stepCount = 0
             self.distance = 0
             return
@@ -153,16 +156,14 @@ class MockHealthKitService: HealthKitServiceProtocol {
     }
 
     func fetchData(for datatype: HKQuantityType) async -> Int {
-        // Increment call counter and store the last type
         fetchDataCallCount += 1
         lastFetchType = datatype
-        
-        // Return mockDataToReturn if it's set, otherwise proceed with normal mock behavior
+
         if let mockData = mockDataToReturn {
             self.updatePublishedProperties(for: datatype, with: mockData)
             return mockData
         }
-        
+
         let predicate = HKQuery.predicateForSamples(withStart: Date(), end: Date())
         let sample = HKSamplePredicate.quantitySample(type: datatype, predicate: predicate)
 
@@ -197,11 +198,9 @@ class MockHealthKitService: HealthKitServiceProtocol {
         from startDate: Date,
         to endDate: Date
     ) async -> Int {
-        // Track the method call
         fetchDataForDatatypeAndDateCallCount += 1
         lastFetchType = datatype
-        
-        // Return mockDataToReturn if it's set
+
         if let mockData = mockDataToReturn {
             return mockData
         }
@@ -254,8 +253,7 @@ class MockHealthKitService: HealthKitServiceProtocol {
             break
         }
     }
-    
-    // Add a reset method for clean test setup
+
     func reset() {
         fetchDataCallCount = 0
         fetchDataForDatatypeAndDateCallCount = 0

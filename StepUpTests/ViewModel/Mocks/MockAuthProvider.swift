@@ -56,18 +56,20 @@ class MockAuthProvider: AuthProviding {
         lastSignUpName = name
 
         if let error = signUpError { throw error }
-        
+
         guard let mockUserSession = mockSignUpUserResult else {
-            struct MockError: Error, LocalizedError { var errorDescription: String? = "MockAuthProvider.mockSignUpUserResult (AppAuthUserProtocol) not set for a successful sign up simulation." }; 
+            struct MockError: Error, LocalizedError {
+                var errorDescription: String? = "MockAuthProvider not set for a successful sign up simulation."
+                }
             throw MockError()
         }
         self.currentUserSession = mockUserSession
-        
+
         addUserToDBCalledCount += 1
         let userForDB = StepUp.User(id: mockUserSession.uid, email: email, name: name, firstName: firstName)
         lastAddedUserToDB = userForDB
         if let error = addUserToDBError { throw error }
-        
+
         self.currentUser = mockFetchedUserData ?? userForDB
     }
 
@@ -77,7 +79,7 @@ class MockAuthProvider: AuthProviding {
         lastSignInPassword = password
 
         if let error = signInError { throw error }
-        
+
         guard let mockUserSession = mockSignInUserResult else {
             struct MockError: Error, LocalizedError { var errorDescription: String? = "MockAuthProvider.mockSignInUserResult (AppAuthUserProtocol) not set for a successful sign in simulation." }; 
             throw MockError()
@@ -102,7 +104,7 @@ class MockAuthProvider: AuthProviding {
         self.currentUserSession = nil
         self.currentUser = nil
         if let error = deleteAccountError {
-            throw error 
+            throw error
         }
     }
 
@@ -114,27 +116,25 @@ class MockAuthProvider: AuthProviding {
         }
 
         if let error = fetchUserDataError {
-            print("MockAuthProvider: Simulated internal fetchUserData error: \(error.localizedDescription)")
             self.currentUser = nil
             return
         }
-        self.currentUser = mockFetchedUserData 
+        self.currentUser = mockFetchedUserData
     }
 
     func updateUserData(name: String, firstName: String) async throws {
         updateUserDataCalledCount += 1
         lastUpdateUserDataName = name
         lastUpdateUserDataFirstName = firstName
-        
+
         if let error = updateUserDataError {
             throw error
         }
-        
+
         guard let currentUser = currentUser else {
             throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No current user data"])
         }
-        
-        // Update the current user with new data
+
         let updatedUser = StepUp.User(
             id: currentUser.id,
             email: currentUser.email,
@@ -174,4 +174,8 @@ class MockAuthProvider: AuthProviding {
         lastUpdateUserDataName = nil
         lastUpdateUserDataFirstName = nil
     }
-} 
+
+    func updateUserSession(_ user: Any?) {
+        self.currentUserSession = user as? AppAuthUserProtocol
+    }
+}

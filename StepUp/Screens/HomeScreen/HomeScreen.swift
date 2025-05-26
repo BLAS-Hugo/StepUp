@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var healthKitService: HealthKitService
     @EnvironmentObject var goalViewModel: GoalViewModel
@@ -17,10 +17,6 @@ struct HomeScreen: View {
 
     private var userId: String {
         authenticationService.currentUser?.id ?? ""
-    }
-
-    private var userSessionId: String {
-        authenticationService.currentUserSession?.uid ?? ""
     }
 
     private func challengeProgress(for challenge: Challenge) -> Int? {
@@ -101,7 +97,7 @@ struct HomeScreen: View {
         } label: {
             ChallengeCard(
                 challenge: challenge,
-                userID: userSessionId
+                userID: userId
             )
         }
     }

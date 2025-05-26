@@ -2,18 +2,21 @@
 //  AuthenticationViewModel.swift
 //  StepUp
 //
-//  Created by Assistant on 23/05/2025.
+//  Created by Hugo Blas on 26/05/2025.
 //
 
 import Foundation
 import Combine
+import FirebaseAuth
 
 @MainActor
 class AuthenticationViewModel: ObservableObject {
     @Published var currentUser: User?
     @Published var isAuthenticated: Bool = false
+    @Published var isInitialized: Bool = false
 
     private let authProvider: any AuthProviding
+    private nonisolated(unsafe) var authStateListener: AuthStateDidChangeListenerHandle?
 
     var currentUserEmail: String? {
         authProvider.currentUserSession?.email
@@ -21,7 +24,39 @@ class AuthenticationViewModel: ObservableObject {
 
     init(authProvider: any AuthProviding) {
         self.authProvider = authProvider
-        updateAuthenticationState()
+        setupAuthStateListener()
+    }
+
+    deinit {
+        removeAuthStateListener()
+    }
+
+    private func setupAuthStateListener() {
+        let listener = Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+            Task { @MainActor in
+                guard let self = self else { return }
+
+                if let firebaseAuthProvider = self.authProvider as? FirebaseAuthProvider {
+                    firebaseAuthProvider.updateUserSession(user)
+                    if user != nil {
+                        await firebaseAuthProvider.fetchUserData()
+                    }
+                }
+
+                self.updateAuthenticationState()
+                    if !self.isInitialized {
+                    self.isInitialized = true
+                }
+            }
+        }
+        authStateListener = listener
+    }
+
+    private nonisolated func removeAuthStateListener() {
+        if let listener = authStateListener {
+            Auth.auth().removeStateDidChangeListener(listener)
+            authStateListener = nil
+        }
     }
 
     func updateAuthenticationState() {
@@ -34,7 +69,7 @@ class AuthenticationViewModel: ObservableObject {
         updateAuthenticationState()
     }
 
-    func signIn(email: String, password: String) async throws {
+    func signIn(withEmail email: String, password: String) async throws {
         try await authProvider.signIn(withEmail: email, password: password)
         updateAuthenticationState()
     }
@@ -51,6 +86,11 @@ class AuthenticationViewModel: ObservableObject {
 
     func updateUserData(name: String, firstName: String) async throws {
         try await authProvider.updateUserData(name: name, firstName: firstName)
+        updateAuthenticationState()
+    }
+
+    func refreshAuthenticationState() async {
+        await authProvider.fetchUserData()
         updateAuthenticationState()
     }
 

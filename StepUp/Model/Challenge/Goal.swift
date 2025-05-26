@@ -13,7 +13,7 @@ struct Goal {
         if let distance = distance {
             return distance
         } else {
-            return steps!
+            return steps ?? 0
         }
     }
 
@@ -21,7 +21,7 @@ struct Goal {
         if let distance = distance {
             return "\(distance / 1000) KM"
         } else {
-            return "\(steps!) steps"
+            return "\(steps ?? 0) steps"
         }
     }
 }

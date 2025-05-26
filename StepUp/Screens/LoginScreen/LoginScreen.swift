@@ -27,7 +27,7 @@ struct LoginScreen: View {
     @State private var showPasswordErrorAlert = false
     @State private var navigateToRegister = false
 
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
 
     var body: some View {
         ZStack(alignment: .bottom) {

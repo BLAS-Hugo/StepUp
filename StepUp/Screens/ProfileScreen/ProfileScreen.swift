@@ -66,7 +66,13 @@ struct ProfileScreen: View {
                             SettingCard(title: LocalizedStringKey("challenge_history"))
                         }
                     }
-                    SettingCard(title: LocalizedStringKey("privacy_policy"))
+                    NavigationLink {
+                        PrivacyPolicyScreen()
+                            .navigationTitle(Text(LocalizedStringKey("privacy_policy")))
+                            .navigationBarTitleDisplayMode(.large)
+                    } label: {
+                        SettingCard(title: LocalizedStringKey("privacy_policy"))
+                    }
                     Button {
                         authenticationViewModel.signOut()
                     } label: {

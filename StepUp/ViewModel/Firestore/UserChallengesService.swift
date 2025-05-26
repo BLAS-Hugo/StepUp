@@ -11,7 +11,7 @@ import HealthKit
 
 @MainActor
 class UserChallengesService: ObservableObject {
-    let authenticationService: any AuthProviding
+    let authenticationService: AuthenticationViewModel
     let healthKitService: any HealthKitServiceProtocol
     private let challengeStore: ChallengeStoring
     private var timer: Timer?
@@ -24,7 +24,7 @@ class UserChallengesService: ObservableObject {
     @Published var userChallengesHistory: [Challenge] = []
 
     init(
-        with authenticationService: any AuthProviding,
+        with authenticationService: AuthenticationViewModel,
         _ healthKitService: any HealthKitServiceProtocol,
         challengeStore: ChallengeStoring) {
         self.authenticationService = authenticationService
@@ -136,7 +136,6 @@ class UserChallengesService: ObservableObject {
         do {
             try await editChallenge(challenge.addParticipant(user), forUser: user)
         } catch {
-            print("Error participating in challenge: \(error)")
             throw error
         }
     }
@@ -159,7 +158,6 @@ class UserChallengesService: ObservableObject {
             where: { $0.userID == currentUser.id })?.progress ?? 0
 
         if newProgress > currentProgress {
-            print("Updating challenge progress: \(currentProgress) -> \(newProgress)")
             let updatedChallenge = userCurrentChallenge.editParticipantProgress(
                 currentUser,
                 progress: newProgress)

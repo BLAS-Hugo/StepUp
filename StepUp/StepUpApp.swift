@@ -26,13 +26,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct StepUpApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    @StateObject var authenticationService = FirebaseAuthProvider()
+    @StateObject var authenticationService = AuthenticationViewModel(authProvider: FirebaseAuthProvider())
     @StateObject var healthKitService = HealthKitService()
     @StateObject var goalViewModel = GoalViewModel()
 
     var body: some Scene {
         WindowGroup {
-            if authenticationService.currentUserSession != nil {
+            // Show loading state while determining authentication status
+            if !authenticationService.isInitialized {
+                LoadingView()
+            } else if authenticationService.isAuthenticated {
                 AppMainView()
                     .environmentObject(authenticationService)
                     .environmentObject(
@@ -51,11 +54,22 @@ struct StepUpApp: App {
 }
 
 struct AuthNavigationView: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
 
     var body: some View {
         NavigationStack {
             LoginScreen().environmentObject(authenticationService)
+        }
+    }
+}
+
+struct LoadingView: View {
+    var body: some View {
+        VStack {
+            ProgressView()
+                .scaleEffect(1.5)
+            Text("Loading...")
+                .padding(.top)
         }
     }
 }

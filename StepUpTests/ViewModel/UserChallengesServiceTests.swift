@@ -679,13 +679,13 @@ final class UserChallengesServiceTests: XCTestCase {
     func testUpdateUserCurrentChallenge_whenNoCurrentUser_doesNothing() async {
         // Given
         mockAuthProvider.currentUser = nil
-        
+
         userChallengeService = UserChallengesService(
-            with: mockAuthProvider, 
-            mockHealthKitService, 
+            with: mockAuthProvider,
+            mockHealthKitService,
             challengeStore: mockChallengeStore
         )
-        
+
         userChallengeService.userCurrentChallenge = makeChallenge(creatorId: "any")
 
         // When
@@ -698,33 +698,30 @@ final class UserChallengesServiceTests: XCTestCase {
 
     func testUpdateUserCurrentChallenge_stepsChallenge_fetchesStepsAndUpdatesProgress() async {
         // Given
-        resetAllMocks() // Ensure clean state
         let user = makeUser(id: "stepsUser")
-        // Don't set current user during initialization to avoid automatic updateUserCurrentChallenge call
         mockAuthProvider.currentUser = nil
-        
+
         let participant = makeParticipant(userID: user.id, progress: 100)
         let stepsChallenge = makeChallenge(
-            id: "stepsChallenge", 
-            creatorId: "creator", 
-            steps: 10000, 
-            distance: nil, 
+            id: "stepsChallenge",
+            creatorId: "creator",
+            steps: 10000,
+            distance: nil,
             participants: [participant]
         )
-        
+
         let newProgress = 500
         mockHealthKitService.mockDataToReturn = newProgress
-        
+
         let expectedUpdatedChallenge = stepsChallenge.editParticipantProgress(user, progress: newProgress)
         mockChallengeStore.challengesToReturn = [expectedUpdatedChallenge]
 
         userChallengeService = UserChallengesService(
-            with: mockAuthProvider, 
-            mockHealthKitService, 
+            with: mockAuthProvider,
+            mockHealthKitService,
             challengeStore: mockChallengeStore
         )
-        
-        // Now set the current user and challenge manually to avoid init call
+
         mockAuthProvider.currentUser = user
         userChallengeService.userCurrentChallenge = stepsChallenge
 
@@ -741,33 +738,31 @@ final class UserChallengesServiceTests: XCTestCase {
 
     func testUpdateUserCurrentChallenge_distanceChallenge_fetchesDistanceAndUpdatesProgress() async {
         // Given
-        resetAllMocks() // Ensure clean state
+        resetAllMocks()
         let user = makeUser(id: "distanceUser")
-        // Don't set current user during initialization to avoid automatic updateUserCurrentChallenge call
         mockAuthProvider.currentUser = nil
-        
+
         let participant = makeParticipant(userID: user.id, progress: 1000)
         let distanceChallenge = makeChallenge(
-            id: "distanceChallenge", 
-            creatorId: "creator", 
-            steps: nil, 
-            distance: 5000, 
+            id: "distanceChallenge",
+            creatorId: "creator",
+            steps: nil,
+            distance: 5000,
             participants: [participant]
         )
-        
+
         let newProgress = 2000
         mockHealthKitService.mockDataToReturn = newProgress
-        
+
         let expectedUpdatedChallenge = distanceChallenge.editParticipantProgress(user, progress: newProgress)
         mockChallengeStore.challengesToReturn = [expectedUpdatedChallenge]
 
         userChallengeService = UserChallengesService(
-            with: mockAuthProvider, 
-            mockHealthKitService, 
+            with: mockAuthProvider,
+            mockHealthKitService,
             challengeStore: mockChallengeStore
         )
-        
-        // Now set the current user and challenge manually to avoid init call
+
         mockAuthProvider.currentUser = user
         userChallengeService.userCurrentChallenge = distanceChallenge
 

@@ -21,7 +21,7 @@ struct RegisterScreen: View {
     @State private var showNetworkErrorAlert = false
     @State private var showPasswordErrorAlert = false
 
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
 
     init(prefilledEmail: String = "") {
         _email = State(initialValue: prefilledEmail)

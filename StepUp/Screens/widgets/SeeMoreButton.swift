@@ -10,7 +10,7 @@ import SwiftUI
 struct SeeMoreButton: View {
     let title: LocalizedStringKey
     let challenges: [Challenge]
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
 
     var body: some View {
         NavigationLink(LocalizedStringKey("see_more")) {

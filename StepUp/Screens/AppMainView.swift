@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppMainView: View {
-    @EnvironmentObject var authenticationService: FirebaseAuthProvider
+    @EnvironmentObject var authenticationService: AuthenticationViewModel
     @EnvironmentObject var healthKitService: HealthKitService
     @EnvironmentObject var goalViewModel: GoalViewModel
     @State var selection: Int = 0
