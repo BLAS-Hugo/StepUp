@@ -17,6 +17,9 @@ struct AccountScreen: View {
     @State private var canEditFirstName: Bool = false
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
+    @State private var showReAuthSheet = false
+    @State private var reAuthErrorAlert: Bool = false
+    @State private var reAuthErrorMessage: String = ""
 
     var body: some View {
         GeometryReader { geometry in
@@ -57,9 +60,14 @@ struct AccountScreen: View {
                                 .padding(.all, 8)
                                 .background(Color.appWhite)
                                 .clipShape(.rect(cornerRadius: 8))
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(canEditName ? Color.appMediumGray : Color.appWhite, lineWidth: 2)
+                                    )
                             if !canEditName {
                                 Button {
                                     canEditName.toggle()
+                                    canEditFirstName = false
                                 } label: {
                                     Image(systemName: "pencil")
                                         .foregroundStyle(Color.appDarkGray)
@@ -81,9 +89,17 @@ struct AccountScreen: View {
                                 .padding(.all, 8)
                                 .background(Color.appWhite)
                                 .clipShape(.rect(cornerRadius: 8))
+                                .overlay(
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .stroke(canEditFirstName
+                                            ? Color.appMediumGray
+                                            : Color.appWhite,
+                                            lineWidth: 2)
+                                    )
                             if !canEditFirstName {
                                 Button {
                                     canEditFirstName.toggle()
+                                    canEditName = false
                                 } label: {
                                     Image(systemName: "pencil")
                                         .foregroundStyle(Color.appDarkGray)
@@ -96,6 +112,8 @@ struct AccountScreen: View {
                         Task {
                             do {
                                 try await authenticationViewModel.deleteAccount()
+                            } catch AuthError.requiresRecentLogin {
+                                showReAuthSheet = true
                             } catch {
                                 alertMessage = error.localizedDescription
                                 showAlert = true
@@ -130,6 +148,39 @@ struct AccountScreen: View {
             }
         } message: {
             Text(alertMessage)
+        }
+        .alert(LocalizedStringKey("re_auth_failed"), isPresented: $reAuthErrorAlert) {
+            Button("OK", role: .cancel) {
+                reAuthErrorAlert = false
+            }
+        } message: {
+            Text(reAuthErrorMessage)
+        }
+        .sheet(isPresented: $showReAuthSheet) {
+            PasswordReAuthView { password in
+                Task {
+                    await reAuthenticateAndDelete(password: password)
+                }
+            }
+        }
+    }
+
+    private func reAuthenticateAndDelete(password: String) async {
+        guard let email = authenticationViewModel.currentUserEmail else {
+            reAuthErrorMessage = "\(LocalizedStringKey("could_not_retrieve_email_for_re_auth"))"
+            reAuthErrorAlert = true
+            return
+        }
+
+        do {
+            try await authenticationViewModel.signIn(withEmail: email, password: password)
+            try await authenticationViewModel.deleteAccount()
+        } catch AuthError.requiresRecentLogin {
+            reAuthErrorMessage = "\(LocalizedStringKey("re_auth_successful_but_deleting_account_still_requires_it"))"
+            reAuthErrorAlert = true
+        } catch {
+            reAuthErrorMessage = "\(LocalizedStringKey("an_error_occurred")): \(error.localizedDescription)"
+            reAuthErrorAlert = true
         }
     }
 

@@ -9,9 +9,27 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 
+enum AuthError: Error {
+    case requiresRecentLogin
+    case unknown // For other errors
+    case noAuthenticatedUser
+    case noCurrentUserData
+}
+
 @MainActor
 class FirebaseAuthProvider: AuthProviding {
-    @Published var currentUserSession: AppAuthUserProtocol?
+    @Published var currentUserSession: AppAuthUserProtocol? {
+        didSet {
+            // Automatically fetch user data when session changes
+            if currentUserSession != nil {
+                Task {
+                    await fetchUserData()
+                }
+            } else {
+                currentUser = nil
+            }
+        }
+    }
     @Published var currentUser: User?
 
     private let database = Firestore.firestore()
@@ -23,10 +41,7 @@ class FirebaseAuthProvider: AuthProviding {
     }
 
     init() {
-        self.currentUserSession = auth.currentUser
-        Task {
-            await fetchUserData()
-        }
+        self.currentUserSession = Auth.auth().currentUser
     }
 
     func signUp(email: String, password: String, firstName: String, name: String) async throws {
@@ -73,15 +88,18 @@ class FirebaseAuthProvider: AuthProviding {
 
         let userIdToDelete = firebaseUserToDelete.uid
 
-        self.currentUserSession = nil
-        self.currentUser = nil
-
         do {
             try await firebaseUserToDelete.delete()
             try await usersCollection.document(userIdToDelete).delete()
-        } catch {
-            throw error
+        } catch let error as NSError {
+            if error.code == AuthErrorCode.requiresRecentLogin.rawValue {
+                throw AuthError.requiresRecentLogin
+            } else {
+                throw AuthError.unknown
+            }
         }
+        self.currentUserSession = nil
+        self.currentUser = nil
     }
 
     func fetchUserData() async {
@@ -108,21 +126,26 @@ class FirebaseAuthProvider: AuthProviding {
 
     func updateUserData(name: String, firstName: String) async throws {
         guard currentUserSession != nil else {
-            throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No authenticated user"])
+            throw AuthError.noAuthenticatedUser
         }
 
-        guard let currentUser = currentUser else {
-            throw NSError(domain: "AuthError", code: 0, userInfo: [NSLocalizedDescriptionKey: "No current user data"])
+        guard let strongCurrentUser = currentUser else {
+            throw AuthError.noCurrentUserData
         }
 
         let updatedUser = User(
-            id: currentUser.id,
-            email: currentUser.email,
+            id: strongCurrentUser.id,
+            email: strongCurrentUser.email,
             name: name,
             firstName: firstName
         )
 
-        try usersCollection.document(currentUser.id).setData(from: updatedUser)
+        try usersCollection.document(strongCurrentUser.id).setData(from: updatedUser)
         await fetchUserData()
+    }
+
+    // Public method to update the current user session (used by AuthenticationViewModel)
+    func updateUserSession(_ user: FirebaseAuth.User?) {
+        self.currentUserSession = user
     }
 }
