@@ -125,6 +125,38 @@
         }
       }
     },
+    "an_error_occurred" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occured"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur est survenue"
+          }
+        }
+      }
+    },
+    "cancel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
     "challenge_description" : {
       "localizations" : {
         "en" : {
@@ -285,6 +317,22 @@
         }
       }
     },
+    "could_not_retrieve_email_for_re_auth" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not retrieve email for login"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous n’avons pas pu récupérer votre email pour la reconnexion"
+          }
+        }
+      }
+    },
     "create_challenge" : {
       "localizations" : {
         "en" : {
@@ -334,7 +382,20 @@
       }
     },
     "delete_account" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete your account"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer votre compte"
+          }
+        }
+      }
     },
     "disconnect" : {
       "localizations" : {
@@ -512,6 +573,22 @@
         }
       }
     },
+    "enter_your_password" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter you password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez votre mot de passe"
+          }
+        }
+      }
+    },
     "first_name" : {
       "localizations" : {
         "en" : {
@@ -620,6 +697,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "KM"
+          }
+        }
+      }
+    },
+    "Loading..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement…"
           }
         }
       }
@@ -1004,6 +1097,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profil"
+          }
+        }
+      }
+    },
+    "re_auth_failed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion échouée"
+          }
+        }
+      }
+    },
+    "re_auth_successful_but_deleting_account_still_requires_it" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login was successful, but deleting your account still requires it"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecté avec succès, cela est nécessaire pour la suppression de votre compte"
+          }
+        }
+      }
+    },
+    "re-authenticate" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retry login"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle tentative de connexion"
           }
         }
       }

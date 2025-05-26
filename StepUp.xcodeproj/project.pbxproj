@@ -16,6 +16,7 @@
 		9ACEBAF02D760DB900799AEA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */; };
 		9ACEBAF22D760DFA00799AEA /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACEBAF12D760DFA00799AEA /* FirebaseCore */; };
 		9AD5CA592DA656DA001F07BF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5CA582DA656D1001F07BF /* .gitignore */; };
+		9ADF165C2DE21BDF00E7151C /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9ADF165D2DE21BDF00E7151C /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 				9AC00AE32D688E1A0032E01C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				9ACEBAF22D760DFA00799AEA /* FirebaseCore in Frameworks */,
 				9ACEBAF02D760DB900799AEA /* FirebaseFirestore in Frameworks */,
+				9ADF165C2DE21BDF00E7151C /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +144,7 @@
 				9ACEBAED2D760DB100799AEA /* FirebaseAuth */,
 				9ACEBAEF2D760DB900799AEA /* FirebaseFirestore */,
 				9ACEBAF12D760DFA00799AEA /* FirebaseCore */,
+				9ADF165D2DE21BDF00E7151C /* MarkdownUI */,
 			);
 			productName = StepUp;
 			productReference = 9AC00AAE2D6889820032E01C /* StepUp.app */;
@@ -202,6 +205,7 @@
 			packageReferences = (
 				9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				9ABF0D9B2DD2919400E4CE7A /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				9ADF165B2DE21BDF00E7151C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9AC00AAF2D6889820032E01C /* Products */;
@@ -538,6 +542,14 @@
 				minimumVersion = 11.8.1;
 			};
 		};
+		9ADF165B2DE21BDF00E7151C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -585,6 +597,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9AC00ADF2D688E190032E01C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		9ADF165D2DE21BDF00E7151C /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9ADF165B2DE21BDF00E7151C /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
