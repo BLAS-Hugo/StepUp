@@ -15,6 +15,7 @@
     {
       "target" : {
         "containerPath" : "container:StepUp.xcodeproj",
+        "identifier" : "StepUpTests",
         "name" : "StepUpTests"
       }
     }

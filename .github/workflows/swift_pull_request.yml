@@ -11,12 +11,13 @@ on:
 
 jobs:
   build:
-
-    runs-on: macos-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v4
+    - name: Select Xcode version
+      run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
     - name: Build
-      run: xcodebuild -project StepUp.xcodeproj -scheme StepUp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' build
+      run: xcodebuild -project StepUp.xcodeproj -scheme StepUp -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4' build
     - name: Run tests
-      run: xcodebuild test -project StepUp.xcodeproj -scheme StepUp -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+      run: xcodebuild test -project StepUp.xcodeproj -scheme StepUp -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
