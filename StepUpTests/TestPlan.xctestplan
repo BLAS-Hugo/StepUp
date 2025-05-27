@@ -1,0 +1,23 @@
+{
+  "configurations" : [
+    {
+      "id" : "8F405D59-F98E-4AEA-BF22-7CCD985FDA87",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:StepUp.xcodeproj",
+        "name" : "StepUpTests"
+      }
+    }
+  ],
+  "version" : 1
+}
