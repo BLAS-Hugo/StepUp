@@ -39,6 +39,7 @@ final class AuthenticationViewModelTests: XCTestCase {
         
         // Act
         let testViewModel = AuthenticationViewModel(authProvider: mockProvider)
+        testViewModel.updateAuthenticationState() // Manually trigger state update for mock provider
         
         // Assert
         XCTAssertTrue(testViewModel.isAuthenticated)

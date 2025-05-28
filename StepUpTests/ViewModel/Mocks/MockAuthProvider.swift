@@ -115,7 +115,7 @@ class MockAuthProvider: AuthProviding {
             return
         }
 
-        if let error = fetchUserDataError {
+        if fetchUserDataError != nil {
             self.currentUser = nil
             return
         }
