@@ -71,6 +71,7 @@ struct AccountScreen: View {
                                 } label: {
                                     Image(systemName: "pencil")
                                         .foregroundStyle(Color.appDarkGray)
+                                        .padding(.all, 4)
                                 }
                             }
                         }
@@ -102,7 +103,7 @@ struct AccountScreen: View {
                                     canEditName = false
                                 } label: {
                                     Image(systemName: "pencil")
-                                        .foregroundStyle(Color.appDarkGray)
+                                        .foregroundStyle(Color.appDarkGray).padding(.all, 4)
                                 }
                             }
                         }
@@ -130,6 +131,8 @@ struct AccountScreen: View {
                     }
                     .frame(minWidth: 135, minHeight: 64)
                     .background(Color.primaryOrange)
+                    .foregroundStyle(.white)
+                    .font(.title2)
                     .clipShape(.rect(cornerRadius: 8))
                 }
                 .padding(.vertical, 16)

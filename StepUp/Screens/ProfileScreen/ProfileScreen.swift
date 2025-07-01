@@ -30,6 +30,7 @@ struct ProfileScreen: View {
                             Text(email)
                                 .foregroundStyle(.black)
                                 .font(.caption)
+                                .scaledToFill()
                         }
                         Text(authenticationViewModel.currentUser?.firstName ?? "first_name")
                             .bold()

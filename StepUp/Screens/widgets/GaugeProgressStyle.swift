@@ -22,5 +22,6 @@ struct GaugeProgressStyle: ProgressViewStyle {
                 .stroke(.gray.opacity(0.2), style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round))
                 .rotationEffect(.degrees(90))
         }
+        .accessibilityLabel("progress")
     }
 }

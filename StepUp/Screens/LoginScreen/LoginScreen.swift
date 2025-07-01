@@ -34,7 +34,7 @@ struct LoginScreen: View {
             Color(Color.primaryOrange)
             VStack(alignment: .leading) {
                 Text("Step up")
-                    .font(.system(size: 48, weight: .bold, design: .default))
+                    .font(.largeTitle)
                     .bold()
                     .foregroundStyle(.white)
                     .padding(.bottom, 64)
@@ -87,7 +87,7 @@ struct LoginScreen: View {
                             ProgressView()
                         } else {
                             Text(shouldDisplaySignInPage ? LocalizedStringKey("signin") : LocalizedStringKey("signup"))
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                                .font(.title2)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal, 24)
                                 .foregroundStyle(.white)
@@ -108,7 +108,7 @@ struct LoginScreen: View {
                             }
                         } label: {
                             Text(LocalizedStringKey("signup"))
-                                .font(.system(size: 20, weight: .bold, design: .rounded))
+                                .font(.title2)
                                 .padding(.vertical, 12)
                                 .padding(.horizontal, 24)
                                 .foregroundStyle(.white)
@@ -130,9 +130,10 @@ struct LoginScreen: View {
                         Text(shouldDisplaySignInPage
                         ? LocalizedStringKey("not_registered_signup")
                         : LocalizedStringKey("already_registered_signin"))
-                            .font(.system(size: 16, design: .rounded))
+                            .font(.body)
                             .underline()
                             .foregroundStyle(Color.primaryOrange)
+                            .padding(.vertical, 8)
                     }
                 }
                 .ignoresSafeArea()

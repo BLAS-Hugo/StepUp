@@ -64,6 +64,7 @@ struct HomeScreen: View {
             HStack {
                 Text(LocalizedStringKey("my_challenges"))
                     .font(.title)
+                    .scaledToFill()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 SeeMoreButton(
                     title: LocalizedStringKey("my_challenges"),
@@ -82,6 +83,7 @@ struct HomeScreen: View {
                 }
             } else {
                 Text(LocalizedStringKey("no_current_challenge"))
+                    .scaledToFill()
                     .padding(.vertical, 16)
             }
         }
@@ -106,6 +108,7 @@ struct HomeScreen: View {
         VStack {
             Text(LocalizedStringKey("current_challenge"))
                 .font(.title)
+                .scaledToFill()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 16)
 
@@ -158,8 +161,10 @@ struct HomeScreen: View {
             VStack(alignment: .center, spacing: 10) {
                 Text(LocalizedStringKey("no_active_challenge"))
                     .font(.title2)
+                    .scaledToFill()
                 Text(LocalizedStringKey("create_challenge"))
                     .font(.subheadline)
+                    .scaledToFill()
             }
             .frame(maxWidth: .infinity)
             .padding(.all, 8)

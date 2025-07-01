@@ -26,8 +26,8 @@ struct ObjectivesScreen: View {
                                     .accessibilityLabel(LocalizedStringKey("decrement_goal"))
                                     .padding(.vertical, 16)
                             }
-                            .frame(width: 16, height: 16)
-                            .background(Color.appLightGray)
+                            .frame(width: 32, height: 32)
+                            .background(Color(.systemFill))
                             .clipShape(Circle())
                         }
                         Spacer()
@@ -42,8 +42,8 @@ struct ObjectivesScreen: View {
                                     .accessibilityLabel(LocalizedStringKey("increment_goal"))
                                     .padding(.vertical, 16)
                             }
-                            .frame(width: 16, height: 16)
-                            .background(Color.appLightGray)
+                            .frame(width: 32, height: 32)
+                            .background(Color(.systemFill))
                             .clipShape(Circle())
                         }
                     }
@@ -63,8 +63,8 @@ struct ObjectivesScreen: View {
                                     .accessibilityLabel(LocalizedStringKey("decrement_goal"))
                                     .padding(.vertical, 16)
                             }
-                            .frame(width: 16, height: 16)
-                            .background(Color.appLightGray)
+                            .frame(width: 32, height: 32)
+                            .background(Color(.systemFill))
                             .clipShape(Circle())
                         }
                         Spacer()
@@ -79,8 +79,8 @@ struct ObjectivesScreen: View {
                                     .accessibilityLabel(LocalizedStringKey("increment_goal"))
                                     .padding(.vertical, 16)
                             }
-                            .frame(width: 16, height: 16)
-                            .background(Color.appLightGray)
+                            .frame(width: 32, height: 32)
+                            .background(Color(.systemFill))
                             .clipShape(Circle())
                         }
                     }

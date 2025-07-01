@@ -310,4 +310,108 @@ final class AuthenticationViewModelTests: XCTestCase {
         mockAuthProvider.currentUserSession = MockAppAuthUser(uid: "123", email: "test@example.com")
         XCTAssertEqual(viewModel.currentUserEmail, "test@example.com")
     }
-} 
+    
+    // MARK: - Refresh Authentication State Tests
+    
+    func testRefreshAuthenticationState_Success() async {
+        // Arrange
+        let userSession = MockAppAuthUser(uid: "123", email: "test@example.com")
+        let user = User(id: "123", email: "test@example.com", name: "Test", firstName: "User")
+        
+        mockAuthProvider.currentUserSession = userSession
+        mockAuthProvider.mockFetchedUserData = user
+        
+        // Act
+        await viewModel.refreshAuthenticationState()
+        
+        // Assert
+        XCTAssertEqual(mockAuthProvider.fetchUserDataCalledCount, 1)
+        XCTAssertTrue(viewModel.isAuthenticated)
+        XCTAssertEqual(viewModel.currentUser?.id, "123")
+    }
+    
+    func testRefreshAuthenticationState_WithFetchError() async {
+        // Arrange
+        let userSession = MockAppAuthUser(uid: "123", email: "test@example.com")
+        let fetchError = NSError(domain: "FetchError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Network error"])
+        
+        mockAuthProvider.currentUserSession = userSession
+        mockAuthProvider.fetchUserDataError = fetchError
+        
+        // Act
+        await viewModel.refreshAuthenticationState()
+        
+        // Assert
+        XCTAssertEqual(mockAuthProvider.fetchUserDataCalledCount, 1)
+        // When fetch fails, MockAuthProvider clears currentUser, so authentication should be false
+        XCTAssertFalse(viewModel.isAuthenticated) // Session exists but currentUser is nil due to fetch error
+        XCTAssertNil(viewModel.currentUser)
+    }
+    
+    func testRefreshAuthenticationState_UpdatesCurrentUser() async {
+        // Arrange - start with no user
+        mockAuthProvider.currentUser = nil
+        viewModel.updateAuthenticationState()
+        XCTAssertNil(viewModel.currentUser)
+        
+        // Set up user data to be fetched
+        let userSession = MockAppAuthUser(uid: "456", email: "new@example.com")
+        let newUser = User(id: "456", email: "new@example.com", name: "New", firstName: "User")
+        
+        mockAuthProvider.currentUserSession = userSession
+        mockAuthProvider.mockFetchedUserData = newUser
+        
+        // Act
+        await viewModel.refreshAuthenticationState()
+        
+        // Assert
+        XCTAssertEqual(mockAuthProvider.fetchUserDataCalledCount, 1)
+        XCTAssertTrue(viewModel.isAuthenticated)
+        XCTAssertEqual(viewModel.currentUser?.id, "456")
+        XCTAssertEqual(viewModel.currentUser?.email, "new@example.com")
+    }
+    
+    func testRefreshAuthenticationState_ConcurrentCalls() async {
+        // Arrange
+        let userSession = MockAppAuthUser(uid: "123", email: "test@example.com")
+        let user = User(id: "123", email: "test@example.com", name: "Test", firstName: "User")
+        
+        mockAuthProvider.currentUserSession = userSession
+        mockAuthProvider.mockFetchedUserData = user
+        
+        // Act - make multiple concurrent calls
+        async let call1: () = viewModel.refreshAuthenticationState()
+        async let call2: () = viewModel.refreshAuthenticationState()
+        async let call3: () = viewModel.refreshAuthenticationState()
+        
+        await call1
+        await call2
+        await call3
+        
+        // Assert
+        XCTAssertEqual(mockAuthProvider.fetchUserDataCalledCount, 3)
+        XCTAssertTrue(viewModel.isAuthenticated)
+        XCTAssertEqual(viewModel.currentUser?.id, "123")
+    }
+
+    // MARK: - State Management Edge Cases
+
+    func testCurrentUserEmail_WithNilEmail() {
+        // With session but no email
+        mockAuthProvider.currentUserSession = MockAppAuthUser(uid: "123", email: nil)
+        XCTAssertNil(viewModel.currentUserEmail)
+    }
+
+    func testRefreshAuthenticationState_WithNoSession() async {
+        // Arrange - no user session
+        mockAuthProvider.currentUserSession = nil
+
+        // Act
+        await viewModel.refreshAuthenticationState()
+
+        // Assert
+        XCTAssertEqual(mockAuthProvider.fetchUserDataCalledCount, 1)
+        XCTAssertFalse(viewModel.isAuthenticated)
+    }
+
+}

@@ -42,6 +42,7 @@ struct InputView: View {
                     .background(Color(.gray).opacity(0.2))
                     .textInputAutocapitalization(shouldUseAutoCapitalization ? .words : .never)
                     .autocorrectionDisabled(true)
+                    .accessibilityLabel(placeholder)
                     .clipShape(.rect(cornerRadius: 8))
                 if let errorText = errorText {
                     Text(errorText)
@@ -70,21 +71,25 @@ struct PasswordField: View {
                 TextField("", text: $text)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
+                    .accessibilityLabel(LocalizedStringKey("password"))
                     .placeholder(when: text.isEmpty) {
                         Text(placeholder)
                             .bold()
                             .foregroundStyle(.black.opacity(0.7))
                             .padding(.leading, 8)
+                            .accessibilityLabel(LocalizedStringKey("password"))
                     }
             } else {
                 SecureField("", text: $text)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
+                    .accessibilityLabel(LocalizedStringKey("password"))
                     .placeholder(when: text.isEmpty) {
                         Text(placeholder)
                             .bold()
                             .foregroundStyle(.black.opacity(0.7))
                             .padding(.leading, 8)
+                            .accessibilityLabel(LocalizedStringKey("password"))
                     }
             }
             if shouldDisplayObscuringIcon {
@@ -96,6 +101,7 @@ struct PasswordField: View {
                         ? LocalizedStringKey("hide_password")
                         : LocalizedStringKey("show_password"))
                         .foregroundStyle(Color.primaryOrange)
+                        .padding(.all, 4)
                 }
             }
         }

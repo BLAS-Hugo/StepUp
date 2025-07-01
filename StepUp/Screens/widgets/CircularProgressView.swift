@@ -21,6 +21,7 @@ struct CircularProgressView: View {
                 .frame(width: 128, height: 128)
                 .contentShape(Rectangle())
                 .padding()
+                .accessibilityLabel("progress")
             if type == .steps {
                 Text("\(progress) steps")
             } else {

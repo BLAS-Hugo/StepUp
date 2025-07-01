@@ -29,6 +29,7 @@ struct ChallengeCard: View {
             VStack(spacing: 16) {
                 Text(challenge.name)
                     .bold()
+                    .scaledToFit()
                     .foregroundStyle(.black)
                 if isUserParticipating {
                     if let progress {
@@ -41,10 +42,14 @@ struct ChallengeCard: View {
                 }
                 Text(challenge.goal.getGoalForDisplay())
                     .foregroundStyle(.black)
+                    .font(.body)
+                    .scaledToFill()
                 Text(
                     challenge.date,
                     format: .dateTime.day().month().year())
                 .foregroundStyle(.black)
+                .font(.body)
+                .scaledToFill()
             }
             .padding(.all, 8)
         }

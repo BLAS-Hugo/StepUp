@@ -14,6 +14,8 @@ struct SettingCard: View {
             HStack {
                 Text(title)
                     .foregroundStyle(.black)
+                    .font(.body)
+                    .scaledToFill()
                     .padding(.all, 16)
                 Spacer()
                 ZStack {

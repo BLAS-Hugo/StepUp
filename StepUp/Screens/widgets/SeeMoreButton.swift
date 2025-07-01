@@ -19,5 +19,6 @@ struct SeeMoreButton: View {
                 .navigationTitle(Text(title))
                 .navigationBarTitleDisplayMode(.large)
         }
+        .font(.body)
     }
 }

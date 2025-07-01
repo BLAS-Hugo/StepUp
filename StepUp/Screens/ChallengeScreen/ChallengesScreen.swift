@@ -29,50 +29,54 @@ struct ChallengesScreen: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(LocalizedStringKey("participate_to_other_challenges"))
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(
-                        title: LocalizedStringKey("challenges"),
-                        challenges: challengesService.otherChallenges
-                    )
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(LocalizedStringKey("participate_to_other_challenges"))
+                            .font(.title2)
+                            .lineLimit(2)
+                            .frame(maxWidth: geometry.size.width, alignment: .leading)
+                        SeeMoreButton(
+                            title: LocalizedStringKey("challenges"),
+                            challenges: challengesService.otherChallenges
+                        )
                         .environmentObject(authenticationService)
-                }
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 16) {
-                        ForEach(0..<min(3, challengesService.otherChallenges.count), id: \.self) { index in
-                            let challenge = challengesService.otherChallenges[index]
-                            createdChallengeLink(challenge: challenge)
+                    }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 16) {
+                            ForEach(0..<min(3, challengesService.otherChallenges.count), id: \.self) { index in
+                                let challenge = challengesService.otherChallenges[index]
+                                createdChallengeLink(challenge: challenge)
+                            }
                         }
                     }
                 }
-            }
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(LocalizedStringKey("already_participating"))
-                        .font(.title2)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    SeeMoreButton(
-                        title: LocalizedStringKey("challenges"),
-                        challenges: challengesService.userParticipatingChallenges
-                    )
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(LocalizedStringKey("already_participating"))
+                            .font(.title2)
+                            .lineLimit(2)
+                            .frame(maxWidth: geometry.size.width, alignment: .leading)
+                        SeeMoreButton(
+                            title: LocalizedStringKey("challenges"),
+                            challenges: challengesService.userParticipatingChallenges
+                        )
                         .environmentObject(authenticationService)
-                }
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 16) {
-                        ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
-                            let challenge = challengesService.userParticipatingChallenges[index]
-                            createdChallengeLink(challenge: challenge)
+                    }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .top, spacing: 16) {
+                            ForEach(0..<min(3, challengesService.userParticipatingChallenges.count), id: \.self) { index in
+                                let challenge = challengesService.userParticipatingChallenges[index]
+                                createdChallengeLink(challenge: challenge)
+                            }
                         }
                     }
                 }
+                Spacer()
             }
-            Spacer()
+            .frame(alignment: .top)
+            .padding(.all, 16)
         }
-        .frame(alignment: .top)
-        .padding(.all, 16)
     }
 }

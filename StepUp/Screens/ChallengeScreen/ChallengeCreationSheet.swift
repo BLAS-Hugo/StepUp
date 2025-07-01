@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ChallengeCreationSheet: View {
+    @Environment(\.sizeCategory) var sizeCategory
+
     let closeCallback: () -> Void
     @EnvironmentObject var challengesService: UserChallengesService
     @EnvironmentObject var authenticationService: AuthenticationViewModel
@@ -33,13 +35,21 @@ struct ChallengeCreationSheet: View {
                     VStack(alignment: .leading, spacing: 16) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text(LocalizedStringKey("challenge_name"))
+                                .font(.body)
+                                .scaledToFill()
                             TextField("", text: $challengeName)
                                 .textFieldStyle(.roundedBorder)
+                                .accessibilityLabel(LocalizedStringKey("challenge_name"))
+                                .font(.body)
                         }
                         VStack(alignment: .leading, spacing: 8) {
                             Text(LocalizedStringKey("challenge_description"))
+                                .font(.body)
+                                .scaledToFill()
                             TextField("", text: $challengeDescription)
                                 .textFieldStyle(.roundedBorder)
+                                .accessibilityLabel(LocalizedStringKey("challenge_description"))
+                                .font(.body)
                         }
                         DatePicker(
                             LocalizedStringKey("challenge_start_date"),
@@ -64,6 +74,8 @@ struct ChallengeCreationSheet: View {
                                     .keyboardType(.numberPad)
                                 if challengeGoalType == 0 {
                                     Text("KM")
+                                        .font(.body)
+                                        .scaledToFill()
                                 }
                             }
                         }
